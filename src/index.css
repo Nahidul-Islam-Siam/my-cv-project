@@ -72,21 +72,81 @@ html, body {
   overflow-x: hidden; /* Prevents horizontal scrolling on the entire page */
 }
 
+.product-slider {
+  padding: 20px;
+}
 
 
-/* New Arrival Cards */
+
+
 
 .product-slider {
   padding: 20px;
 }
 
 .product-card {
-  border: 1px solid #eee;
-  padding: 10px;
-  text-align: center; /* Center content within the card */
+  position: relative;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%; /* Ensure the card spans the full width of its parent */
+  text-align: center;
+}
+
+.product-header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 20px);
+}
+
+.badge {
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+.wishlist-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .product-image img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0; /* Remove rounded corners for a full-width effect */
+}
+
+.add-to-cart-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.product-rating {
+  color: #ffcc00;
+  font-size: 14px;
 }
