@@ -4,6 +4,7 @@ import AnnouncedBar from './components/AnnouncedBar'
 import Hero from './components/Hero'
 import LogoSlider from './components/LogoSlider'
 import Navbar from './components/Navbar'
+import ProductSlider from './components/NewArrival'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Navbar></Navbar>
     <Hero/>
     <LogoSlider/>
+    <ProductSlider/>
    </div>
   )
 }

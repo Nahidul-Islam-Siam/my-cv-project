@@ -71,3 +71,22 @@ html, body {
   padding: 0;
   overflow-x: hidden; /* Prevents horizontal scrolling on the entire page */
 }
+
+
+
+/* New Arrival Cards */
+
+.product-slider {
+  padding: 20px;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: center; /* Center content within the card */
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+}
