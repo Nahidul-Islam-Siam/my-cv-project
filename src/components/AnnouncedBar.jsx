@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
+import { BiSolidDiscount } from "react-icons/bi";
+import { MdArrowRightAlt } from 'react-icons/md';
 
 const AnnouncedBar = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -13,30 +15,22 @@ const AnnouncedBar = () => {
             <div
                 id="sticky-banner"
                 tabIndex="-1"
-                className="fixed top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
+                className="fixed top-0 start-0 z-50 flex justify-between w-full p-2 border-b bg-[#141718]"
             >
                 <div className="flex items-center mx-auto">
-                    <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+                    <p className="flex inter-font  items-center text-xl font-normal text-white">
                         <span className="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600 w-6 h-6 items-center justify-center flex-shrink-0">
-                            <svg
-                                className="w-3 h-3 text-gray-500 dark:text-gray-400"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor"
-                                viewBox="0 0 18 19"
-                            >
-                                <path d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z" />
-                            </svg>
-                            <span className="sr-only">Light bulb</span>
+                            <BiSolidDiscount className="w-8 h-8 text-black" />
                         </span>
                         <span>
-                            New brand identity has been launched for the{' '}
-                            <a
-                                href="https://flowbite.com"
-                                className="inline font-medium text-blue-600 underline dark:text-blue-500 underline-offset-2 decoration-600 dark:decoration-500 decoration-solid hover:no-underline"
-                            >
-                                Flowbite Library
-                            </a>
+                        30% off storewide — Limited time! {' '}
+                        <a
+    href="https://flowbite.com"
+    className="inline-flex justify-center items-center gap-1 font-normal text-[#FFAB00] hover:underline"
+>
+    Shop now <MdArrowRightAlt className="text-lg" />
+</a>
+
                         </span>
                     </p>
                 </div>
