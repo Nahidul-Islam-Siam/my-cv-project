@@ -51,7 +51,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#FEC14E", boxShadow: "none" }}>
+    <AppBar position="static" style={{ backgroundColor: "#FFC95B", boxShadow: "none" }}>
       <Toolbar style={{ justifyContent: "space-between", alignItems: "center" }}>
         {/* Logo */}
         <Typography
