@@ -14,7 +14,7 @@ function App() {
     {/* <AnnouncedBar></AnnouncedBar> */}
     <Navbar></Navbar>
     <Hero/>
-    <LogoSlider/>ssia
+    <LogoSlider/>
    </div>
   )
 }
