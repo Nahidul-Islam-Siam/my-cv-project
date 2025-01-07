@@ -5,7 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* font  */
 
 .inter-font {
   font-family: "Inter", serif;
@@ -14,4 +14,34 @@
 .poppins-font{
   font-family: "Poppins", serif;
 
+}
+
+/*  after hero */
+/* Add your CSS styles */
+.logo-slider-container {
+  width: 100%; /* Or a specific width */
+  padding: 20px; /* Add some padding */
+}
+
+.logo-slide {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+}
+
+.logo-slide img {
+  max-width: 100%; /* Ensure images fit within the slide */
+  height: auto;
+  display: block; /* Prevents extra space below image */
+}
+
+.logo-container-desktop{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+.desktop-logo{
+    max-width: 150px;
+    height: auto;
 }
