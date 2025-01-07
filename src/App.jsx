@@ -9,7 +9,7 @@ function App() {
 
   return (
 
-   <div className='mx-auto '>
+   <div className='mx-auto  max-w-full'>
     {/* <AnnouncedBar></AnnouncedBar> */}
     <Navbar></Navbar>
     <Hero/>
