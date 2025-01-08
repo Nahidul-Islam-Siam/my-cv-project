@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="app-container">
+    <div className="">
       {/* Uncomment if needed */}
       {/* <AnnouncedBar /> */}
 
@@ -13,7 +13,7 @@ function App() {
       <Navbar />
 
       {/* Content area with max-width container */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="">
         <Outlet /> {/* This renders the routed components */}
       </div>
     </div>
