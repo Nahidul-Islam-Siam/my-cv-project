@@ -42,7 +42,7 @@ const products = [
 const ProductSlider = () => {
   return (
     <div className="product-slider">
-      <h2 className='font-medium text-[40px] poppins-font pb-8'>New Arrivals</h2>
+      <h2 className='font-medium text-[40px] poppins-font pt-8 pb-8'>New Arrivals</h2>
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}

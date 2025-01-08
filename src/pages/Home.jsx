@@ -9,7 +9,7 @@ const Home = () => {
       <Hero />
 
       {/* Content with a container that doesn't stretch full width */}
-      <div className="flex flex-col gap-[20] max-w-7xl mx-auto px-4">
+      <div className="flex flex-col gap-[20] max-w-6xl mx-auto px-4">
         <LogoSlider />
         <ProductSlider />
       </div>
