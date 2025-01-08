@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { FaSearch, FaUserCircle, FaShoppingBag } from "react-icons/fa";
 import { MdKeyboardArrowDown, MdMenu, MdExpandLess, MdExpandMore } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 
 const Navbar = () => {
@@ -56,19 +57,26 @@ const Navbar = () => {
         {/* Logo */}
         <Typography
           variant="h6"
-          component="div"
-          style={{ fontSize: "24px", fontFamily: "Inter, serif", color: "black" }}
+          component={Link}
+          to="/"
+          style={{
+            fontSize: "24px",
+            fontFamily: "Inter, serif",
+            color: "black",
+            textDecoration: "none",
+          }}
         >
           3legant.
         </Typography>
 
         {/* Desktop Navigation */}
         {!isMobile && (
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" , fontSize:'14px'}}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", fontSize: "14px" }}>
             <Typography
+              component={Link}
+              to="/"
               variant="body1"
-              component="div"
-              style={{ cursor: "pointer", color: "black" }}
+              style={{ cursor: "pointer", color: "black", textDecoration: "none" }}
             >
               Home
             </Typography>
@@ -101,9 +109,10 @@ const Navbar = () => {
               Product <MdKeyboardArrowDown style={{ color: "black" }} />
             </Typography>
             <Typography
+              component={Link}
+              to="/contact"
               variant="body1"
-              component="div"
-              style={{ cursor: "pointer", color: "black" }}
+              style={{ cursor: "pointer", color: "black", textDecoration: "none" }}
             >
               Contact Us
             </Typography>
@@ -121,19 +130,6 @@ const Navbar = () => {
           <IconButton color="inherit">
             <FaShoppingBag style={{ color: "black" }} />
           </IconButton>
-          <Typography
-            variant="body2"
-            component="span"
-            style={{
-              fontWeight: "bold",
-              color: "black",
-              backgroundColor: "white",
-              borderRadius: "50%",
-              padding: "0.3rem",
-            }}
-          >
-            2
-          </Typography>
 
           {/* Mobile Menu Button */}
           {isMobile && (
@@ -152,9 +148,18 @@ const Navbar = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
         transformOrigin={{ vertical: "top", horizontal: "left" }}
       >
-        <MenuItem onClick={handleMenuClose}>Option 1</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Option 2</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Option 3</MenuItem>
+        <MenuItem component={Link} to="/shop/category1" onClick={handleMenuClose}>
+          Shop Category 1
+        </MenuItem>
+        <MenuItem component={Link} to="/shop/category2" onClick={handleMenuClose}>
+          Shop Category 2
+        </MenuItem>
+        <MenuItem component={Link} to="/product/category1" onClick={handleMenuClose}>
+          Product Category 1
+        </MenuItem>
+        <MenuItem component={Link} to="/product/category2" onClick={handleMenuClose}>
+          Product Category 2
+        </MenuItem>
       </Menu>
 
       {/* Mobile Drawer */}
@@ -164,7 +169,7 @@ const Navbar = () => {
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          <ListItem button>
+          <ListItem button component={Link} to="/">
             <ListItemText primary="Home" style={{ color: "black" }} />
           </ListItem>
           <ListItem button onClick={() => handleMobileDropdownToggle("shop")}>
@@ -177,11 +182,11 @@ const Navbar = () => {
           </ListItem>
           <Collapse in={mobileDropdownOpen.shop} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button style={{ paddingLeft: "2rem" }}>
-                <ListItemText primary="Option 1" style={{ color: "black" }} />
+              <ListItem button component={Link} to="/shop/category1" style={{ paddingLeft: "2rem" }}>
+                <ListItemText primary="Shop Category 1" style={{ color: "black" }} />
               </ListItem>
-              <ListItem button style={{ paddingLeft: "2rem" }}>
-                <ListItemText primary="Option 2" style={{ color: "black" }} />
+              <ListItem button component={Link} to="/shop/category2" style={{ paddingLeft: "2rem" }}>
+                <ListItemText primary="Shop Category 2" style={{ color: "black" }} />
               </ListItem>
             </List>
           </Collapse>
@@ -195,15 +200,15 @@ const Navbar = () => {
           </ListItem>
           <Collapse in={mobileDropdownOpen.product} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button style={{ paddingLeft: "2rem" }}>
-                <ListItemText primary="Option 1" style={{ color: "black" }} />
+              <ListItem button component={Link} to="/product/category1" style={{ paddingLeft: "2rem" }}>
+                <ListItemText primary="Product Category 1" style={{ color: "black" }} />
               </ListItem>
-              <ListItem button style={{ paddingLeft: "2rem" }}>
-                <ListItemText primary="Option 2" style={{ color: "black" }} />
+              <ListItem button component={Link} to="/product/category2" style={{ paddingLeft: "2rem" }}>
+                <ListItemText primary="Product Category 2" style={{ color: "black" }} />
               </ListItem>
             </List>
           </Collapse>
-          <ListItem button>
+          <ListItem button component={Link} to="/contact">
             <ListItemText primary="Contact Us" style={{ color: "black" }} />
           </ListItem>
         </List>

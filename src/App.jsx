@@ -16,9 +16,7 @@ function App() {
     {/* <AnnouncedBar></AnnouncedBar> */}
     <Navbar></Navbar>
     <Outlet/> 
-    {/* <Hero/>
-    <LogoSlider/>
-    <ProductSlider/> */}
+  
    </div>
   )
 }

@@ -1,9 +1,15 @@
+import Hero from "../components/Hero";
+import LogoSlider from "../components/LogoSlider";
+import ProductSlider from "../components/NewArrival";
 
 
 const Home = () => {
     return (
         <div>
-            Welcome to Home Page
+        
+            <Hero/>
+    <LogoSlider/>
+    <ProductSlider/>
         </div>
     );
 };
