@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
-
+import ProductCard from './ProductCard';
 
 const products = [
   {
@@ -66,8 +66,7 @@ const ProductSlider = () => {
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-            {/* <ProductCard product={product} /> Pass product data to ProductCard */}
-            
+            <ProductCard product={product} /> {/* Pass product data to ProductCard */}
           </SwiperSlide>
         ))}
       </Swiper>
