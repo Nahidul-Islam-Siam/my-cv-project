@@ -1,6 +1,5 @@
 import React from 'react';
-import Swiper from 'swiper';
-import { SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react'; // Use named imports
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -13,7 +12,6 @@ import logo4 from '../assets/logo 04.png';
 import logo5 from '../assets/logo 05.png';
 import logo6 from '../assets/logo 6.png';
 
-
 const LogoSlider = () => {
   const isMobile = window.innerWidth <= 768; // Adjust breakpoint as needed
 
@@ -24,7 +22,6 @@ const LogoSlider = () => {
     { src: logo4, alt: 'Logo 4' },
     { src: logo5, alt: 'Logo 5' },
     { src: logo6, alt: 'Logo 6' },
-    // ... more logos
   ];
 
   if (!isMobile) {
@@ -44,15 +41,14 @@ const LogoSlider = () => {
         slidesPerView={3} // Number of slides visible at a time
         loop={true} // Enable infinite loop
         breakpoints={{
-          320:{
+          320: {
             slidesPerView: 2,
           },
-          480:{
+          480: {
             slidesPerView: 3,
           },
         }}
         // Add more Swiper options as needed (e.g., autoplay, pagination)
-        onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
       >
         {logos.map((logo, index) => (
