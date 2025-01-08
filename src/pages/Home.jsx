@@ -6,7 +6,7 @@ const Home = () => {
   return (
    <div>
        <Hero />
-     <div className="home-container">
+     <div className="flex flex-col gap-[20]">
    
       <LogoSlider />
       <ProductSlider />
