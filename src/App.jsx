@@ -14,9 +14,9 @@ function App() {
    <div className='mx-auto  max-w-full overflow-hidden'>
     {/* <AnnouncedBar></AnnouncedBar> */}
     <Navbar></Navbar>
-    <Hero/>
+    {/* <Hero/>
     <LogoSlider/>
-    <ProductSlider/>
+    <ProductSlider/> */}
    </div>
   )
 }
