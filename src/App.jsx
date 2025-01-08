@@ -1,4 +1,5 @@
 
+import { Outlet } from 'react-router'
 import './App.css'
 import AnnouncedBar from './components/AnnouncedBar'
 import Hero from './components/Hero'
@@ -14,6 +15,7 @@ function App() {
    <div className='mx-auto  max-w-full overflow-hidden'>
     {/* <AnnouncedBar></AnnouncedBar> */}
     <Navbar></Navbar>
+    <Outlet/> 
     {/* <Hero/>
     <LogoSlider/>
     <ProductSlider/> */}
