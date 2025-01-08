@@ -42,7 +42,7 @@ const products = [
 const ProductSlider = () => {
   return (
     <div className="product-slider">
-      <h2>New Arrivals</h2>
+      <h2 className='font-medium text-[40px] poppins-font'>New Arrivals</h2>
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}
@@ -51,7 +51,7 @@ const ProductSlider = () => {
         pagination={{ clickable: true }}
         breakpoints={{
           320: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 10,
           },
           640: {
@@ -59,7 +59,7 @@ const ProductSlider = () => {
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 6,
+            slidesPerView: 5,
             spaceBetween: 20,
           },
         }}

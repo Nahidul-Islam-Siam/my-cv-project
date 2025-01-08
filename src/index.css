@@ -80,7 +80,7 @@
   width: 100%; /* Ensures it takes up the full width */
   overflow: hidden; /* Prevents content from overflowing */
   position: relative; /* Ensures child elements are positioned correctly */
-  padding: 20px; /* Optional padding */
+ padding-top: 20px;
   box-sizing: border-box; /* Ensures padding does not affect width */
 }
 
@@ -105,72 +105,96 @@ html, body {
 
 
 .product-slider {
-  padding: 20px;
+  /* padding: 20px; */
 }
-
+/* ProductCard.css */
 .product-card {
-  position: relative;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 100%; /* Ensure the card spans the full width of its parent */
-  text-align: center;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevents image overflow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 300px; /* Example width - adjust as needed */
+  margin: 10px;
 }
 
 .product-header {
-  position: absolute;
-  top: 10px;
-  left: 10px;
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 20px);
+  align-items: center;
+  padding: 10px;
 }
 
 .badge {
-  background-color: #000;
-  color: #fff;
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 12px;
+  background-color: #007bff; /* Blue badge */
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 
 .wishlist-btn {
   background: none;
   border: none;
-  font-size: 16px;
   cursor: pointer;
+  padding: 5px;
+}
+
+.wishlist-icon {
+  width: 20px;
+  height: 20px;
+  color: #888; /* Gray icon */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.wishlist-btn:hover .wishlist-icon {
+    color: red; /* heart turns red on hover */
+}
+
+.product-image {
+  overflow: hidden; /* Ensures image stays within container */
 }
 
 .product-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0; /* Remove rounded corners for a full-width effect */
+  width: 100%;
+  display: block; /* Prevents default image spacing */
+  transition: transform 0.3s ease; /* Smooth zoom transition */
 }
 
-.add-to-cart-btn {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 10px 0;
+.product-image:hover img {
+    transform: scale(1.05); /* slightly zooms in on hover */
+}
+
+.product-details {
+  padding: 15px;
 }
 
 .product-name {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 10px 0;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
 }
 
 .product-price {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 5px;
+  color: #555;
+  margin-bottom: 10px;
 }
 
 .product-rating {
-  color: #ffcc00;
-  font-size: 14px;
+  color: gold; /* Gold stars */
+  margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+  background-color: #28a745; /* Green button */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #218838; /* Darker green on hover */
 }
