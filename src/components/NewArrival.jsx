@@ -1,4 +1,3 @@
-// ProductSlider.jsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import ProductCard from './ProductCard';
+
 
 const products = [
   {
@@ -64,33 +64,34 @@ const ProductSlider = () => {
       <h2 className="font-medium text-[40px] poppins-font pt-8 pb-8">
         New Arrivals
       </h2>
+      {/* Add custom pagination element */}
+      <div className="custom-pagination" />
       <Swiper
-  modules={[Navigation, Pagination]}
-  spaceBetween={16} // Reduced for a tighter layout
-  slidesPerView={4.5} // Show 4 full cards and part of the 5th
-  navigation
-  pagination={{ clickable: true }}
-  breakpoints={{
-    320: {
-      slidesPerView: 1.2,
-      spaceBetween: 10,
-    },
-    640: {
-      slidesPerView: 2.5,
-      spaceBetween: 12,
-    },
-    1024: {
-      slidesPerView: 4.5,
-      spaceBetween: 16,
-    },
-  }}
->
-  {products.map((product, index) => (
-    <SwiperSlide key={index}>
-      <ProductCard product={product} />
-    </SwiperSlide>
-  ))}
-</Swiper>
+        modules={[Navigation, Pagination]}
+        spaceBetween={16} // Reduced for a tighter layout
+        slidesPerView={4.5} // Show 4 full cards and part of the 5th
+        pagination={{ clickable: true, el: '.custom-pagination' }} // Link custom pagination
+        breakpoints={{
+          320: {
+            slidesPerView: 1.2,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 2.5,
+            spaceBetween: 12,
+          },
+          1024: {
+            slidesPerView: 4.5,
+            spaceBetween: 16,
+          },
+        }}
+      >
+        {products.map((product, index) => (
+          <SwiperSlide key={index}>
+            <ProductCard product={product} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

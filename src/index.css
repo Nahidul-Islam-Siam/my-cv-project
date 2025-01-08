@@ -93,7 +93,38 @@ html, body {
 
 
 
-.product-slider {
-  /* padding: 20px; */
+/* navigation for New Arrival */
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: black !important;
 }
-/* ProductCard.css */
+/* Position custom pagination at the top */
+.custom-pagination {
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  align-items: center; /* Vertically align with heading */
+  margin-top: -20px; /* Adjust for spacing above slider */
+  position: relative;
+  z-index: 10; /* Ensure it appears above the slider */
+  height: 40px; /* Match the heading's height */
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: black;
+  width: 16px;
+  height: 16px;
+}
+
+/* Optional: Hover effect */
+.custom-pagination .swiper-pagination-bullet:hover {
+  background-color: #ccc;
+}
