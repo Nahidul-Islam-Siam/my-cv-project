@@ -96,9 +96,6 @@ html, body {
   overflow-x: hidden; /* Prevents horizontal scrolling on the entire page */
 }
 
-.product-slider {
-  padding: 20px;
-}
 
 
 
@@ -108,93 +105,3 @@ html, body {
   /* padding: 20px; */
 }
 /* ProductCard.css */
-.product-card {
-  border: 1px solid #ddd; /* Light gray border */
-  border-radius: 8px; /* Rounded corners */
-  overflow: hidden; /* Prevents image overflow */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  width: 300px; /* Example width - adjust as needed */
-  margin: 10px;
-}
-
-.product-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-.badge {
-  background-color: #007bff; /* Blue badge */
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-}
-
-.wishlist-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.wishlist-icon {
-  width: 20px;
-  height: 20px;
-  color: #888; /* Gray icon */
-  transition: color 0.3s; /* Smooth color transition */
-}
-
-.wishlist-btn:hover .wishlist-icon {
-    color: red; /* heart turns red on hover */
-}
-
-.product-image {
-  overflow: hidden; /* Ensures image stays within container */
-}
-
-.product-image img {
-  width: 100%;
-  display: block; /* Prevents default image spacing */
-  transition: transform 0.3s ease; /* Smooth zoom transition */
-}
-
-.product-image:hover img {
-    transform: scale(1.05); /* slightly zooms in on hover */
-}
-
-.product-details {
-  padding: 15px;
-}
-
-.product-name {
-  margin-top: 0;
-  margin-bottom: 5px;
-  font-size: 1.2rem;
-}
-
-.product-price {
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.product-rating {
-  color: gold; /* Gold stars */
-  margin-bottom: 10px;
-}
-
-.add-to-cart-btn {
-  background-color: #28a745; /* Green button */
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s;
-}
-
-.add-to-cart-btn:hover {
-  background-color: #218838; /* Darker green on hover */
-}
