@@ -19,7 +19,7 @@ const products = [
   {
     name: 'Beats Studio Pro',
     price: 349.99,
-    image: '/beats-studio-pro.png',
+    image: '/beats-studio-pro..png',
     rating: 5,
     reviewCount: 20,
     isNew: true,
@@ -35,7 +35,7 @@ const products = [
   {
     name: 'Skullcandy - Rail True Wireless Earbuds',
     price: 79.99,
-    image: '/skullcandy-rail.png',
+    image: '/skullcandy-crusher.png',
     rating: 3,
     reviewCount: 5,
     isNew: false,
@@ -65,32 +65,32 @@ const ProductSlider = () => {
         New Arrivals
       </h2>
       <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={20}
-        slidesPerView={3}
-        navigation
-        pagination={{ clickable: true }}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 5,
-            spaceBetween: 10,
-          },
-        }}
-      >
-        {products.map((product, index) => (
-          <SwiperSlide key={index}>
-            <ProductCard product={product} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+  modules={[Navigation, Pagination]}
+  spaceBetween={16} // Reduced for a tighter layout
+  slidesPerView={4.5} // Show 4 full cards and part of the 5th
+  navigation
+  pagination={{ clickable: true }}
+  breakpoints={{
+    320: {
+      slidesPerView: 1.2,
+      spaceBetween: 10,
+    },
+    640: {
+      slidesPerView: 2.5,
+      spaceBetween: 12,
+    },
+    1024: {
+      slidesPerView: 4.5,
+      spaceBetween: 16,
+    },
+  }}
+>
+  {products.map((product, index) => (
+    <SwiperSlide key={index}>
+      <ProductCard product={product} />
+    </SwiperSlide>
+  ))}
+</Swiper>
     </div>
   );
 };
