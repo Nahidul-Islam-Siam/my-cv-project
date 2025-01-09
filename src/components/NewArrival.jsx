@@ -6,7 +6,6 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import ProductCard from './ProductCard';
 
-
 const products = [
   {
     name: 'Skullcandy - Crusher ANC 2 Wireless Headphones',
@@ -61,11 +60,14 @@ const products = [
 const ProductSlider = () => {
   return (
     <div className="product-slider">
-      <h2 className="font-medium text-[40px] poppins-font pt-8 pb-8">
-        New Arrivals
-      </h2>
-      {/* Add custom pagination element */}
-      <div className="custom-pagination" />
+<div className="flex items-center justify-between pb-4">
+  <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-[40px]">
+    New Arrivals
+  </h2>
+  <div className="custom-pagination" />
+</div>
+
+
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={16} // Reduced for a tighter layout

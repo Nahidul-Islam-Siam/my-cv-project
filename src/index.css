@@ -98,6 +98,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: black !important;
 }
 /* Position custom pagination at the top */
+
 .custom-pagination {
   display: flex;
   justify-content: flex-end; /* Align to the right */
@@ -107,6 +108,15 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   z-index: 10; /* Ensure it appears above the slider */
   height: 40px; /* Match the heading's height */
 }
+
+.custom-pagination {
+  margin-top: 0; /* Ensure no offset */
+  display: flex;
+  align-items: center;
+  height: auto; /* Match natural height */
+  transform: translateY(1px); /* Slight adjustment if needed */
+}
+
 
 .custom-pagination .swiper-pagination-bullet {
   width: 12px;
@@ -128,3 +138,12 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 .custom-pagination .swiper-pagination-bullet:hover {
   background-color: #ccc;
 }
+
+
+.flex.items-center.justify-between {
+  display: flex;
+  align-items: center; /* Vertically align the children */
+  justify-content: space-between; /* Distribute space between heading and pagination */
+  padding-bottom: 16px; /* Add consistent bottom padding */
+}
+
