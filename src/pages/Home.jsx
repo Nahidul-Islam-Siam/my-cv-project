@@ -3,6 +3,8 @@ import Hero from "../components/Hero";
 import LogoSlider from "../components/LogoSlider";
 import ProductSlider from "../components/NewArrival";
 import ProductCategories from "../components/ProductsCategories";
+import Promotion from "../components/Promotion";
+
 
 const Home = () => {
   return (
@@ -16,6 +18,7 @@ const Home = () => {
         <ProductSlider />
         <ProductCategories/>
         <ProductList />
+ <Promotion/>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { AiFillStar } from "react-icons/ai";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full max-w-[280px] h-[350px] group flex flex-col">
+    <div className="  overflow-hidden w-full max-w-[280px] h-[350px] group flex flex-col">
       <div className="relative h-[70%]">
         <img
           src={product.image}
@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
       <div className="p-4 h-[30%] flex flex-col justify-between">
         <div className="flex text-[#141718] mb-2">
           {[...Array(5)].map((_, idx) => (
-            <AiFillStar key={idx} size={12} className="text-[#ffc107]" />
+            <AiFillStar key={idx} size={12} className="text-[#141718]" />
           ))}
         </div>
         <h3 className="text-[#141718] inter-font font-semibold text-sm line-clamp-2 mb-2">
@@ -48,43 +48,43 @@ const products = [
     isNew: true,
   },
   {
-    image: 'https://cdn.pocket-lint.com/r/s/1200x/assets/images/162803-headphones-review-beats-studio-pro-review-image1-n8qg176z7j.jpg',
+    image: '/sony-wh-ch720n.png',
     name: 'Beats Studio Pro Headphones',
     price: '349.99',
     isNew: false,
   },
   {
-    image: 'https://m.media-amazon.com/images/I/71jVj9P9pCL._AC_SL1500_.jpg',
+    image: '/sony-wh-ch720n.png',
     name: 'Sony-WH-CH720N Wireless Noise Canceling Headphones',
     price: '149.99',
     isNew: false,
   },
   {
-    image: 'https://m.media-amazon.com/images/I/61y+q+qjKTL._AC_SL1500_.jpg',
+    image: '/sony-wh-ch720n.png',
     name: 'Skullcandy- Rail True Wireless Earbuds',
     price: '79.99',
     isNew: true,
   },
     {
-    image: 'https://cdn.pocket-lint.com/r/s/1200x/assets/images/162803-headphones-review-beats-studio-pro-review-image1-n8qg176z7j.jpg',
+    image: '/sony-wh-ch720n.png',
     name: 'Beats Studio Pro Headphones',
     price: '249.99',
     isNew: false,
   },
   {
-    image: 'https://m.media-amazon.com/images/I/71q2v+v5q2L._AC_SL1500_.jpg',
+    image: '/sony-wh-ch720n.png',
     name: 'JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports',
     price: '179.95',
     isNew: false,
   },
     {
-    image: 'https://m.media-amazon.com/images/I/81+6wV+f-oL._AC_SL1500_.jpg',
+    image: '/sony-wh-ch720n.png',
     name: 'Bose QuietComfort Headphones',
     price: '349.00',
     isNew: true,
   },
     {
-    image: 'https://m.media-amazon.com/images/I/71+7Q9p+Z8L._AC_SL1500_.jpg',
+    image: '/sony-wh-ch720n.png',
     name: 'AKG Y600NC Wireless Headphones',
     price: '349.99',
     isNew: false,
@@ -94,9 +94,14 @@ const products = [
 const ProductList = () => {
   return (
     <div className="py-16 ">
-
+   <div className="flex items-center justify-between pb-10">
+    <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-none">
+      Best Sellers
+    </h2>
+    <div className="custom-pagination flex items-center" />
+  </div>
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <ProductCard key={index} product={product} />
           ))}

@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
             NEW
           </span>
         )}
-        <span className="absolute top-3 right-3 inter-font  text-[#121212] text-sm font-bold px-2 py-1 rounded-full">
+        <span className="absolute top-3 right-3 inter-font bg-white text-[#121212] text-sm font-bold px-2 py-1 rounded-full">
           <CiHeart size={20} />
         </span>
         <button className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 w-11/12 bg-[#141718] hover:bg-blue-700 text-white font-medium inter-font text-sm py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:bottom-2 transition-all duration-300 ease-in-out focus:outline-none focus:shadow-outline">
