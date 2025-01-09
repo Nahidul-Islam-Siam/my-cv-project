@@ -1,4 +1,5 @@
 import ProductList from "../components/BestSellers";
+import Features from "../components/Features";
 import Hero from "../components/Hero";
 import LogoSlider from "../components/LogoSlider";
 import ProductSlider from "../components/NewArrival";
@@ -19,6 +20,7 @@ const Home = () => {
         <ProductCategories/>
         <ProductList />
  <Promotion/>
+ <Features/>
       </div>
     </div>
   );
