@@ -75,11 +75,11 @@ const ProductSlider = () => {
     breakpoints={{
       320: {
         slidesPerView: 1.2,
-        spaceBetween: 10,
+        spaceBetween: 5,
       },
       640: {
         slidesPerView: 2.5,
-        spaceBetween: 12,
+        spaceBetween: 6,
       },
       1024: {
         slidesPerView: 4.5,

@@ -1,0 +1,109 @@
+import React from "react";
+import { CiHeart } from "react-icons/ci";
+import { FaStar } from "react-icons/fa";
+import { AiFillStar } from "react-icons/ai";
+
+const ProductCard = ({ product }) => {
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full max-w-[280px] h-[350px] group flex flex-col">
+      <div className="relative h-[70%]">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover"
+        />
+        {product.isNew && (
+          <span className="absolute top-3 left-3 inter-font bg-white text-[#121212] text-sm font-bold px-2 py-1 rounded">
+            NEW
+          </span>
+        )}
+        <span className="absolute top-3 right-3 inter-font bg-white text-[#121212] text-sm font-bold px-2 py-1 rounded-full">
+          <CiHeart size={20} />
+        </span>
+        <button className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 w-11/12 bg-[#141718] hover:bg-blue-700 text-white font-medium inter-font text-sm py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:bottom-2 transition-all duration-300 ease-in-out focus:outline-none focus:shadow-outline">
+          Add to Cart
+        </button>
+      </div>
+
+      <div className="p-4 h-[30%] flex flex-col justify-between">
+        <div className="flex text-[#141718] mb-2">
+          {[...Array(5)].map((_, idx) => (
+            <AiFillStar key={idx} size={12} className="text-[#ffc107]" />
+          ))}
+        </div>
+        <h3 className="text-[#141718] inter-font font-semibold text-sm line-clamp-2 mb-2">
+          {product.name}
+        </h3>
+        <p className="text-[#121212] inter-font text-sm">${product.price}</p>
+      </div>
+    </div>
+  );
+};
+
+const products = [
+  {
+    image: '/sony-wh-ch720n.png',
+    name: 'Sony-WH-1000XM5 Wireless Noise Canceling Headphones',
+    price: '299.90',
+    isNew: true,
+  },
+  {
+    image: 'https://cdn.pocket-lint.com/r/s/1200x/assets/images/162803-headphones-review-beats-studio-pro-review-image1-n8qg176z7j.jpg',
+    name: 'Beats Studio Pro Headphones',
+    price: '349.99',
+    isNew: false,
+  },
+  {
+    image: 'https://m.media-amazon.com/images/I/71jVj9P9pCL._AC_SL1500_.jpg',
+    name: 'Sony-WH-CH720N Wireless Noise Canceling Headphones',
+    price: '149.99',
+    isNew: false,
+  },
+  {
+    image: 'https://m.media-amazon.com/images/I/61y+q+qjKTL._AC_SL1500_.jpg',
+    name: 'Skullcandy- Rail True Wireless Earbuds',
+    price: '79.99',
+    isNew: true,
+  },
+    {
+    image: 'https://cdn.pocket-lint.com/r/s/1200x/assets/images/162803-headphones-review-beats-studio-pro-review-image1-n8qg176z7j.jpg',
+    name: 'Beats Studio Pro Headphones',
+    price: '249.99',
+    isNew: false,
+  },
+  {
+    image: 'https://m.media-amazon.com/images/I/71q2v+v5q2L._AC_SL1500_.jpg',
+    name: 'JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports',
+    price: '179.95',
+    isNew: false,
+  },
+    {
+    image: 'https://m.media-amazon.com/images/I/81+6wV+f-oL._AC_SL1500_.jpg',
+    name: 'Bose QuietComfort Headphones',
+    price: '349.00',
+    isNew: true,
+  },
+    {
+    image: 'https://m.media-amazon.com/images/I/71+7Q9p+Z8L._AC_SL1500_.jpg',
+    name: 'AKG Y600NC Wireless Headphones',
+    price: '349.99',
+    isNew: false,
+  },
+];
+
+const ProductList = () => {
+  return (
+    <div className="py-16 ">
+
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {products.map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductList;

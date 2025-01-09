@@ -1,6 +1,8 @@
+import ProductList from "../components/BestSellers";
 import Hero from "../components/Hero";
 import LogoSlider from "../components/LogoSlider";
 import ProductSlider from "../components/NewArrival";
+import ProductCategories from "../components/ProductsCategories";
 
 const Home = () => {
   return (
@@ -12,6 +14,8 @@ const Home = () => {
       <div className="flex flex-col gap-[20] max-w-7xl mx-auto px-4">
         <LogoSlider />
         <ProductSlider />
+        <ProductCategories/>
+        <ProductList />
       </div>
     </div>
   );
