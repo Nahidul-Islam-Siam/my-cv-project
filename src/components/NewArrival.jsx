@@ -60,41 +60,40 @@ const products = [
 const ProductSlider = () => {
   return (
     <div className="product-slider">
-<div className="flex items-center justify-between pb-4">
-  <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-[40px]">
-    New Arrivals
-  </h2>
-  <div className="custom-pagination" />
+  <div className="flex items-center justify-between pb-4">
+    <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-none">
+      New Arrivals
+    </h2>
+    <div className="custom-pagination flex items-center" />
+  </div>
+
+  <Swiper
+    modules={[Navigation, Pagination]}
+    spaceBetween={16} // Reduced for a tighter layout
+    slidesPerView={4.5} // Show 4 full cards and part of the 5th
+    pagination={{ clickable: true, el: '.custom-pagination' }} // Link custom pagination
+    breakpoints={{
+      320: {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      640: {
+        slidesPerView: 2.5,
+        spaceBetween: 12,
+      },
+      1024: {
+        slidesPerView: 4.5,
+        spaceBetween: 16,
+      },
+    }}
+  >
+    {products.map((product, index) => (
+      <SwiperSlide key={index}>
+        <ProductCard product={product} />
+      </SwiperSlide>
+    ))}
+  </Swiper>
 </div>
-
-
-      <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={16} // Reduced for a tighter layout
-        slidesPerView={4.5} // Show 4 full cards and part of the 5th
-        pagination={{ clickable: true, el: '.custom-pagination' }} // Link custom pagination
-        breakpoints={{
-          320: {
-            slidesPerView: 1.2,
-            spaceBetween: 10,
-          },
-          640: {
-            slidesPerView: 2.5,
-            spaceBetween: 12,
-          },
-          1024: {
-            slidesPerView: 4.5,
-            spaceBetween: 16,
-          },
-        }}
-      >
-        {products.map((product, index) => (
-          <SwiperSlide key={index}>
-            <ProductCard product={product} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
   );
 };
 

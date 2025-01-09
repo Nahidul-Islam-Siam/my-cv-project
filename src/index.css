@@ -101,27 +101,15 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 .custom-pagination {
   display: flex;
-  justify-content: flex-end; /* Align to the right */
-  align-items: center; /* Vertically align with heading */
-  margin-top: -20px; /* Adjust for spacing above slider */
-  position: relative;
-  z-index: 10; /* Ensure it appears above the slider */
-  height: 40px; /* Match the heading's height */
-}
-
-.custom-pagination {
-  margin-top: 0; /* Ensure no offset */
-  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  height: auto; /* Match natural height */
-  transform: translateY(1px); /* Slight adjustment if needed */
+  justify-items: center;
 }
-
 
 .custom-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #ddd;
+  width: 8px;
+  height: 8px;
+  background-color: #6C7275;
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
@@ -130,20 +118,12 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 .custom-pagination .swiper-pagination-bullet-active {
   background-color: black;
-  width: 16px;
-  height: 16px;
+  width: 8px;
+  height: 8px;
 }
 
-/* Optional: Hover effect */
 .custom-pagination .swiper-pagination-bullet:hover {
   background-color: #ccc;
 }
 
-
-.flex.items-center.justify-between {
-  display: flex;
-  align-items: center; /* Vertically align the children */
-  justify-content: space-between; /* Distribute space between heading and pagination */
-  padding-bottom: 16px; /* Add consistent bottom padding */
-}
 
