@@ -5,6 +5,7 @@ import LogoSlider from "../components/LogoSlider";
 import ProductSlider from "../components/NewArrival";
 import ProductCategories from "../components/ProductsCategories";
 import Promotion from "../components/Promotion";
+import SocialMediaFollow from "../components/SocialMediaFollow";
 
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
         <ProductList />
  <Promotion/>
  <Features/>
+ <SocialMediaFollow/>
       </div>
     </div>
   );
