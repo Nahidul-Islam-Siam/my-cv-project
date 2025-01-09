@@ -59,8 +59,8 @@ const products = [
 
 const ProductSlider = () => {
   return (
-    <div className="product-slider">
-  <div className="flex items-center justify-between pb-4">
+    <div className="product-slider mt-10">
+  <div className="flex items-center justify-between pb-10">
     <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-none">
       New Arrivals
     </h2>
