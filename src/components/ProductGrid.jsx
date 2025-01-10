@@ -12,12 +12,16 @@ const ProductGrid = () => {
     { id: 6, image: "/sony-wh-ch720n.png", name: "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports", price: 179.95, isNew: false, category: "Kitchen" },
     { id: 7, image: "/sony-wh-ch720n.png", name: "Bose QuietComfort Headphones", price: 349.0, isNew: true, category: "Living Room" },
     { id: 8, image: "/sony-wh-ch720n.png", name: "AKG Y600NC Wireless Headphones", price: 349.99, isNew: false, category: "Outdoor" },
+    { id: 9, image: "/sony-wh-ch720n.png", name: "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports", price: 179.95, isNew: false, category: "Kitchen" },
+    { id: 10, image: "/sony-wh-ch720n.png", name: "Bose QuietComfort Headphones", price: 349.0, isNew: true, category: "Living Room" },
+    { id: 11, image: "/sony-wh-ch720n.png", name: "AKG Y600NC Wireless Headphones", price: 349.99, isNew: false, category: "Outdoor" },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
   const [sortOption, setSortOption] = useState("default");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false); // For mobile dropdown toggle
+  const [visibleCount, setVisibleCount] = useState(4);
 
   const categories = [...new Set(products.map((product) => product.category))];
   const priceRanges = [
@@ -32,6 +36,10 @@ const ProductGrid = () => {
         ? prevSelectedRanges.filter((r) => r.label !== range.label)
         : [...prevSelectedRanges, range]
     );
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
   };
 
   const filteredProducts = products.filter((product) => {
@@ -92,9 +100,7 @@ const ProductGrid = () => {
               <h5 className="text-base font-semibold mb-2">Categories</h5>
               <ul className="space-y-2">
                 <li
-                  className={`cursor-pointer ${
-                    !selectedCategory ? "font-bold underline" : ""
-                  }`}
+                  className={`cursor-pointer ${!selectedCategory ? "font-bold underline" : ""}`}
                   onClick={() => setSelectedCategory(null)}
                 >
                   All
@@ -102,9 +108,7 @@ const ProductGrid = () => {
                 {categories.map((category) => (
                   <li
                     key={category}
-                    className={`cursor-pointer ${
-                      selectedCategory === category ? "font-bold underline" : ""
-                    }`}
+                    className={`cursor-pointer ${selectedCategory === category ? "font-bold underline" : ""}`}
                     onClick={() => setSelectedCategory(category)}
                   >
                     {category}
@@ -132,9 +136,7 @@ const ProductGrid = () => {
                       {range.label}
                       <input
                         type="checkbox"
-                        checked={selectedPriceRanges.some(
-                          (r) => r.label === range.label
-                        )}
+                        checked={selectedPriceRanges.some((r) => r.label === range.label)}
                         onChange={() => handlePriceChange(range)}
                         className="w-5 h-5"
                       />
@@ -160,9 +162,7 @@ const ProductGrid = () => {
             <h5 className="text-base font-semibold mb-2">Categories</h5>
             <ul className="space-y-2">
               <li
-                className={`cursor-pointer ${
-                  !selectedCategory ? "font-bold underline" : ""
-                }`}
+                className={`cursor-pointer ${!selectedCategory ? "font-bold underline" : ""}`}
                 onClick={() => setSelectedCategory(null)}
               >
                 All
@@ -170,9 +170,7 @@ const ProductGrid = () => {
               {categories.map((category) => (
                 <li
                   key={category}
-                  className={`cursor-pointer ${
-                    selectedCategory === category ? "font-bold underline" : ""
-                  }`}
+                  className={`cursor-pointer ${selectedCategory === category ? "font-bold underline" : ""}`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
@@ -200,9 +198,7 @@ const ProductGrid = () => {
                     {range.label}
                     <input
                       type="checkbox"
-                      checked={selectedPriceRanges.some(
-                        (r) => r.label === range.label
-                      )}
+                      checked={selectedPriceRanges.some((r) => r.label === range.label)}
                       onChange={() => handlePriceChange(range)}
                       className="w-5 h-5"
                     />
@@ -215,12 +211,24 @@ const ProductGrid = () => {
 
         {/* Products Grid */}
         <section className="flex-1 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {sortedProducts.map((product) => (
+          {sortedProducts.slice(0, visibleCount).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
           {sortedProducts.length === 0 && <div>No products found.</div>}
         </section>
       </div>
+
+      {/* Show More Button */}
+      {visibleCount < sortedProducts.length && (
+        <div className="flex justify-center mt-6">
+          <button
+            className="px-6 py-2 bg-blue-500 text-white rounded"
+            onClick={handleShowMore}
+          >
+            Show More
+          </button>
+        </div>
+      )}
     </div>
   );
 };
