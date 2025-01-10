@@ -1,10 +1,14 @@
-import FeatureContact from "../components/ContactFeature";
+
+import Features from "../components/Features";
 
 
 const ContactUs = () => {
     return (
         <div>
-            <FeatureContact />
+            <div className=" bg1">
+            <Features/>
+            </div>
+ 
         </div>
     );
 };
