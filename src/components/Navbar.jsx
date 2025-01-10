@@ -56,7 +56,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: navbarBackgroundColor, boxShadow: "none" }}>
+    <AppBar position="static"  style={{ backgroundColor: navbarBackgroundColor, boxShadow: "none", paddingRight: "50px", paddingLeft: "50px" }}>
       <Toolbar style={{ justifyContent: "space-between", alignItems: "center" }}>
         {/* Logo */}
         <Typography
@@ -68,6 +68,7 @@ const Navbar = () => {
             fontFamily: "Inter, serif",
             color: location.pathname === "/" ? "black" : "#333",
             textDecoration: "none",
+           
           }}
         >
           3legant.
@@ -89,22 +90,28 @@ const Navbar = () => {
               Home
             </Typography>
             <Typography
-              variant="body1"
-              component="div"
-              onClick={handleMenuOpen}
-              style={{
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.2rem",
-                color: location.pathname === "/" ? "black" : "#333",
-              }}
-            >
-              Shop <MdKeyboardArrowDown />
-            </Typography>
+  variant="body1"
+      component={Link}
+              to="/shop"
+  onClick={handleMenuOpen}
+  style={{
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    gap: "0.2rem",
+    color: location.pathname === "/" ? "black" : "#333",
+  }}
+  aria-controls={Boolean(anchorEl) ? "shop-menu" : undefined}
+  aria-haspopup="true"
+  aria-expanded={Boolean(anchorEl)}
+>
+  Shop <MdKeyboardArrowDown />
+</Typography>
             <Typography
+               component={Link}
+              to="/product"
               variant="body1"
-              component="div"
+           
               onClick={handleMenuOpen}
               style={{
                 cursor: "pointer",
@@ -154,26 +161,20 @@ const Navbar = () => {
 
       {/* Dropdown Menu for Desktop */}
       <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleMenuClose}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-        transformOrigin={{ vertical: "top", horizontal: "left" }}
-      >
-        <MenuItem component={Link} to="/shop/category1" onClick={handleMenuClose}>
-          Shop Category 1
-        </MenuItem>
-        <MenuItem component={Link} to="/shop/category2" onClick={handleMenuClose}>
-          Shop Category 2
-        </MenuItem>
-        <MenuItem component={Link} to="/product/category1" onClick={handleMenuClose}>
-          Product Category 1
-        </MenuItem>
-        <MenuItem component={Link} to="/product/category2" onClick={handleMenuClose}>
-          Product Category 2
-        </MenuItem>
-      </Menu>
-
+  id="shop-menu"
+  anchorEl={anchorEl}
+  open={Boolean(anchorEl)}
+  onClose={handleMenuClose}
+  anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+  transformOrigin={{ vertical: "top", horizontal: "left" }}
+>
+  <MenuItem component={Link} to="/shop/category1" onClick={handleMenuClose}>
+    Shop Category 1
+  </MenuItem>
+  <MenuItem component={Link} to="/shop/category2" onClick={handleMenuClose}>
+    Shop Category 2
+  </MenuItem>
+</Menu>
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List

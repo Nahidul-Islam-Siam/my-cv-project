@@ -1,11 +1,12 @@
-import React from 'react';
 
+import shopBackground from '../assets/ShopBanner.png';
+import ShopBanner from './ShopBanner';
 const Shop = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+  <div className='mx-[50px]'>
+<ShopBanner/>
+  </div>
+  );
 };
 
 export default Shop;
