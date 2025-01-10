@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="mx-auto">
       {/* Uncomment if needed */}
       {/* <AnnouncedBar /> */}
 
