@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import chairImage from '/collection.png'; // Import your chair image
@@ -42,7 +42,7 @@ const LoginPage = () => {
           Sign in
         </h2>
         <p className="text-sm md:text-base text-[#6C7275] mb-6">
-          Don't have an account?{' '}
+          Don&lsquo;t have an account?{' '}
           <a href="#" className="text-[#38CB89] font-semibold hover:underline">
             Sign up
           </a>

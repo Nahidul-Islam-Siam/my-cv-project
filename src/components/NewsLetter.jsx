@@ -13,7 +13,7 @@ const NewsletterSignup = () => {
 
   return (
     <div
-      className="relative mb-10 bg-cover bg-center rounded-lg shadow-md p-12 md:p-24"
+      className="relative bg-cover bg-center rounded-lg shadow-md p-12 md:p-24"
       style={{ backgroundImage: `url(${newsletterBg})`, height: '100%' }}
     >
       {/* Overlay to darken the background image */}

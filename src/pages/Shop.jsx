@@ -1,11 +1,16 @@
 
-import shopBackground from '../assets/ShopBanner.png';
-import ShopBanner from './ShopBanner';
+
+import NewsletterSignup from '../components/NewsLetter';
+import ShopBanner from '../components/ShopBanner';
 const Shop = () => {
   return (
-  <div className='mx-[50px]'>
+ <div>
+     <div className='mx-[50px]'>
 <ShopBanner/>
+
   </div>
+  <NewsletterSignup/>
+ </div>
   );
 };
 

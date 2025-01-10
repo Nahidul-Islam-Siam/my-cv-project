@@ -1,5 +1,6 @@
 import ShopBG from '../assets/ShopBanner.png';
 
+
 const ShopBanner = () => {
   return (
     <div className="relative">
@@ -15,19 +16,19 @@ const ShopBanner = () => {
       {/* Content Overlay */}
       <div className="relative z-10 container mx-auto px-4 py-24 text-center">
         {/* Breadcrumbs */}
-        <div className="mb-4 text-[#605F5F] inter-font text-sm font-medium">
-          <a href="/" className="hover:underline">
+        <div className="mb-3 gap-2 text-[#605F5F] inter-font text-sm font-medium">
+          <a href="/" className="hover:underline pr-1">
             Home
           </a>{' '}
-          &gt; Shop
+          &gt; <span className=''> Shop</span> 
         </div>
 
         {/* Title */}
-        <h1 className="text-5xl font-bold text-gray-800 mb-6">Shop Page</h1>
+        <h1 className="text-[54px] poppins-font font-medium text-black  mb-6">Shop Page</h1>
 
         {/* Subtitle */}
-        <p className="text-xl text-gray-700">
-          Let's design the place you always imagined.
+        <p className="text-xl text-[#121212] inter-font">
+          Let&lsquo;s design the place you always imagined.
         </p>
       </div>
     </div>
