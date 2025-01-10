@@ -101,7 +101,7 @@ const Navbar = () => {
     gap: "0.2rem",
     color: location.pathname === "/" ? "black" : "#333",
   }}
-  aria-controls={Boolean(anchorEl) ? "shop-menu" : undefined}
+  aria-controls={anchorEl ? "shop-menu" : undefined}
   aria-haspopup="true"
   aria-expanded={Boolean(anchorEl)}
 >
