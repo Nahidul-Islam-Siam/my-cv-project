@@ -4,74 +4,20 @@ import filter from "../assets/FilterIcon.png";
 
 const ProductGrid = () => {
   const products = [
-    {
-      id: 1,
-      image: "/sony-wh-ch720n.png",
-      name: "Sony-WH-1000XM5 Wireless Noise Canceling Headphones",
-      price: 299.9,
-      isNew: true,
-      category: "Living Room",
-    },
-    {
-      id: 2,
-      image: "/sony-wh-ch720n.png",
-      name: "Beats Studio Pro Headphones",
-      price: 349.99,
-      isNew: false,
-      category: "Bedroom",
-    },
-    {
-      id: 3,
-      image: "/sony-wh-ch720n.png",
-      name: "Sony-WH-CH720N Wireless Noise Canceling Headphones",
-      price: 149.99,
-      isNew: false,
-      category: "Kitchen",
-    },
-    {
-      id: 4,
-      image: "/sony-wh-ch720n.png",
-      name: "Skullcandy- Rail True Wireless Earbuds",
-      price: 79.99,
-      isNew: true,
-      category: "Bathroom",
-    },
-    {
-      id: 5,
-      image: "/sony-wh-ch720n.png",
-      name: "Beats Studio Pro Headphones",
-      price: 249.99,
-      isNew: false,
-      category: "Outdoor",
-    },
-    {
-      id: 6,
-      image: "/sony-wh-ch720n.png",
-      name: "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports",
-      price: 179.95,
-      isNew: false,
-      category: "Kitchen",
-    },
-    {
-      id: 7,
-      image: "/sony-wh-ch720n.png",
-      name: "Bose QuietComfort Headphones",
-      price: 349.0,
-      isNew: true,
-      category: "Living Room",
-    },
-    {
-      id: 8,
-      image: "/sony-wh-ch720n.png",
-      name: "AKG Y600NC Wireless Headphones",
-      price: 349.99,
-      isNew: false,
-      category: "Outdoor",
-    },
+    { id: 1, image: "/sony-wh-ch720n.png", name: "Sony-WH-1000XM5 Wireless Noise Canceling Headphones", price: 299.9, isNew: true, category: "Living Room" },
+    { id: 2, image: "/sony-wh-ch720n.png", name: "Beats Studio Pro Headphones", price: 349.99, isNew: false, category: "Bedroom" },
+    { id: 3, image: "/sony-wh-ch720n.png", name: "Sony-WH-CH720N Wireless Noise Canceling Headphones", price: 149.99, isNew: false, category: "Kitchen" },
+    { id: 4, image: "/sony-wh-ch720n.png", name: "Skullcandy- Rail True Wireless Earbuds", price: 79.99, isNew: true, category: "Bathroom" },
+    { id: 5, image: "/sony-wh-ch720n.png", name: "Beats Studio Pro Headphones", price: 249.99, isNew: false, category: "Outdoor" },
+    { id: 6, image: "/sony-wh-ch720n.png", name: "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports", price: 179.95, isNew: false, category: "Kitchen" },
+    { id: 7, image: "/sony-wh-ch720n.png", name: "Bose QuietComfort Headphones", price: 349.0, isNew: true, category: "Living Room" },
+    { id: 8, image: "/sony-wh-ch720n.png", name: "AKG Y600NC Wireless Headphones", price: 349.99, isNew: false, category: "Outdoor" },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
+  const [sortOption, setSortOption] = useState("default");
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false); // For mobile dropdown toggle
 
   const categories = [...new Set(products.map((product) => product.category))];
   const priceRanges = [
@@ -82,8 +28,8 @@ const ProductGrid = () => {
 
   const handlePriceChange = (range) => {
     setSelectedPriceRanges((prevSelectedRanges) =>
-      prevSelectedRanges.includes(range)
-        ? prevSelectedRanges.filter((r) => r !== range)
+      prevSelectedRanges.some((r) => r.label === range.label)
+        ? prevSelectedRanges.filter((r) => r.label !== range.label)
         : [...prevSelectedRanges, range]
     );
   };
@@ -94,101 +40,187 @@ const ProductGrid = () => {
     const matchesPrice =
       selectedPriceRanges.length === 0 ||
       selectedPriceRanges.some(
-        (range) =>
-          product.price >= range.min && product.price <= range.max
+        (range) => product.price >= range.min && product.price <= range.max
       );
     return matchesCategory && matchesPrice;
   });
 
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortOption === "priceLowToHigh") return a.price - b.price;
+    if (sortOption === "priceHighToLow") return b.price - a.price;
+    return 0; // Default (no sorting)
+  });
+
   return (
-    <div className="flex flex-wrap gap-6 p-6">
-      {/* Sidebar Filter */}
-      <aside className="w-full lg:w-1/5 bg-gray-100 p-4 rounded-md">
-        <h4 className="text-xl text-[#121212] inter-font font-semibold mb-8 flex items-center justify-start">
-          <img alt="filter icon" className="w-[18px] h-4 mr-2" src={filter} />
-          Filter
-        </h4>
-
-        {/* Categories */}
-        <div className="mb-6">
-          <h5 className="text-base mb-2 text-[#121212] uppercase inter-font font-semibold">
-            Categories
-          </h5>
-          <ul className="space-y-2">
-            <li
-              className={`text-sm text-[#121212] cursor-pointer hover:underline ${
-                !selectedCategory ? "font-bold" : ""
-              }`}
-              onClick={() => setSelectedCategory(null)}
-            >
-              All
-            </li>
-            {categories.map((category) => (
-              <li
-                key={category}
-                className={`text-sm text-gray-700 cursor-pointer hover:underline ${
-                  selectedCategory === category ? "font-bold" : ""
-                }`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </li>
-            ))}
-          </ul>
+    <div className="p-6 max-w-7xl mx-auto">
+      {/* Filter and Sort Bar */}
+      <div className="flex flex-col md:flex-row justify-between items-center bg-gray-100 p-4 rounded-md mb-6">
+        <div className="flex items-center mb-4 md:mb-0">
+          <img alt="filter icon" className="w-4 h-4 mr-2" src={filter} />
+          <span className="text-gray-800 font-semibold">Filter</span>
         </div>
+        <h2 className="text-lg font-semibold mb-4 md:mb-0">
+          {selectedCategory || "All Categories"}
+        </h2>
+        <div className="flex items-center space-x-2">
+          <label className="text-sm font-semibold">Sort by:</label>
+          <select
+            className="border rounded px-3 py-1 text-sm"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value="default">Default</option>
+            <option value="priceLowToHigh">Price: Low to High</option>
+            <option value="priceHighToLow">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
 
-        {/* Price */}
-        <div>
-          <h5 className="text-base font-medium mb-2 text-[#121212]">Price</h5>
-          <ul className="space-y-2">
-            <li className="text-sm text-gray-700 cursor-pointer">
-              <label className="flex items-center justify-between">
-                All Price
-                <input
-                  type="checkbox"
-                  className="mr-2 h-4 w-4"
-                  checked={selectedPriceRanges.length === 0}
-                  onChange={() =>
-                    setSelectedPriceRanges(
-                      selectedPriceRanges.length === 0 ? priceRanges : []
-                    )
-                  }
-                />
-              </label>
-            </li>
-            {priceRanges.map((range) => (
+      {/* Mobile Filter Dropdown */}
+      <div className="lg:hidden mb-4">
+        <button
+          className="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-md flex justify-between items-center"
+          onClick={() => setIsMobileFilterOpen((prev) => !prev)}
+        >
+          <span>Filters</span>
+          <span>{isMobileFilterOpen ? "▲" : "▼"}</span>
+        </button>
+        {isMobileFilterOpen && (
+          <div className="bg-gray-100 p-4 rounded-md mt-2">
+            {/* Filter UI (same as Sidebar) */}
+            <div className="mb-6">
+              <h5 className="text-base font-semibold mb-2">Categories</h5>
+              <ul className="space-y-2">
+                <li
+                  className={`cursor-pointer ${
+                    !selectedCategory ? "font-bold underline" : ""
+                  }`}
+                  onClick={() => setSelectedCategory(null)}
+                >
+                  All
+                </li>
+                {categories.map((category) => (
+                  <li
+                    key={category}
+                    className={`cursor-pointer ${
+                      selectedCategory === category ? "font-bold underline" : ""
+                    }`}
+                    onClick={() => setSelectedCategory(category)}
+                  >
+                    {category}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-base font-semibold mb-2">Price</h5>
+              <ul className="space-y-2">
+                <li>
+                  <label className="flex items-center justify-between">
+                    All Price
+                    <input
+                      type="checkbox"
+                      checked={selectedPriceRanges.length === 0}
+                      onChange={() => setSelectedPriceRanges([])}
+                      className="w-5 h-5"
+                    />
+                  </label>
+                </li>
+                {priceRanges.map((range) => (
+                  <li key={range.label}>
+                    <label className="flex items-center justify-between">
+                      {range.label}
+                      <input
+                        type="checkbox"
+                        checked={selectedPriceRanges.some(
+                          (r) => r.label === range.label
+                        )}
+                        onChange={() => handlePriceChange(range)}
+                        className="w-5 h-5"
+                      />
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Main Content */}
+      <div className="flex flex-col lg:flex-row gap-6">
+        {/* Sidebar (Only visible on Desktop) */}
+        <aside className="hidden lg:block lg:w-1/4 bg-gray-100 p-4 rounded-md">
+          {/* Same Filter UI as Mobile Dropdown */}
+          <h4 className="text-xl font-semibold mb-6 flex items-center">
+            <img alt="filter icon" className="w-4 h-4 mr-2" src={filter} />
+            Filter
+          </h4>
+          <div className="mb-6">
+            <h5 className="text-base font-semibold mb-2">Categories</h5>
+            <ul className="space-y-2">
               <li
-                key={range.label}
-                className={`text-sm text-gray-700 cursor-pointer hover:underline ${
-                  selectedPriceRanges.includes(range) ? "font-bold" : ""
+                className={`cursor-pointer ${
+                  !selectedCategory ? "font-bold underline" : ""
                 }`}
+                onClick={() => setSelectedCategory(null)}
               >
+                All
+              </li>
+              {categories.map((category) => (
+                <li
+                  key={category}
+                  className={`cursor-pointer ${
+                    selectedCategory === category ? "font-bold underline" : ""
+                  }`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-base font-semibold mb-2">Price</h5>
+            <ul className="space-y-2">
+              <li>
                 <label className="flex items-center justify-between">
-                  {range.label}
+                  All Price
                   <input
                     type="checkbox"
-                    className="mr-2 h-4 w-4"
-                    checked={selectedPriceRanges.includes(range)}
-                    onChange={() => handlePriceChange(range)}
+                    checked={selectedPriceRanges.length === 0}
+                    onChange={() => setSelectedPriceRanges([])}
+                    className="w-5 h-5"
                   />
                 </label>
               </li>
-            ))}
-          </ul>
-        </div>
-      </aside>
-
-      {/* Product Grid */}
-      <section className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-        {filteredProducts.length === 0 && (
-          <div className="col-span-full text-center text-gray-600">
-            No products found.
+              {priceRanges.map((range) => (
+                <li key={range.label}>
+                  <label className="flex items-center justify-between">
+                    {range.label}
+                    <input
+                      type="checkbox"
+                      checked={selectedPriceRanges.some(
+                        (r) => r.label === range.label
+                      )}
+                      onChange={() => handlePriceChange(range)}
+                      className="w-5 h-5"
+                    />
+                  </label>
+                </li>
+              ))}
+            </ul>
           </div>
-        )}
-      </section>
+        </aside>
+
+        {/* Products Grid */}
+        <section className="flex-1 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {sortedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {sortedProducts.length === 0 && <div>No products found.</div>}
+        </section>
+      </div>
     </div>
   );
 };
