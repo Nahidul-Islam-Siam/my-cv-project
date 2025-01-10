@@ -1,12 +1,12 @@
-
+import AboutImage from "../assets/AboutImage.png"
 const AboutUs = () => {
   return (
-    <section className="bg-gray-100 py-16"> {/* Optional background color and padding */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <section className="bg-gray-100">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Image Section */}
-        <div className="rounded-lg overflow-hidden shadow-lg"> {/* Added rounded corners and shadow */}
+        <div className=""> {/* Added rounded corners and shadow */}
           <img
-            src="YOUR_IMAGE_URL_HERE" // Replace with your actual image URL
+            src={AboutImage} // Replace with your actual image URL
             alt="About Us"
             className="w-full h-auto object-cover" // Ensures image covers container
           />
@@ -14,17 +14,17 @@ const AboutUs = () => {
 
         {/* Text Section */}
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">About Us</h2>
-          <p className="text-gray-700 mb-6">
-            3legant is a gift & decorations store based in HCMC, Vietnam. Est.
+          <h2 className=" mb-4 poppins-font font-medium text-[40px] text-[#121212]">About Us</h2>
+          <p className="text-[#343839] inter-font text-base">
+            3legant is a gift & decorations store based in HCMC,<br /> Vietnam. Est.
             since 2019.
           </p>
-          <p className="text-gray-700 mb-6">
+          <p className=" mb-6 text-[#343839] inter-font text-base ">
             Our customer service is always prepared to support you 24/7
           </p>
           <a
             href="#" // Replace with your shop link
-            className="inline-flex items-center bg-gray-800 border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-gray-700"
+            className="inline-flex items-center inter-font text-[#121212]  border-b border-transparent underline-offset-4 rounded-md py-2 px-4 underline  text-base font-medium "
           >
             Shop Now
             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
