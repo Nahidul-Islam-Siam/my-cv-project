@@ -1,9 +1,10 @@
+import FeatureContact from "../components/ContactFeature";
 
 
 const ContactUs = () => {
     return (
         <div>
-            Contact Us Page
+            <FeatureContact />
         </div>
     );
 };
