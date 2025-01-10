@@ -1,6 +1,7 @@
 
 import AboutUs from "../components/AboutUs";
 import ContactInfo from "../components/ContactInfo";
+import ContactUsForm from "../components/ContactUsForm";
 import Features from "../components/Features";
 import AboutUsSection from "../components/screen/AboutText";
 
@@ -14,6 +15,7 @@ const ContactUs = () => {
                 <AboutUsSection/>
             <AboutUs/>
             <ContactInfo/>
+            <ContactUsForm/>
             </div>
             <Features/>
         </div>
