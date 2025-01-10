@@ -1,5 +1,6 @@
 import { CiHeart } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import PropTypes from 'prop-types';
 
 const ProductCard = ({ product }) => {
   if (!product) {
@@ -46,5 +47,14 @@ const ProductCard = ({ product }) => {
     </div>
   );
 };
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    isNew: PropTypes.bool,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }).isRequired,
+};
+
 
 export default ProductCard;
