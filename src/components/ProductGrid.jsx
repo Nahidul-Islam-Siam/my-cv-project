@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProductCard from "./ProductCard";
-import filter from '../assets/FilterIcon.png'
+import filter from '../assets/FilterIcon.png';
+
 const ProductGrid = () => {
   const products = [
     {
@@ -70,7 +71,7 @@ const ProductGrid = () => {
   ];
 
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedPriceRange, setSelectedPriceRange] = useState(null);
+  const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
 
   const categories = [...new Set(products.map((product) => product.category))];
   const priceRanges = [
@@ -79,29 +80,44 @@ const ProductGrid = () => {
     { label: "$200 - $299.99", min: 200, max: 299.99 },
   ];
 
+  const handlePriceChange = (range) => {
+    setSelectedPriceRanges((prevSelectedRanges) =>
+      prevSelectedRanges.includes(range)
+        ? prevSelectedRanges.filter((r) => r !== range)
+        : [...prevSelectedRanges, range]
+    );
+  };
+
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
       !selectedCategory || product.category === selectedCategory;
     const matchesPrice =
-      !selectedPriceRange ||
-      (product.price >= selectedPriceRange.min &&
-        product.price <= selectedPriceRange.max);
+      selectedPriceRanges.length === 0 ||
+      selectedPriceRanges.some(
+        (range) =>
+          product.price >= range.min && product.price <= range.max
+      );
     return matchesCategory && matchesPrice;
   });
 
   return (
     <div className="flex flex-wrap gap-6 p-6">
-    {/* Sidebar Filter */}
-        <aside className="w-full lg:w-1/5 bg-gray-100 p-4 rounded-md">
-          <h4 className="text-xl text-[#121212]  inter-font font-semibold mb-8 flex items-center justify-start"><img alt="filter icon" className="w-[18px] h-4 mr-2" src={filter}/>  Filter</h4>
+      {/* Sidebar Filter */}
+      <aside className="w-full lg:w-1/5 bg-gray-100 p-4 rounded-md">
+        <h4 className="text-xl text-[#121212] inter-font font-semibold mb-8 flex items-center justify-start">
+          <img alt="filter icon" className="w-[18px] h-4 mr-2" src={filter} />
+          Filter
+        </h4>
 
-          {/* Categories */}
+        {/* Categories */}
         <div className="mb-6">
-          <h5 className="text-base mb-2 text-[#121212] uppercase inter-font font-semibold">Categories</h5>
+          <h5 className="text-base mb-2 text-[#121212] uppercase inter-font font-semibold">
+            Categories
+          </h5>
           <ul className="space-y-2">
             <li
               className={`text-sm text-[#121212] cursor-pointer  hover:underline${
-                !selectedCategory ? "font-bold": ""
+                !selectedCategory ? "font-bold" : ""
               }`}
               onClick={() => setSelectedCategory(null)}
             >
@@ -123,13 +139,13 @@ const ProductGrid = () => {
 
         {/* Price */}
         <div>
-          <h5 className="text-base font-medium mb-2">Price</h5>
+          <h5 className="text-base font-medium mb-2 text-[#121212]">Price</h5>
           <ul className="space-y-2">
             <li
               className={`text-sm text-gray-700 cursor-pointer hover:underline ${
-                !selectedPriceRange ? "font-bold" : ""
+                selectedPriceRanges.length === 0 ? "font-bold" : ""
               }`}
-              onClick={() => setSelectedPriceRange(null)}
+              onClick={() => setSelectedPriceRanges([])}
             >
               All
             </li>
@@ -137,11 +153,18 @@ const ProductGrid = () => {
               <li
                 key={range.label}
                 className={`text-sm text-gray-700 cursor-pointer hover:underline ${
-                  selectedPriceRange?.label === range.label ? "font-bold" : ""
+                  selectedPriceRanges.includes(range) ? "font-bold" : ""
                 }`}
-                onClick={() => setSelectedPriceRange(range)}
               >
-                {range.label}
+                <label className="flex items-center">
+                  <input
+                    type="checkbox"
+                    className="mr-2 h-4 w-4"
+                    checked={selectedPriceRanges.includes(range)}
+                    onChange={() => handlePriceChange(range)}
+                  />
+                  {range.label}
+                </label>
               </li>
             ))}
           </ul>
