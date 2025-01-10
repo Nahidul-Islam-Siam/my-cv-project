@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductCard from "./ProductCard";
-import filter from '../assets/FilterIcon.png';
+import filter from "../assets/FilterIcon.png";
 
 const ProductGrid = () => {
   const products = [
@@ -116,7 +116,7 @@ const ProductGrid = () => {
           </h5>
           <ul className="space-y-2">
             <li
-              className={`text-sm text-[#121212] cursor-pointer  hover:underline${
+              className={`text-sm text-[#121212] cursor-pointer hover:underline ${
                 !selectedCategory ? "font-bold" : ""
               }`}
               onClick={() => setSelectedCategory(null)}
@@ -141,13 +141,20 @@ const ProductGrid = () => {
         <div>
           <h5 className="text-base font-medium mb-2 text-[#121212]">Price</h5>
           <ul className="space-y-2">
-            <li
-              className={`text-sm text-gray-700 cursor-pointer hover:underline ${
-                selectedPriceRanges.length === 0 ? "font-bold" : ""
-              }`}
-              onClick={() => setSelectedPriceRanges([])}
-            >
-              All
+            <li className="text-sm text-gray-700 cursor-pointer">
+              <label className="flex items-center justify-between">
+                All Price
+                <input
+                  type="checkbox"
+                  className="mr-2 h-4 w-4"
+                  checked={selectedPriceRanges.length === 0}
+                  onChange={() =>
+                    setSelectedPriceRanges(
+                      selectedPriceRanges.length === 0 ? priceRanges : []
+                    )
+                  }
+                />
+              </label>
             </li>
             {priceRanges.map((range) => (
               <li
@@ -156,14 +163,14 @@ const ProductGrid = () => {
                   selectedPriceRanges.includes(range) ? "font-bold" : ""
                 }`}
               >
-                <label className="flex items-center">
+                <label className="flex items-center justify-between">
+                  {range.label}
                   <input
                     type="checkbox"
                     className="mr-2 h-4 w-4"
                     checked={selectedPriceRanges.includes(range)}
                     onChange={() => handlePriceChange(range)}
                   />
-                  {range.label}
                 </label>
               </li>
             ))}
