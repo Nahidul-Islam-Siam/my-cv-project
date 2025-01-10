@@ -48,7 +48,7 @@ const ContactUs = () => {
               </div>
               <button
                 type="submit"
-                className="w-full sm:w-36 bg-[#141718] text-white inter-font font-medium py-3 px-4 rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                className="w-full sm:w-3/12 bg-[#141718] text-white inter-font font-medium py-3 px-4 rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
               >
                 Send Message
               </button>

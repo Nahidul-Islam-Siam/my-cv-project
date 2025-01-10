@@ -37,7 +37,7 @@ const ContactInfo = () => {
     <div className="custom-pagination flex items-center" />
   </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8 py-$">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8 py-10">
         
         {contactData.map((item, index) => (
           <div
