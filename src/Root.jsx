@@ -6,6 +6,7 @@ import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
 import SignupPage from "./pages/SignUp";
+import LoginPage from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/login",
-    element:<Login/>,
+    element:<LoginPage/>,
   },
   {
     path:"/Signup",
