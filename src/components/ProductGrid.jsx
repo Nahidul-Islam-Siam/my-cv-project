@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductCard from "./ProductCard";
-
+import filter from '../assets/FilterIcon.png'
 const ProductGrid = () => {
   const products = [
     {
@@ -91,17 +91,17 @@ const ProductGrid = () => {
 
   return (
     <div className="flex flex-wrap gap-6 p-6">
-      {/* Sidebar Filter */}
-      <aside className="w-full lg:w-1/4 bg-gray-100 p-4 rounded-md">
-        <h4 className="text-lg font-semibold mb-4">Filter</h4>
+    {/* Sidebar Filter */}
+        <aside className="w-full lg:w-1/5 bg-gray-100 p-4 rounded-md">
+          <h4 className="text-xl text-[#121212]  inter-font font-semibold mb-8 flex items-center justify-start"><img alt="filter icon" className="w-[18px] h-4 mr-2" src={filter}/>  Filter</h4>
 
-        {/* Categories */}
+          {/* Categories */}
         <div className="mb-6">
-          <h5 className="text-base font-medium mb-2">Categories</h5>
+          <h5 className="text-base mb-2 text-[#121212] uppercase inter-font font-semibold">Categories</h5>
           <ul className="space-y-2">
             <li
-              className={`text-sm text-gray-700 cursor-pointer hover:underline ${
-                !selectedCategory ? "font-bold" : ""
+              className={`text-sm text-[#121212] cursor-pointer  hover:underline${
+                !selectedCategory ? "font-bold": ""
               }`}
               onClick={() => setSelectedCategory(null)}
             >
