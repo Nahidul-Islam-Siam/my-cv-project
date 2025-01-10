@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { FaSearch, FaUserCircle, FaShoppingBag } from "react-icons/fa";
 import { MdKeyboardArrowDown, MdMenu, MdExpandLess, MdExpandMore } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 
 const Navbar = () => {
@@ -28,6 +28,10 @@ const Navbar = () => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md")); // Detect mobile screen
+  const location = useLocation(); // Get the current route
+
+  // Determine navbar background color based on the route
+  const navbarBackgroundColor = location.pathname === "/" ? "#FFC95B" : "white";
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -52,7 +56,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#FFC95B", boxShadow: "none" }}>
+    <AppBar position="static" style={{ backgroundColor: navbarBackgroundColor, boxShadow: "none" }}>
       <Toolbar style={{ justifyContent: "space-between", alignItems: "center" }}>
         {/* Logo */}
         <Typography
@@ -62,7 +66,7 @@ const Navbar = () => {
           style={{
             fontSize: "24px",
             fontFamily: "Inter, serif",
-            color: "black",
+            color: location.pathname === "/" ? "black" : "#333",
             textDecoration: "none",
           }}
         >
@@ -76,7 +80,11 @@ const Navbar = () => {
               component={Link}
               to="/"
               variant="body1"
-              style={{ cursor: "pointer", color: "black", textDecoration: "none" }}
+              style={{
+                cursor: "pointer",
+                color: location.pathname === "/" ? "black" : "#333",
+                textDecoration: "none",
+              }}
             >
               Home
             </Typography>
@@ -89,10 +97,10 @@ const Navbar = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "0.2rem",
-                color: "black",
+                color: location.pathname === "/" ? "black" : "#333",
               }}
             >
-              Shop <MdKeyboardArrowDown style={{ color: "black" }} />
+              Shop <MdKeyboardArrowDown />
             </Typography>
             <Typography
               variant="body1"
@@ -103,16 +111,20 @@ const Navbar = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "0.2rem",
-                color: "black",
+                color: location.pathname === "/" ? "black" : "#333",
               }}
             >
-              Product <MdKeyboardArrowDown style={{ color: "black" }} />
+              Product <MdKeyboardArrowDown />
             </Typography>
             <Typography
               component={Link}
               to="/contact"
               variant="body1"
-              style={{ cursor: "pointer", color: "black", textDecoration: "none" }}
+              style={{
+                cursor: "pointer",
+                color: location.pathname === "/" ? "black" : "#333",
+                textDecoration: "none",
+              }}
             >
               Contact Us
             </Typography>
@@ -121,20 +133,20 @@ const Navbar = () => {
 
         {/* Icons */}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <IconButton color="inherit">
-            <FaSearch style={{ color: "black" }} />
+          <IconButton>
+            <FaSearch style={{ color: location.pathname === "/" ? "black" : "#333" }} />
           </IconButton>
-          <IconButton color="inherit">
-            <FaUserCircle style={{ color: "black" }} />
+          <IconButton>
+            <FaUserCircle style={{ color: location.pathname === "/" ? "black" : "#333" }} />
           </IconButton>
-          <IconButton color="inherit">
-            <FaShoppingBag style={{ color: "black" }} />
+          <IconButton>
+            <FaShoppingBag style={{ color: location.pathname === "/" ? "black" : "#333" }} />
           </IconButton>
 
           {/* Mobile Menu Button */}
           {isMobile && (
-            <IconButton color="inherit" onClick={toggleDrawer(true)}>
-              <MdMenu style={{ color: "black" }} />
+            <IconButton onClick={toggleDrawer(true)}>
+              <MdMenu style={{ color: location.pathname === "/" ? "black" : "#333" }} />
             </IconButton>
           )}
         </div>
