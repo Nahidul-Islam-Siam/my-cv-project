@@ -1,4 +1,4 @@
-'const AboutUsSection = () => {
+const AboutUsSection = () => {
     return (
       <div className="py-10  max-w-4xl "> {/* Added padding for responsiveness and centered content */}
         {/* Breadcrumb Section */}
