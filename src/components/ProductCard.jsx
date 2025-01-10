@@ -1,19 +1,23 @@
-import React from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
+  if (!product) {
+    console.error("Product is undefined or invalid:", product);
+    return null; // Do not render the component if the product is invalid
+  }
+
   return (
-    <div className=" overflow-hidden w-full max-w-[280px] h-[350px] group flex flex-col">
+    <div className="overflow-hidden w-full max-w-[280px] h-[350px] group flex flex-col">
       {/* Image Section */}
       <div className="relative h-[70%]">
         <img
-          src={product.image}
-          alt={product.name}
+          src={product.image || "/placeholder-image.png"}
+          alt={product.name || "Product Image"}
           className="w-full h-full object-cover"
         />
         {product.isNew && (
-          <span className="absolute top-3 left-3 inter-font text-[#121212] text-sm font-bold px-2 py-1 rounded">
+          <span className="absolute top-3 left-3 inter-font text-[#121212] text-sm font-bold px-2 py-1 rounded bg-yellow-300">
             NEW
           </span>
         )}
@@ -33,9 +37,11 @@ const ProductCard = ({ product }) => {
           ))}
         </div>
         <h3 className="text-[#141718] inter-font font-semibold text-sm line-clamp-2 mb-2">
-          {product.name}
+          {product.name || "Unnamed Product"}
         </h3>
-        <p className="text-[#121212] inter-font text-sm">${product.price}</p>
+        <p className="text-[#121212] inter-font text-sm">
+          ${product.price || "N/A"}
+        </p>
       </div>
     </div>
   );
