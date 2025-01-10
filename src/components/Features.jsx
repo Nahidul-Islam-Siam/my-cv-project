@@ -1,4 +1,3 @@
-import React from 'react';
 
 // Import your custom images (replace these paths with the actual image paths)
 import freeShippingImage from '../assets/fast delivery.png'; 
