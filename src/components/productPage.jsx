@@ -189,51 +189,111 @@ const QuantitySelector = ({ quantity, onIncrement, onDecrement, maxQuantity = 10
   );
 };
 
+QuantitySelector.propTypes = {
+  quantity: PropTypes.number.isRequired,
+  onIncrement: PropTypes.func.isRequired,
+  onDecrement: PropTypes.func.isRequired,
+  maxQuantity: PropTypes.number,
+};
 
 
 
-
-const ProductDetails = ({ title, description, originalPrice, discountedPrice, timer, measurements, colors, selectedColor, onColorSelect }) => (
-    <div>
-      <h3 className="text-[#141718] poppins-font font-medium text-[40px]">{title}</h3>
-      <p className="mt-2 inter-font text-[#6C7275] text-base">{description}</p>
-      <div className="flex items-center mt-4">
-        <span className="text-[28px] mr-2 text-[#121212] poppins-font font-medium">${discountedPrice}</span>
-        <span className="text-xl line-through mr-2 text-[#6C7275] poppins-font font-medium">${originalPrice}</span>
-      </div>
+const ProductDetail = () => {
+    const [activeThumbnail, setActiveThumbnail] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+    const [timer, setTimer] = useState({ days: 2, hours: 12, minutes: 45, seconds: 5 });
+    const [selectedColor, setSelectedColor] = useState("Black");
+    const [isWishlist, setIsWishlist] = useState(false); // Wishlist state
+    const [cartMessage, setCartMessage] = useState(""); // Feedback for cart addition
   
-      <div className="mt-4 mb-5">
-        <p className="inter-font mb-5 text-base text-[#343839]">Offer expires in:</p>
-        <div className="flex gap-2 text-lg">
-          <span>{timer.days} Days</span>
-          <span>{timer.hours} Hours</span>
-          <span>{timer.minutes} Minutes</span>
-          <span>{timer.seconds} Seconds</span>
+    const images = ["/p4.png", "/p3.png", "/p3.png"];
+    const colors = ["Black", "White"];
+  
+    useEffect(() => {
+      const countdown = setInterval(() => {
+        setTimer((prevTimer) => {
+          const { days, hours, minutes, seconds } = prevTimer;
+          if (seconds > 0) return { ...prevTimer, seconds: seconds - 1 };
+          if (minutes > 0) return { ...prevTimer, minutes: minutes - 1, seconds: 59 };
+          if (hours > 0) return { ...prevTimer, hours: hours - 1, minutes: 59, seconds: 59 };
+          if (days > 0) return { ...prevTimer, days: days - 1, hours: 23, minutes: 59, seconds: 59 };
+          clearInterval(countdown);
+          return prevTimer;
+        });
+      }, 1000);
+      return () => clearInterval(countdown);
+    }, []);
+  
+    const handleThumbnailClick = (index) => setActiveThumbnail(index);
+    const incrementQuantity = () => setQuantity(quantity + 1);
+    const decrementQuantity = () => quantity > 1 && setQuantity(quantity - 1);
+    const handleColorSelect = (color) => setSelectedColor(color);
+  
+    const toggleWishlist = () => {
+      setIsWishlist(!isWishlist);
+    };
+  
+    const addToCart = () => {
+      setCartMessage("Item added to cart!");
+      setTimeout(() => setCartMessage(""), 2000); // Clear message after 2 seconds
+    };
+  
+    return (
+      <div className="font-[sans-serif] p-4 bg-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <ImageSlider
+              images={images}
+              activeThumbnail={activeThumbnail}
+              onThumbnailClick={handleThumbnailClick}
+            />
+            <div className="w-full">
+              <ProductDetails
+                title="Tray Table"
+                description="Buy one or buy a few and make every space where you sit more convenient. Light and easy to move around with removable tray top, handy for serving snacks."
+                originalPrice={400}
+                discountedPrice={199}
+                timer={timer}
+                measurements="17 1/2x20 5/8 "
+                colors={colors}
+                selectedColor={selectedColor}
+                onColorSelect={handleColorSelect}
+              />
+  
+              <div className="space-y-4 mt-6">
+                <div className="mt-6 flex flex-row gap-4">
+                  <QuantitySelector
+                    quantity={quantity}
+                    onIncrement={incrementQuantity}
+                    onDecrement={decrementQuantity}
+                  />
+                  <button
+                    className={`w-full border px-6 py-2 rounded flex items-center justify-center ${
+                      isWishlist ? "bg-red-100 text-red-600" : "border-gray-300 text-gray-600"
+                    }`}
+                    onClick={toggleWishlist}
+                  >
+                    <FaRegHeart className="mr-2" />
+                    {isWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+                  </button>
+                </div>
+                <button
+                  className="w-full bg-black text-white px-6 py-2 rounded font-semibold"
+                  onClick={addToCart}
+                >
+                  Add to Cart
+                </button>
+                {cartMessage && (
+                  <p className="mt-2 text-green-600 text-center">{cartMessage}</p>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mt-4">
-        <p className="inter-font font-semibold text-base text-[#6C7275]">Measurements:</p>
-        <p className="inter-font text-xl text-[#000000]">{measurements}</p>
-      </div>
+    );
+  };
   
-      <div className="mt-4">
-        <p className="font-semibold">Choose Color:</p>
-        <div className="flex gap-2 mt-2">
-          {colors.map((color, index) => (
-            <div
-              key={index}
-              className={`w-8 h-8 rounded-full border-2 cursor-pointer ${
-                color.toLowerCase() === selectedColor.toLowerCase() ? "border-black" : "border-gray-400"
-              } ${color.toLowerCase() === "black" ? "bg-black" : "bg-white"}`}
-              onClick={() => onColorSelect(color)}
-            ></div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-  
- 
 
 
 
@@ -262,10 +322,3 @@ ProductDetails.propTypes = {
     activeThumbnail: PropTypes.number.isRequired,
     onThumbnailClick: PropTypes.func.isRequired,
   };  
-
-  QuantitySelector.propTypes = {
-    quantity: PropTypes.number.isRequired,
-    onIncrement: PropTypes.func.isRequired,
-    onDecrement: PropTypes.func.isRequired,
-    maxQuantity: PropTypes.number,
-  };
