@@ -1,8 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
-
-
+import PropTypes from 'prop-types';
 
 const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => (
   <div className="flex flex-col gap-4">
@@ -48,5 +47,11 @@ const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => (
     </div>
   </div>
 );
+ImageSlider.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  activeThumbnail: PropTypes.number.isRequired,
+  onThumbnailClick: PropTypes.func.isRequired,
+};
+
 
 export default ImageSlider;
