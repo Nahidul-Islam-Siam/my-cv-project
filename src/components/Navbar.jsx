@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { FaSearch, FaUserCircle } from "react-icons/fa";
 import { MdKeyboardArrowDown, MdMenu, MdExpandLess, MdExpandMore } from "react-icons/md";
-import { ShoppingCart } from "@mui/icons-material"; // Import the ShoppingCartIcon
+
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import CartSidebar from "./CartSideBar";
@@ -148,19 +148,14 @@ const Navbar = () => {
         )}
 
         {/* Icons */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <IconButton>
-            <FaSearch style={{ color: location.pathname === "/" ? "black" : "#333" }} />
-          </IconButton>
-          <IconButton>
-            <FaUserCircle style={{ color: location.pathname === "/" ? "black" : "#333" }} />
-          </IconButton>
-          {/* <IconButton
-            color="inherit"
-            onClick={() => setCartSidebarOpen(true)} // Open cart sidebar
-          >
-            <ShoppingCart style={{ color: location.pathname === "/" ? "black" : "#333" }} />
-          </IconButton> */}
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            <IconButton>
+              <FaSearch style={{ color: location.pathname === "/" ? "black" : "#333" }} />
+            </IconButton>
+            <IconButton component={Link} to="/login">
+              <FaUserCircle style={{ color: location.pathname === "/" ? "black" : "#333" }} />
+            </IconButton>
+     
   <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
           {/* Mobile Menu Button */}
           {isMobile && (
