@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         element: <ContactUs />,
       },
       {
-        path: "cart", // Child route for Contact Us
+        path: "cart", 
         element: <Cart />,
       },
     ],
