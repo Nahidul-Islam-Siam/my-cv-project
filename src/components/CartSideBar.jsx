@@ -5,7 +5,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { FaShoppingCart } from "react-icons/fa";
 import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -46,7 +46,7 @@ export default function CartSidebar() {
   return (
     <div>
       <IconButton color="inherit" onClick={toggleDrawer(true)}>
-        <ShoppingCartIcon />
+        <FaShoppingCart color="black" />
       </IconButton>
       <StyledDrawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>

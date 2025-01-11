@@ -155,13 +155,13 @@ const Navbar = () => {
           <IconButton>
             <FaUserCircle style={{ color: location.pathname === "/" ? "black" : "#333" }} />
           </IconButton>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             onClick={() => setCartSidebarOpen(true)} // Open cart sidebar
           >
             <ShoppingCart style={{ color: location.pathname === "/" ? "black" : "#333" }} />
-          </IconButton>
-
+          </IconButton> */}
+  <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
           {/* Mobile Menu Button */}
           {isMobile && (
             <IconButton onClick={toggleDrawer(true)}>
@@ -169,7 +169,7 @@ const Navbar = () => {
             </IconButton>
           )}
         </div>
-        <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
+      
       </Toolbar>
 
       {/* Dropdown Menu for Desktop */}
