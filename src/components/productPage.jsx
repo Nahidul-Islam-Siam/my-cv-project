@@ -1,31 +1,90 @@
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
-import ImageSlider from "./ImageSlider";
+
 import PropTypes from 'prop-types';
+
+
+
+
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+
+
+const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => (
+  <div className="flex flex-col gap-4">
+    <div className="bg-white shadow p-2 relative">
+      <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">NEW</span>
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 3000 }}
+        className="w-full"
+        initialSlide={activeThumbnail}
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={image}
+              alt={`Product ${index + 1}`}
+              className="w-full object-contain"
+              style={{ aspectRatio: '1/1' }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+
+    <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
+      <div className="flex gap-4">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Product thumbnail ${index + 1}`}
+            className={`w-20 h-20 object-cover cursor-pointer shadow-md ${
+              activeThumbnail === index
+                ? 'border-2 border-black'
+                : 'border-2 border-transparent'
+            }`}
+            onClick={() => onThumbnailClick(index)}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+
+
+
 
 
 const ProductDetails = ({ title, description, originalPrice, discountedPrice, timer, measurements, colors, selectedColor, onColorSelect }) => (
   <div>
-    <h3 className="text-2xl font-bold text-gray-800 poppins-font ">{title}</h3>
-    <p className="text-gray-600 mt-2">{description}</p>
+    <h3 className="  text-[#141718] poppins-font font-medium text-[40px]">{title}</h3>
+    <p className="mt-2 inter-font text-[#6C7275] text-base">{description}</p>
     <div className="flex items-center mt-4">
-      <span className="text-gray-500 line-through mr-2">${originalPrice}</span>
-      <span className="text-2xl font-bold">${discountedPrice}</span>
+    <span className="text-[28px] mr-2 text-[#121212] poppins-font font-medium">${discountedPrice}</span>
+      <span className="text-xl line-through mr-2 text-[#6C7275] poppins-font font-medium ">${originalPrice}</span>
+     <hr />
     </div>
 
-    <div className="mt-4">
-      <p>Offer expires in:</p>
-      <div className="flex gap-2 text-lg">
+    <div className="mt-4 mb-5">
+      <p className="inter-font mb-5 text-base text-[#343839]">Offer expires in:</p>
+      <hr  className="divide-x-0  mb-5"/>
+      <div className="flex gap-2  text-lg">
         <span>{timer.days} Days</span>
         <span>{timer.hours} Hours</span>
         <span>{timer.minutes} Minutes</span>
         <span>{timer.seconds} Seconds</span>
       </div>
     </div>
-
+    <hr  className="divide-x-0  mb-5"/>
     <div className="mt-4">
-      <p>Measurements:</p>
-      <p>{measurements}</p>
+      <p className="inter-font font-semibold text-base text-[#6C7275]">Measurements:</p>
+      <p className="inter-font  text-xl text-[#000000]">{measurements}</p>
     </div>
 
     <div className="mt-4">
@@ -46,43 +105,50 @@ const ProductDetails = ({ title, description, originalPrice, discountedPrice, ti
     </div>
   </div>
 );
-ProductDetails.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  originalPrice: PropTypes.number.isRequired,
-  discountedPrice: PropTypes.number.isRequired,
-  timer: PropTypes.shape({
-    days: PropTypes.number.isRequired,
-    hours: PropTypes.number.isRequired,
-    minutes: PropTypes.number.isRequired,
-    seconds: PropTypes.number.isRequired,
-  }).isRequired,
-  measurements: PropTypes.string.isRequired,
-  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  selectedColor: PropTypes.string.isRequired,
-  onColorSelect: PropTypes.func.isRequired,
+
+
+
+const QuantitySelector = ({ quantity, onIncrement, onDecrement, maxQuantity = 10 }) => {
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowUp") onIncrement();
+    if (event.key === "ArrowDown") onDecrement();
+  };
+
+  return (
+    <div
+      className="flex items-center bg-white border rounded-md border-gray-300 px-3 py-2"
+      onKeyDown={handleKeyDown}
+      tabIndex={0} // Make the div focusable for keyboard interactions
+    >
+      <button
+        onClick={onDecrement}
+        disabled={quantity <= 1}
+        className={`p-1 ${quantity <= 1 ? "text-gray-400 cursor-not-allowed" : ""}`}
+        title={quantity <= 1 ? "Minimum quantity reached" : ""}
+      >
+        <FaMinus />
+      </button>
+      <span className="mx-2">{quantity}</span>
+      <button
+        onClick={onIncrement}
+        disabled={quantity >= maxQuantity}
+        className={`p-1 ${quantity >= maxQuantity ? "text-gray-400 cursor-not-allowed" : ""}`}
+        title={quantity >= maxQuantity ? "Maximum quantity reached" : ""}
+      >
+        <FaPlus />
+      </button>
+    </div>
+  );
 };
-
-
-
-
-const QuantitySelector = ({ quantity, onIncrement, onDecrement }) => (
-  <div className="flex items-center border border-gray-300 px-3 py-2">
-    <button onClick={onDecrement} className="p-1">
-      <FaMinus />
-    </button>
-    <span className="mx-2">{quantity}</span>
-    <button onClick={onIncrement} className="p-1">
-      <FaPlus />
-    </button>
-  </div>
-);
 
 QuantitySelector.propTypes = {
   quantity: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
+  maxQuantity: PropTypes.number,
 };
+
+
 
 const ProductDetail = () => {
   const [activeThumbnail, setActiveThumbnail] = useState(0);
@@ -140,16 +206,21 @@ const ProductDetail = () => {
               onColorSelect={handleColorSelect}
             />
 
+            <div className="space-y-4 mt-6">
             <div className="mt-6 flex items-center gap-4">
               <QuantitySelector
                 quantity={quantity}
                 onIncrement={incrementQuantity}
                 onDecrement={decrementQuantity}
               />
-              <button className="bg-black text-white px-6 py-2 rounded font-semibold">Add to Cart</button>
-              <button className="border border-gray-300 px-6 py-2 rounded flex items-center">
+                <button className="border border-gray-300 px-6 py-2 rounded flex items-center">
                 <FaRegHeart className="mr-2" /> Wishlist
               </button>
+             
+           
+            </div>
+            <button className="bg-black text-white px-6 py-2 rounded font-semibold">Add to Cart</button>
+          
             </div>
           </div>
         </div>
@@ -164,3 +235,25 @@ const ProductDetail = () => {
 
 export default ProductDetail;
 
+ProductDetails.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    originalPrice: PropTypes.number.isRequired,
+    discountedPrice: PropTypes.number.isRequired,
+    timer: PropTypes.shape({
+      days: PropTypes.number.isRequired,
+      hours: PropTypes.number.isRequired,
+      minutes: PropTypes.number.isRequired,
+      seconds: PropTypes.number.isRequired,
+    }).isRequired,
+    measurements: PropTypes.string.isRequired,
+    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedColor: PropTypes.string.isRequired,
+    onColorSelect: PropTypes.func.isRequired,
+  };
+  
+  ImageSlider.propTypes = {
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    activeThumbnail: PropTypes.number.isRequired,
+    onThumbnailClick: PropTypes.func.isRequired,
+  };  
