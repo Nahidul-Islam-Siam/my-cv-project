@@ -13,14 +13,17 @@ import {
   Collapse,
   useMediaQuery,
 } from "@mui/material";
-import { FaSearch, FaUserCircle, FaShoppingBag } from "react-icons/fa";
+import { FaSearch, FaUserCircle } from "react-icons/fa";
 import { MdKeyboardArrowDown, MdMenu, MdExpandLess, MdExpandMore } from "react-icons/md";
+import { ShoppingCart } from "@mui/icons-material"; // Import the ShoppingCartIcon
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
+import CartSidebar from "./CartSideBar";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null); // For desktop dropdowns
   const [drawerOpen, setDrawerOpen] = useState(false); // For mobile drawer
+  const [cartSidebarOpen, setCartSidebarOpen] = useState(false); // State for cart sidebar
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState({
     shop: false,
     product: false,
@@ -56,7 +59,15 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static"  style={{ backgroundColor: navbarBackgroundColor, boxShadow: "none", paddingRight: "50px", paddingLeft: "50px" }}>
+    <AppBar
+      position="static"
+      style={{
+        backgroundColor: navbarBackgroundColor,
+        boxShadow: "none",
+        paddingRight: "50px",
+        paddingLeft: "50px",
+      }}
+    >
       <Toolbar style={{ justifyContent: "space-between", alignItems: "center" }}>
         {/* Logo */}
         <Typography
@@ -68,7 +79,6 @@ const Navbar = () => {
             fontFamily: "Inter, serif",
             color: location.pathname === "/" ? "black" : "#333",
             textDecoration: "none",
-           
           }}
         >
           3legant.
@@ -90,28 +100,27 @@ const Navbar = () => {
               Home
             </Typography>
             <Typography
-  variant="body1"
-      component={Link}
+              variant="body1"
+              component={Link}
               to="/shop"
-  onClick={handleMenuOpen}
-  style={{
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    gap: "0.2rem",
-    color: location.pathname === "/" ? "black" : "#333",
-  }}
-  aria-controls={anchorEl ? "shop-menu" : undefined}
-  aria-haspopup="true"
-  aria-expanded={Boolean(anchorEl)}
->
-  Shop <MdKeyboardArrowDown />
-</Typography>
+              onClick={handleMenuOpen}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.2rem",
+                color: location.pathname === "/" ? "black" : "#333",
+              }}
+              aria-controls={anchorEl ? "shop-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={Boolean(anchorEl)}
+            >
+              Shop <MdKeyboardArrowDown />
+            </Typography>
             <Typography
-               component={Link}
+              component={Link}
               to="/product"
               variant="body1"
-           
               onClick={handleMenuOpen}
               style={{
                 cursor: "pointer",
@@ -146,8 +155,11 @@ const Navbar = () => {
           <IconButton>
             <FaUserCircle style={{ color: location.pathname === "/" ? "black" : "#333" }} />
           </IconButton>
-          <IconButton>
-            <FaShoppingBag style={{ color: location.pathname === "/" ? "black" : "#333" }} />
+          <IconButton
+            color="inherit"
+            onClick={() => setCartSidebarOpen(true)} // Open cart sidebar
+          >
+            <ShoppingCart style={{ color: location.pathname === "/" ? "black" : "#333" }} />
           </IconButton>
 
           {/* Mobile Menu Button */}
@@ -157,24 +169,26 @@ const Navbar = () => {
             </IconButton>
           )}
         </div>
+        <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
       </Toolbar>
 
       {/* Dropdown Menu for Desktop */}
       <Menu
-  id="shop-menu"
-  anchorEl={anchorEl}
-  open={Boolean(anchorEl)}
-  onClose={handleMenuClose}
-  anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-  transformOrigin={{ vertical: "top", horizontal: "left" }}
->
-  <MenuItem component={Link} to="/shop/category1" onClick={handleMenuClose}>
-    Shop Category 1
-  </MenuItem>
-  <MenuItem component={Link} to="/shop/category2" onClick={handleMenuClose}>
-    Shop Category 2
-  </MenuItem>
-</Menu>
+        id="shop-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <MenuItem component={Link} to="/shop/category1" onClick={handleMenuClose}>
+          Shop Category 1
+        </MenuItem>
+        <MenuItem component={Link} to="/shop/category2" onClick={handleMenuClose}>
+          Shop Category 2
+        </MenuItem>
+      </Menu>
+
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List
@@ -195,10 +209,20 @@ const Navbar = () => {
           </ListItem>
           <Collapse in={mobileDropdownOpen.shop} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button component={Link} to="/shop/category1" style={{ paddingLeft: "2rem" }}>
+              <ListItem
+                button
+                component={Link}
+                to="/shop/category1"
+                style={{ paddingLeft: "2rem" }}
+              >
                 <ListItemText primary="Shop Category 1" style={{ color: "black" }} />
               </ListItem>
-              <ListItem button component={Link} to="/shop/category2" style={{ paddingLeft: "2rem" }}>
+              <ListItem
+                button
+                component={Link}
+                to="/shop/category2"
+                style={{ paddingLeft: "2rem" }}
+              >
                 <ListItemText primary="Shop Category 2" style={{ color: "black" }} />
               </ListItem>
             </List>
@@ -213,10 +237,20 @@ const Navbar = () => {
           </ListItem>
           <Collapse in={mobileDropdownOpen.product} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button component={Link} to="/product/category1" style={{ paddingLeft: "2rem" }}>
+              <ListItem
+                button
+                component={Link}
+                to="/product/category1"
+                style={{ paddingLeft: "2rem" }}
+              >
                 <ListItemText primary="Product Category 1" style={{ color: "black" }} />
               </ListItem>
-              <ListItem button component={Link} to="/product/category2" style={{ paddingLeft: "2rem" }}>
+              <ListItem
+                button
+                component={Link}
+                to="/product/category2"
+                style={{ paddingLeft: "2rem" }}
+              >
                 <ListItemText primary="Product Category 2" style={{ color: "black" }} />
               </ListItem>
             </List>
