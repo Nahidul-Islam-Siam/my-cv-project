@@ -1,57 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import { FaMinus, FaPlus, FaRegHeart } from 'react-icons/fa';
+import { useEffect, useState } from "react";
+import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
+import ImageSlider from "./ImageSlider";
 import PropTypes from 'prop-types';
 
-const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => (
-  <div className="flex flex-col gap-4">
-    <div className="bg-white shadow p-2 relative">
-      <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">NEW</span>
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: 3000 }}
-        className="w-full"
-        initialSlide={activeThumbnail}
-      >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <img
-              src={image}
-              alt={`Product ${index + 1}`}
-              className="w-full object-contain"
-              style={{ aspectRatio: '1/1' }}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-
-    <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
-      <div className="flex gap-4">
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Product thumbnail ${index + 1}`}
-            className={`w-20 h-20 object-cover cursor-pointer shadow-md ${
-              activeThumbnail === index
-                ? 'border-2 border-black'
-                : 'border-2 border-transparent'
-            }`}
-            onClick={() => onThumbnailClick(index)}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-);
 
 const ProductDetails = ({ title, description, originalPrice, discountedPrice, timer, measurements, colors, selectedColor, onColorSelect }) => (
   <div>
-    <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
+    <h3 className="text-2xl font-bold text-gray-800 poppins-font ">{title}</h3>
     <p className="text-gray-600 mt-2">{description}</p>
     <div className="flex items-center mt-4">
       <span className="text-gray-500 line-through mr-2">${originalPrice}</span>
@@ -91,6 +46,25 @@ const ProductDetails = ({ title, description, originalPrice, discountedPrice, ti
     </div>
   </div>
 );
+ProductDetails.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  originalPrice: PropTypes.number.isRequired,
+  discountedPrice: PropTypes.number.isRequired,
+  timer: PropTypes.shape({
+    days: PropTypes.number.isRequired,
+    hours: PropTypes.number.isRequired,
+    minutes: PropTypes.number.isRequired,
+    seconds: PropTypes.number.isRequired,
+  }).isRequired,
+  measurements: PropTypes.string.isRequired,
+  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedColor: PropTypes.string.isRequired,
+  onColorSelect: PropTypes.func.isRequired,
+};
+
+
+
 
 const QuantitySelector = ({ quantity, onIncrement, onDecrement }) => (
   <div className="flex items-center border border-gray-300 px-3 py-2">
@@ -103,6 +77,12 @@ const QuantitySelector = ({ quantity, onIncrement, onDecrement }) => (
     </button>
   </div>
 );
+
+QuantitySelector.propTypes = {
+  quantity: PropTypes.number.isRequired,
+  onIncrement: PropTypes.func.isRequired,
+  onDecrement: PropTypes.func.isRequired,
+};
 
 const ProductDetail = () => {
   const [activeThumbnail, setActiveThumbnail] = useState(0);
@@ -177,34 +157,10 @@ const ProductDetail = () => {
     </div>
   );
 };
-ImageSlider.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  activeThumbnail: PropTypes.number.isRequired,
-  onThumbnailClick: PropTypes.func.isRequired,
-};
 
-ProductDetails.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  originalPrice: PropTypes.number.isRequired,
-  discountedPrice: PropTypes.number.isRequired,
-  timer: PropTypes.shape({
-    days: PropTypes.number,
-    hours: PropTypes.number,
-    minutes: PropTypes.number,
-    seconds: PropTypes.number,
-  }).isRequired,
-  measurements: PropTypes.string.isRequired,
-  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  selectedColor: PropTypes.string.isRequired,
-  onColorSelect: PropTypes.func.isRequired,
-};
 
-QuantitySelector.propTypes = {
-  quantity: PropTypes.number.isRequired,
-  onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired,
-};
+
+
 
 export default ProductDetail;
 
