@@ -147,20 +147,20 @@ const Cart = () => {
               </div>
             </div>
           </div>
-          <div className="md:w-1/3 bg-gray-50 p-6 rounded shadow-md">
+          <div className="md:w-1/3 bg-gray-50 p-6 rounded-md border border-[#141718] shadow-md">
             <h2 className="text-lg font-medium mb-4">Cart Summary</h2>
-            <div className="mb-4">
-              <label className="flex items-center">
+            <div className="mb-4 space-y-2">
+              <label className="flex items-center  rounded-md border border-[#141718] p-4">
                 <input
                   type="radio"
                   value="free"
                   checked={shipping === 'free'}
                   onChange={(e) => setShipping(e.target.value)}
-                  className="mr-2"
+                  className="mr-2 "
                 />
                 Free shipping
               </label>
-              <label className="flex items-center">
+              <label className="flex items-center  rounded-md border border-[#141718] p-4">
                 <input
                   type="radio"
                   value="express"
@@ -170,7 +170,7 @@ const Cart = () => {
                 />
                 Express shipping (+$15)
               </label>
-              <label className="flex items-center">
+              <label className="flex items-center rounded-md border border-[#141718] p-4 ">
                 <input
                   type="radio"
                   value="pickup"
