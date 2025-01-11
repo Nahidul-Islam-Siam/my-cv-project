@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Step, StepLabel, Stepper } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const steps = ['Shopping cart', 'Checkout details', 'Order complete'];
 
@@ -17,7 +18,8 @@ const CartStepper = ({ activeStep }) => (
         </Step>
       ))}
     </Stepper>
-    <div className="w-full h-[2px] bg-gray-300 relative bottom-3"></div>
+
+
   </div>
 );
 
@@ -211,3 +213,23 @@ const Cart = () => {
 };
 
 export default Cart;
+
+
+
+
+CartItem.propTypes = {
+    item: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      quantity: PropTypes.number.isRequired,
+    }).isRequired,
+    onQuantityChange: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired,
+  };
+
+
+  CartStepper.propTypes = {
+    activeStep: PropTypes.number.isRequired,
+  };
