@@ -1,8 +1,9 @@
 import { Outlet } from "react-router";
 import "./App.css";
-import AnnouncedBar from "./components/AnnouncedBar";
+// import AnnouncedBar from "./components/AnnouncedBar";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
+// import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <div className="">
         <Outlet /> {/* This renders the routed components */}
       </div>
-      <Footer />  
+      {/* <Footer />   */}
     </div>
   );
 }

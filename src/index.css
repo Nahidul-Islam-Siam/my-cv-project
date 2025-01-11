@@ -149,4 +149,10 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #ccc;
 }
 
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
 
