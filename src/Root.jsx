@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 
 import SignupPage from "./pages/SignUp";
 import LoginPage from "./pages/Login";
+import Cart from "./components/Cart";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "contact", // Child route for Contact Us
         element: <ContactUs />,
+      },
+      {
+        path: "cart", // Child route for Contact Us
+        element: <Cart />,
       },
     ],
   },

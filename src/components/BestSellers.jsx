@@ -1,7 +1,7 @@
-import React from "react";
+
 import { CiHeart } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
+import PropTypes from 'prop-types';
 
 const ProductCard = ({ product }) => {
   return (
@@ -39,6 +39,15 @@ const ProductCard = ({ product }) => {
     </div>
   );
 };
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    isNew: PropTypes.bool.isRequired,
+  }).isRequired,
+};
+
 
 const products = [
   {

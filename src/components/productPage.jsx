@@ -198,6 +198,107 @@ QuantitySelector.propTypes = {
 
 
 
+
+// Sample review data (replace with your actual data)
+const reviewsData = [
+    {
+      name: 'Sofia Hartz',
+      rating: 5,
+      date: '3 weeks ago',
+      comment: 'I just wanted to say "Awesome Product"! I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.',
+      image: 'https://via.placeholder.com/40', // Placeholder image URL
+    },
+    {
+      name: 'Nicolas Jensen',
+      rating: 4,
+      date: '3 weeks ago',
+      comment: 'I just wanted to say "Awesome Product"! I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores excepturi sint occaecati cupiditate non provident.',
+      image: 'https://via.placeholder.com/40', // Placeholder image URL
+    },
+      {
+      name: 'Nicolas Jensen',
+      rating: 4,
+      date: '3 weeks ago',
+      comment: 'I just wanted to say "Awesome Product"! I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores excepturi sint occaecati cupiditate non provident.',
+      image: 'https://via.placeholder.com/40', // Placeholder image URL
+    },
+      {
+      name: 'Nicolas Jensen',
+      rating: 4,
+      date: '3 weeks ago',
+      comment: 'I just wanted to say "Awesome Product"! I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores excepturi sint occaecati cupiditate non provident.',
+      image: 'https://via.placeholder.com/40', // Placeholder image URL
+    },
+      {
+      name: 'Nicolas Jensen',
+      rating: 4,
+      date: '3 weeks ago',
+      comment: 'I just wanted to say "Awesome Product"! I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores excepturi sint occaecati cupiditate non provident.',
+      image: 'https://via.placeholder.com/40', // Placeholder image URL
+    },
+  ];
+  
+  // Reusable component for displaying star ratings
+
+
+
+
+  const RatingStars = ({ rating }) => {
+    const stars = [];
+    // Loop to create star icons
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <span key={i} className={`text-xl ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}>
+          ★
+        </span>
+      );
+    }
+    return <div>{stars}</div>;
+ 
+  };
+  
+  RatingStars.propTypes = {
+    rating: PropTypes.number.isRequired,
+  };
+
+  
+  
+  const CommentSection = () => {
+    return (
+      <div className="container mx-auto p-4"> {/* Container with margin and padding */}
+        <h2 className="text-2xl font-bold mb-4">Customer Reviews</h2> {/* Main heading */}
+  
+        <div className="mb-4"> {/* Overall Rating */}
+          <RatingStars rating={4.5} /> {/* Overall Rating stars*/}
+          <span className="text-gray-500 ml-2">Based on {reviewsData.length} reviews</span> {/* Number of reviews */}
+        </div>
+  
+        <div className="grid grid-cols-1 gap-4"> {/* Grid for reviews */}
+          {reviewsData.map((review, index) => ( // Map through the reviews data
+            <div key={index} className="bg-white rounded-lg shadow-md p-4"> {/* Review card styling */}
+              <div className="flex items-start mb-2"> {/* Review header (image and name) */}
+                <img src={review.image} alt={review.name} className="rounded-full w-10 h-10 mr-3" /> {/* User image */}
+                <div>
+                  <h3 className="font-medium">{review.name}</h3> {/* User name */}
+                  <div className="flex items-center">
+                      <RatingStars rating={review.rating} /> {/* Review rating stars */}
+                      <span className="text-gray-500 ml-2 text-sm">{review.date}</span> {/* Review date */}
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-700">{review.comment}</p> {/* Review comment */}
+            </div>
+          ))}
+        </div>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+              Load More
+            </button>
+      </div>
+    );
+  };
+
+
+
 const ProductDetail = () => {
     const [activeThumbnail, setActiveThumbnail] = useState(0);
     const [quantity, setQuantity] = useState(1);
@@ -290,12 +391,13 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
+
+
+        <CommentSection/>
       </div>
     );
   };
   
-
-
 
 
 export default ProductDetail;
