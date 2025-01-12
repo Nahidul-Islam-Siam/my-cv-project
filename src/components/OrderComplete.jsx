@@ -3,7 +3,7 @@
 const OrderComplete = () => {
     return (
         <div>
-            
+            Complete Order
         </div>
     );
 };

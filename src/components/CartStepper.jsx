@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Tabs, Tab, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
-// import OrderComplete from "./OrderComplete";
+import OrderComplete from "./OrderComplete";
 
 const CartStepper = () => {
   const steps = ["Shopping cart", "Checkout details", "Order complete"];
@@ -20,10 +20,10 @@ const CartStepper = () => {
     }
   }, [location.pathname]);
 
-  // Handle tab change
-  const handleChange = (event, newValue) => {
-    setActiveStep(newValue);
-    navigate(stepPaths[newValue]);
+  // Handle step click
+  const handleStepClick = (index) => {
+    setActiveStep(index);
+    navigate(stepPaths[index]);
   };
 
   // Render the content for each step
@@ -41,40 +41,70 @@ const CartStepper = () => {
   };
 
   return (
-    <Box sx={{ width: "100%", p: 2 }}>
-      {/* Tabs Header */}
-      <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 2 }}>
-        <Tabs
-          value={activeStep}
-          onChange={handleChange}
-          aria-label="Cart Stepper"
-          centered
-          TabIndicatorProps={{
-            style: { backgroundColor: "#23262F" },
-          }}
-          sx={{
-            "& .MuiTab-root": { textTransform: "none", fontSize: "1.2rem", fontWeight: "500" },
-            "& .Mui-selected": { color: "#23262F !important" },
-          }}
-        >
-          {steps.map((label, index) => (
-            <Tab key={label} label={label} />
-          ))}
-        </Tabs>
-      </Box>
-
+    <div className="container mx-auto pt-4 p-4 pb-8">
       {/* Dynamic Header */}
       <Typography
         variant="h4"
-        align="center"
-        sx={{ fontWeight: "bold", mb: 4, color: "#23262F" }}
+        className="text-[54px] font-medium poppins-font mb-20 mt-20 text-black text-center"
       >
         {steps[activeStep]}
       </Typography>
 
+      {/* Stepper */}
+      <div className="flex items-center relative w-full">
+        {steps.map((label, index) => (
+          <div
+            key={label}
+            className="flex-1 flex flex-row gap-4 items-center cursor-pointer"
+            onClick={() => handleStepClick(index)}
+          >
+            {/* Step Circle */}
+            <div
+              className={`w-12 h-12 flex items-center justify-center rounded-full text-white text-base font-semibold ${
+                activeStep === index
+                  ? "bg-[#23262F]"
+                  : index < activeStep
+                  ? "bg-green-500"
+                  : "bg-gray-300"
+              }`}
+            >
+              {index < activeStep ? "✔" : index + 1}
+            </div>
+
+            {/* Step Label */}
+            <p
+              className={`mt-2 text-sm md:text-base ${
+                activeStep === index
+                  ? "text-black font-bold"
+                  : "text-gray-500"
+              }`}
+            >
+              {label}
+            </p>
+          </div>
+        ))}
+
+        {/* Line under steps */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-1 bg-gray-300 flex"
+          style={{ top: "4rem" }}
+        >
+          {steps.map((_, index) => (
+            <div
+              key={index}
+              className={`flex-1 h-1 ${
+                index < activeStep ? "bg-green-500" : ""
+              }`}
+            ></div>
+          ))}
+        </div>
+      </div>
+
       {/* Step Content */}
-      <Box>{renderStepContent()}</Box>
-    </Box>
+      <Box className="mt-8 bg-white shadow-md rounded-lg p-6">
+        {renderStepContent()}
+      </Box>
+    </div>
   );
 };
 

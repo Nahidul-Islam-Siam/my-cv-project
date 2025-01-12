@@ -84,7 +84,7 @@ export default function CartSidebar() {
         <Box sx={{ mt: 'auto' }}> {/* Positions the subtotal/total at the bottom */}
           <Typography variant="subtitle1" sx={{mb:1}}>Subtotal: ${calculateSubtotal().toFixed(2)}</Typography>
           <Typography variant="h6">Total: ${calculateTotal().toFixed(2)}</Typography>
-          <Button variant="contained" fullWidth sx={{ mt: 2 }} component="a" href="/cart">
+          <Button variant="contained" fullWidth sx={{ mt: 2 }} component="a" href="/cartpage">
             Checkout
           </Button>
         </Box>

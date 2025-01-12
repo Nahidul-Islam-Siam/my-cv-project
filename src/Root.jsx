@@ -10,6 +10,7 @@ import LoginPage from "./pages/Login";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import CartStepper from "./components/CartStepper";
+import OrderComplete from "./components/OrderComplete";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
           {
             path: "checkout", // Nested route for Checkout
             element: <Checkout />,
+          },
+          {
+            path: "order-complete", // Nested route for Checkout
+            element: <OrderComplete />,
           },
         ],
       },

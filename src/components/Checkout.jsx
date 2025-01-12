@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const ContactInformation = ({ formData, handleInputChange, errors }) => {
     return (
@@ -139,8 +140,8 @@ const PaymentMethod = ({ formData, handleInputChange, errors }) => {
 
 const OrderSummary = ({ orderSummary, calculateTotal, handleQuantityChange }) => {
     return (
-        <div className="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 className="text-lg font-medium mb-4">Order Summary</h2>
+        <div className=" border border-[#6C7275] rounded-lg  p-6 mb-8">
+            <h2 className="text-[28px] text-[#121212] font-medium  poppins-font mb-4">Order Summary</h2>
             {orderSummary.items.map((item, index) => (
                 <div key={index} className="flex justify-between mb-2">
                     <div className="flex items-center">
@@ -276,7 +277,7 @@ const Checkout = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col justify-between">
+        <div className="min-h-screen flex flex-col justify-between">
             <div className="container mx-auto p-8 w-full flex-1">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="w-full">
@@ -294,5 +295,64 @@ const Checkout = () => {
         </div>
     );
 };
+ContactInformation.propTypes = {
+    formData: PropTypes.shape({
+        firstName: PropTypes.string,
+        lastName: PropTypes.string,
+        phone: PropTypes.string,
+        email: PropTypes.string,
+    }).isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
+};
+
+ShippingAddress.propTypes = {
+    formData: PropTypes.shape({
+        streetAddress: PropTypes.string,
+        city: PropTypes.string,
+        state: PropTypes.string,
+        zip: PropTypes.string,
+    }).isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
+};
+
+PaymentMethod.propTypes = {
+    formData: PropTypes.shape({
+        paymentMethod: PropTypes.string,
+        cardNumber: PropTypes.string,
+        expiryDate: PropTypes.string,
+        cvc: PropTypes.string,
+    }).isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
+};
+
+OrderSummary.propTypes = {
+    orderSummary: PropTypes.shape({
+        items: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string,
+                color: PropTypes.string,
+                price: PropTypes.number,
+                quantity: PropTypes.number,
+                imageUrl: PropTypes.string,
+            })
+        ).isRequired,
+        shipping: PropTypes.number,
+        discount: PropTypes.number,
+    }).isRequired,
+    calculateTotal: PropTypes.func.isRequired,
+    handleQuantityChange: PropTypes.func.isRequired,
+};
+
+DiscountCode.propTypes = {
+    formData: PropTypes.shape({
+        discountCode: PropTypes.string,
+    }).isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    handleDiscountApply: PropTypes.func.isRequired,
+};
+
 
 export default Checkout;
