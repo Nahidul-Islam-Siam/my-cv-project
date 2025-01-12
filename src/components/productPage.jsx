@@ -3,108 +3,105 @@ import { FaChevronLeft, FaChevronRight, FaMinus, FaPlus, FaRegHeart } from "reac
 
 import PropTypes from 'prop-types';
 
-
-
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
 
 const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => {
+
     const swiperRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(activeThumbnail);
-  
+
     const goNext = () => {
-      if (swiperRef.current?.swiper) swiperRef.current.swiper.slideNext();
+        if (swiperRef.current?.swiper) swiperRef.current.swiper.slideNext();
     };
-  
+
     const goPrev = () => {
-      if (swiperRef.current?.swiper) swiperRef.current.swiper.slidePrev();
+        if (swiperRef.current?.swiper) swiperRef.current.swiper.slidePrev();
     };
-  
+
     const handleSlideChange = (swiper) => {
-      setCurrentSlide(swiper.activeIndex);
+        setCurrentSlide(swiper.activeIndex);
     };
-  
+
     useEffect(() => {
-      const handleKeyDown = (event) => {
-        if (event.key === "ArrowLeft") goPrev();
-        if (event.key === "ArrowRight") goNext();
-      };
-      document.addEventListener("keydown", handleKeyDown);
-      return () => document.removeEventListener("keydown", handleKeyDown);
+        const handleKeyDown = (event) => {
+            if (event.key === "ArrowLeft") goPrev();
+            if (event.key === "ArrowRight") goNext();
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
     }, []);
-  
+
     return (
-      <div className="flex flex-col gap-4">
-        <div className="bg-white shadow p-2 relative">
-          <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">NEW</span>
-          <div className="relative">
-            <button
-              className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
-              onClick={goPrev}
-            >
-              <FaChevronLeft />
-            </button>
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={1}
-              loop={true}
-              onSlideChange={handleSlideChange}
-              className="w-full"
-              initialSlide={activeThumbnail}
-              onSwiper={(swiper) => (swiperRef.current = swiper)}
-            >
-              {images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <img
-                    src={image}
-                    alt={`Product ${index + 1}`}
-                    className="w-full object-contain"
-                    style={{ aspectRatio: "1/1" }}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <button
-              className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
-              onClick={goNext}
-            >
-              <FaChevronRight />
-            </button>
-          </div>
-          <div className="mt-2 flex justify-center">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`w-3 h-3 mx-1 rounded-full ${
-                  currentSlide === index ? "bg-black" : "bg-gray-300"
-                }`}
-              ></div>
-            ))}
-          </div>
+        <div className="flex flex-col gap-4">
+            <div className="bg-white shadow p-2 relative">
+                <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">NEW</span>
+                <div className="relative">
+                    <button
+                        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
+                        onClick={goPrev}
+                    >
+                        <FaChevronLeft />
+                    </button>
+                    <Swiper
+                        spaceBetween={10}
+                        slidesPerView={1}
+                        onSlideChange={handleSlideChange}
+                        className="w-full"
+                        initialSlide={activeThumbnail}
+                        onSwiper={(swiper) => (swiperRef.current = swiper)}
+                    >
+                        {images.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <img
+                                    src={image}
+                                    alt={`Product ${index + 1}`}
+                                    className="w-full object-contain"
+                                    style={{ aspectRatio: "1/1" }}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <button
+                        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
+                        onClick={goNext}
+                    >
+                        <FaChevronRight />
+                    </button>
+                </div>
+                <div className="mt-2 flex justify-center">
+                    {images.map((_, index) => (
+                        <div
+                            key={index}
+                            className={`w-3 h-3 mx-1 rounded-full ${
+                                currentSlide === index ? "bg-black" : "bg-gray-300"
+                            }`}
+                        ></div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
+                <div className="flex gap-4">
+                    {images.map((image, index) => (
+                        <img
+                            key={index}
+                            src={image}
+                            alt={`Product thumbnail ${index + 1}`}
+                            className={`w-20 h-20 object-cover cursor-pointer shadow-md ${
+                                activeThumbnail === index ? "border-2 border-black" : "border-2 border-transparent"
+                            }`}
+                            onClick={() => onThumbnailClick(index)}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
-  
-        <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
-          <div className="flex gap-4">
-            {images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Product thumbnail ${index + 1}`}
-                className={`w-20 h-20 object-cover cursor-pointer shadow-md ${
-                  activeThumbnail === index ? "border-2 border-black" : "border-2 border-transparent"
-                }`}
-                onClick={() => onThumbnailClick(index)}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
     );
-  };
-  
+};
+
+
 
 
 
