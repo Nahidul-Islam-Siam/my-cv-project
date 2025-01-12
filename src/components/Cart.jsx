@@ -1,27 +1,92 @@
 import  { useState, useEffect } from 'react';
-import { Step, StepLabel, Stepper } from '@mui/material';
+
 import PropTypes from 'prop-types';
 
-const steps = ['Shopping cart', 'Checkout details', 'Order complete'];
-
-const CartStepper = ({ activeStep }) => (
-  <div className="container mx-auto p-4 pb-8">
-    <h2 className="text-2xl font-bold mb-4 text-gray-800">Your Cart</h2>
-    <Stepper activeStep={activeStep} alternativeLabel className="w-full">
-      {steps.map((label, index) => (
-        <Step key={label}>
-          <StepLabel className={`text-sm md:text-base ${
-            activeStep === index ? 'text-black font-bold' : 'text-gray-500'
-          } ${index < activeStep ? 'text-green-500' : ''}`}>
-            {label}
-          </StepLabel>
-        </Step>
-      ))}
-    </Stepper>
 
 
-  </div>
-);
+const CartStepper = () => {
+  const steps = ["Shopping cart", "Checkout details", "Order complete"];
+  const [activeStep, setActiveStep] = useState(0);
+
+  // Dynamic header based on the active step
+  const getHeader = () => {
+    switch (activeStep) {
+      case 1:
+        return "Checkout";
+      case 2:
+        return "Complete";
+      default:
+        return "Cart";
+    }
+  };
+
+  return (
+    <div className="container mx-auto p-4 pb-8">
+      {/* Dynamic Header */}
+      <h2 className="text-[54px] font-medium poppins-font mb-4 text-black text-center">
+        {getHeader()}
+      </h2>
+
+      {/* Stepper */}
+      <div className="flex items-center relative w-full">
+        {steps.map((label, index) => (
+          <div
+            key={label}
+            className="flex-1 flex flex-row gap-4 items-center cursor-pointer"
+            onClick={() => setActiveStep(index)} // Update active step on click
+          >
+            {/* Step Circle */}
+            <div
+              className={`w-12 h-12 flex items-center justify-center rounded-full text-white text-base inter-font font-semibold ${
+                activeStep === index
+                  ? "bg-[#23262F]"
+                  : index < activeStep
+                  ? "bg-green-500"
+                  : "bg-gray-300"
+              }`}
+            >
+              {index < activeStep ? "✔" : index + 1}
+            </div>
+
+            {/* Step Label */}
+            <p
+              className={`mt-2 text-sm md:text-base ${
+                activeStep === index
+                  ? "text-black font-bold"
+                  : "text-gray-500"
+              }`}
+            >
+              {label}
+            </p>
+          </div>
+        ))}
+
+        {/* Line under steps */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-1 bg-gray-300 flex"
+          style={{ top: "4rem" }}
+        >
+          {steps.map((_, index) => (
+            <div
+              key={index}
+              className={`flex-1 h-1 ${
+                index < activeStep ? "bg-green-500" : ""
+              }`}
+            ></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+
+
+
+
 
 const CartItem = ({ item, onQuantityChange, onRemove }) => (
   <div className="flex items-center py-4 border-b border-gray-200">
