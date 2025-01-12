@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import chair1 from '../assets/short1.png'
+import short1 from '../assets/short1.png';
 const ContactInformation = ({ formData, handleInputChange, errors }) => (
     <div className="bg-white rounded-lg shadow p-6 mb-8">
       <h2 className="text-lg font-medium mb-4">Contact Information</h2>
@@ -140,7 +141,7 @@ const OrderItem = ({ item, onQuantityChange, onRemove }) => (
     <div className="flex items-center py-4 border-b border-gray-200">
       <div className="w-24 h-24 bg-gray-100 rounded mr-4 shadow-sm overflow-hidden">
         <div
-          className="w-full h-full bg-cover bg-center"
+          className="w-full h-full bg-cover overflow-hidden bg-center"
           style={{ backgroundImage: `url(${item.image || "https://via.placeholder.com/96"})` }}
         ></div>
       </div>
@@ -237,9 +238,9 @@ const Checkout = () => {
   
     const [orderSummary, setOrderSummary] = useState({
       items: [
-        { id: 1, name: 'Tray Table', color: 'Black', price: 105, quantity: 1, image: 'https://via.placeholder.com/150' },
-        { id: 2, name: 'Tray Table', color: 'Red', price: 105, quantity: 1, image: 'https://via.placeholder.com/150' },
-        { id: 3, name: 'Table Lamp', color: 'Gold', price: 24, quantity: 1, image: 'https://via.placeholder.com/150' },
+        { id: 1, name: 'Tray Table', color: 'Black', price: 105, quantity: 1, image: short1 },
+        { id: 2, name: 'Tray Table', color: 'Red', price: 105, quantity: 1, image: short1 },
+        { id: 3, name: 'Table Lamp', color: 'Gold', price: 24, quantity: 1, image: short1 },
       ],
       shipping: 0,
       discount: 0,

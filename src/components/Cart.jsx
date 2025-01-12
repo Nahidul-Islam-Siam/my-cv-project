@@ -1,100 +1,15 @@
-import  { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
-
-
-// const CartStepper = () => {
-//   const steps = ["Shopping cart", "Checkout details", "Order complete"];
-//   const [activeStep, setActiveStep] = useState(0);
-
-//   // Dynamic header based on the active step
-//   const getHeader = () => {
-//     switch (activeStep) {
-//       case 1:
-//         return "Checkout";
-//       case 2:
-//         return "Complete";
-//       default:
-//         return "Cart";
-//     }
-//   };
-
-//   return (
-//     <div className="container mx-auto p-4 pb-8">
-//       {/* Dynamic Header */}
-//       <h2 className="text-[54px] font-medium poppins-font mb-4 text-black text-center">
-//         {getHeader()}
-//       </h2>
-
-//       {/* Stepper */}
-//       <div className="flex items-center relative w-full">
-//         {steps.map((label, index) => (
-//           <div
-//             key={label}
-//             className="flex-1 flex flex-row gap-4 items-center cursor-pointer"
-//             onClick={() => setActiveStep(index)} // Update active step on click
-//           >
-//             {/* Step Circle */}
-//             <div
-//               className={`w-12 h-12 flex items-center justify-center rounded-full text-white text-base inter-font font-semibold ${
-//                 activeStep === index
-//                   ? "bg-[#23262F]"
-//                   : index < activeStep
-//                   ? "bg-green-500"
-//                   : "bg-gray-300"
-//               }`}
-//             >
-//               {index < activeStep ? "✔" : index + 1}
-//             </div>
-
-//             {/* Step Label */}
-//             <p
-//               className={`mt-2 text-sm md:text-base ${
-//                 activeStep === index
-//                   ? "text-black font-bold"
-//                   : "text-gray-500"
-//               }`}
-//             >
-//               {label}
-//             </p>
-//           </div>
-//         ))}
-
-//         {/* Line under steps */}
-//         <div
-//           className="absolute bottom-0 left-0 w-full h-1 bg-gray-300 flex"
-//           style={{ top: "4rem" }}
-//         >
-//           {steps.map((_, index) => (
-//             <div
-//               key={index}
-//               className={`flex-1 h-1 ${
-//                 index < activeStep ? "bg-green-500" : ""
-//               }`}
-//             ></div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-
-
-
-
-
-
-
+import s1 from '../assets/short1.png'
 
 const CartItem = ({ item, onQuantityChange, onRemove }) => (
   <div className="flex items-center py-4 border-b border-gray-200">
     <div className="w-24 h-24 bg-gray-100 rounded mr-4 shadow-sm overflow-hidden">
-      <div
-        className="w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: `url(https://via.placeholder.com/96)` }}
-      ></div>
+      <img
+        src={item.image}
+        alt={item.name}
+        className="w-full h-full object-cover"
+      />
     </div>
     <div className="flex-grow">
       <h3 className="font-semibold text-gray-800">{item.name}</h3>
@@ -127,9 +42,30 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => (
 
 const Cart = () => {
   const initialCartItems = [
-    { id: 1, name: 'Tray Table', color: 'Black', price: 19, quantity: 2 },
-    { id: 2, name: 'Tray Table', color: 'Red', price: 19, quantity: 2 },
-    { id: 3, name: 'Table lamp', color: 'Gold', price: 39, quantity: 1 },
+    {
+      id: 1,
+      name: 'Tray Table',
+      color: 'Black',
+      price: 19,
+      quantity: 2,
+      image: s1,
+    },
+    {
+      id: 2,
+      name: 'Tray Table',
+      color: 'Red',
+      price: 19,
+      quantity: 2,
+      image: s1
+    },
+    {
+      id: 3,
+      name: 'Table Lamp',
+      color: 'Gold',
+      price: 39,
+      quantity: 1,
+      image: s1
+    },
   ];
 
   const [cartItems, setCartItems] = useState(initialCartItems);
@@ -180,16 +116,21 @@ const Cart = () => {
     }
     // Navigate to checkout page
   };
+
   return (
     <div className="container mx-auto p-8">
-      {/* <CartStepper activeStep={activeStep} /> */}
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-500">Your cart is empty!</p>
       ) : (
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-2/3">
             {cartItems.map((item) => (
-              <CartItem key={item.id} item={item} onQuantityChange={handleQuantityChange} onRemove={handleRemoveItem} />
+              <CartItem
+                key={item.id}
+                item={item}
+                onQuantityChange={handleQuantityChange}
+                onRemove={handleRemoveItem}
+              />
             ))}
             <div className="mt-6">
               <h2 className="text-lg font-medium mb-2">Have a coupon?</h2>
@@ -210,20 +151,20 @@ const Cart = () => {
               </div>
             </div>
           </div>
-          <div className="md:w-1/3 bg-gray-50 p-6 rounded-md border border-[#141718] shadow-md">
+          <div className="md:w-1/3 bg-gray-50 p-6 rounded-md border border-gray-300 shadow-md">
             <h2 className="text-lg font-medium mb-4">Cart Summary</h2>
             <div className="mb-4 space-y-2">
-              <label className="flex items-center  rounded-md border border-[#141718] p-4">
+              <label className="flex items-center rounded-md border border-gray-300 p-4">
                 <input
                   type="radio"
                   value="free"
                   checked={shipping === 'free'}
                   onChange={(e) => setShipping(e.target.value)}
-                  className="mr-2 "
+                  className="mr-2"
                 />
                 Free shipping
               </label>
-              <label className="flex items-center  rounded-md border border-[#141718] p-4">
+              <label className="flex items-center rounded-md border border-gray-300 p-4">
                 <input
                   type="radio"
                   value="express"
@@ -233,7 +174,7 @@ const Cart = () => {
                 />
                 Express shipping (+$15)
               </label>
-              <label className="flex items-center rounded-md border border-[#141718] p-4 ">
+              <label className="flex items-center rounded-md border border-gray-300 p-4">
                 <input
                   type="radio"
                   value="pickup"
@@ -246,15 +187,15 @@ const Cart = () => {
             </div>
             <div className="border-t border-gray-300 pt-4">
               <div className="flex justify-between mb-2">
-                <span className='inter-font text-base text-[#141718]'>Subtotal</span>
+                <span>Subtotal</span>
                 <span>${calculateSubtotal()}</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span className='inter-font text-base text-[#141718]'>Discount</span>
-                <span className='inter-font text-base text-[#141718]'>-${discount}</span>
+                <span>Discount</span>
+                <span>-${discount}</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span className='inter-font text-base text-[#141718]'>Shipping</span>
+                <span>Shipping</span>
                 <span>${calculateShipping()}</span>
               </div>
               <div className="flex justify-between">
@@ -277,18 +218,15 @@ const Cart = () => {
 
 export default Cart;
 
-
-
-
 CartItem.propTypes = {
-    item: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      color: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      quantity: PropTypes.number.isRequired,
-    }).isRequired,
-    onQuantityChange: PropTypes.func.isRequired,
-    onRemove: PropTypes.func.isRequired,
-  };
-
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  onQuantityChange: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+};

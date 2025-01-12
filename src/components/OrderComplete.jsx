@@ -1,8 +1,9 @@
+import short1 from '../assets/short1.png';
 const OrderCompletePage = () => {
     const products = [
-      { imgSrc: '/black_table.jpg', alt: 'Black Table', quantity: 2 },
-      { imgSrc: '/red_table.jpg', alt: 'Red Table', quantity: 2 },
-      { imgSrc: '/gold_lamp.jpg', alt: 'Gold Lamp', quantity: 1 },
+      { imgSrc: short1, alt: 'Black Table', quantity: 2 },
+      { imgSrc: short1 , alt: 'Red Table', quantity: 2 },
+      { imgSrc: short1 , alt: 'Gold Lamp', quantity: 1 },
     ];
   
     const orderDetails = [
@@ -13,7 +14,7 @@ const OrderCompletePage = () => {
     ];
   
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="flex justify-center p-6 items-center min-h-screen bg-gray-100">
         <div className="bg-white rounded-lg p-6 max-w-md shadow-lg text-center">
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-2">Thank you! 🎉</h2>
