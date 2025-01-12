@@ -352,6 +352,9 @@ const Checkout = () => {
     );
   };
 
+
+  export default Checkout;
+
 ContactInformation.propTypes = {
     formData: PropTypes.shape({
         firstName: PropTypes.string,
@@ -426,4 +429,4 @@ OrderItem.propTypes = {
     onRemove: PropTypes.func.isRequired,
   };
     
-export default Checkout;
+

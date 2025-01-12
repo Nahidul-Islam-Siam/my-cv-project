@@ -136,7 +136,6 @@ const Cart = () => {
   const [shipping, setShipping] = useState('free');
   const [couponCode, setCouponCode] = useState('');
   const [discount, setDiscount] = useState(0);
-  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -179,9 +178,8 @@ const Cart = () => {
       alert('Your cart is empty!');
       return;
     }
-    setActiveStep(1); // Or navigate to checkout page
+    // Navigate to checkout page
   };
-
   return (
     <div className="container mx-auto p-8">
       {/* <CartStepper activeStep={activeStep} /> */}
