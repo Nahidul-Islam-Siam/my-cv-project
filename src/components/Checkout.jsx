@@ -12,6 +12,7 @@ const ContactInformation = ({ formData, handleInputChange }) => {
   );
 };
 
+
 const ShippingAddress = ({ formData, handleInputChange }) => {
   return (
     <div className="bg-white rounded-lg shadow p-6 mb-8">

@@ -9,6 +9,8 @@ import SignupPage from "./pages/SignUp";
 import LoginPage from "./pages/Login";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import CartStepper from "./components/CartStepper";
+
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "checkout", 
         element: <Checkout />,
+      },
+      {
+        path: "cartpage", 
+        element: <CartStepper />,
       },
     ],
   },
