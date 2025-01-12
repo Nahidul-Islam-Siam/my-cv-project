@@ -11,7 +11,6 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import CartStepper from "./components/CartStepper";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,27 +33,29 @@ const router = createBrowserRouter([
         element: <ContactUs />,
       },
       {
-        path: "cart", 
-        element: <Cart />,
-      },
-      {
-        path: "checkout", 
-        element: <Checkout />,
-      },
-      {
-        path: "cartpage", 
+        path: "cartpage", // Parent route for CartStepper
         element: <CartStepper />,
+        children: [
+          {
+            path: "cart", // Nested route for Cart
+            element: <Cart />,
+          },
+          {
+            path: "checkout", // Nested route for Checkout
+            element: <Checkout />,
+          },
+        ],
       },
     ],
   },
   {
-    path:"/login",
-    element:<LoginPage/>,
+    path: "/login",
+    element: <LoginPage />,
   },
   {
-    path:"/Signup",
-    element:<SignupPage/>,
-  }
+    path: "/signup",
+    element: <SignupPage />,
+  },
 ]);
 
 export default router;
