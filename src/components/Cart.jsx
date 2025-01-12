@@ -183,15 +183,15 @@ const Cart = () => {
             </div>
             <div className="border-t border-gray-300 pt-4">
               <div className="flex justify-between mb-2">
-                <span>Subtotal</span>
+                <span className='inter-font text-base text-[#141718]'>Subtotal</span>
                 <span>${calculateSubtotal()}</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span>Discount</span>
-                <span>-${discount}</span>
+                <span className='inter-font text-base text-[#141718]'>Discount</span>
+                <span className='inter-font text-base text-[#141718]'>-${discount}</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span>Shipping</span>
+                <span className='inter-font text-base text-[#141718]'>Shipping</span>
                 <span>${calculateShipping()}</span>
               </div>
               <div className="flex justify-between">

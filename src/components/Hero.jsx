@@ -1,9 +1,9 @@
-import React from "react";
+
 import hero from "../assets/image.png";
 
 const Hero = () => {
   return (
-    <section className="bg-[#FFC95B] py-12">
+    <section className="bg-[#FFC95B] p-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-8">
           {/* Text Content (First on mobile) */}

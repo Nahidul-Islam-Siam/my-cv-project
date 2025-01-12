@@ -5,26 +5,30 @@ import LogoSlider from "../components/LogoSlider";
 import ProductSlider from "../components/NewArrival";
 import NewsletterSignup from "../components/NewsLetter";
 import ProductCategories from "../components/ProductsCategories";
+
 import Promotion from "../components/Promotion";
 import SocialMediaFollow from "../components/SocialMediaFollow";
 
-
 const Home = () => {
   return (
-    <div>
-      {/* Hero section should take full width */}
+    <div className="w-full">
+      {/* Hero section with full width */}
       <Hero />
 
-      {/* Content with a container that doesn't stretch full width */}
-      <div className="flex flex-col gap-[20] max-w-7xl mx-auto px-4">
+      {/* Main content within a constrained container */}
+      <div className="flex flex-col gap-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <LogoSlider />
         <ProductSlider />
-        <ProductCategories/>
+        <ProductCategories />
         <ProductList />
- <Promotion/>
- <Features/>
- <SocialMediaFollow/>
- <NewsletterSignup/>
+        <Promotion />
+        <Features />
+        <SocialMediaFollow />
+      </div>
+
+      {/* Newsletter section, optionally full-width */}
+      <div className="bg-gray-100 py-16">
+        <NewsletterSignup />
       </div>
     </div>
   );
