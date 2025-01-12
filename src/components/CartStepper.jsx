@@ -12,7 +12,6 @@ const CartStepper = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Synchronize active step with the current URL
   useEffect(() => {
     const currentStep = stepPaths.indexOf(location.pathname);
     if (currentStep !== -1) {
@@ -20,13 +19,11 @@ const CartStepper = () => {
     }
   }, [location.pathname]);
 
-  // Handle step click
   const handleStepClick = (index) => {
     setActiveStep(index);
     navigate(stepPaths[index]);
   };
 
-  // Render the content for each step
   const renderStepContent = () => {
     switch (activeStep) {
       case 0:
@@ -41,54 +38,53 @@ const CartStepper = () => {
   };
 
   return (
-    <div className="container mx-auto pt-4 p-4 pb-8">
+    <div className="container mx-auto pt-4 px-4 pb-8">
       {/* Dynamic Header */}
       <Typography
         variant="h4"
-        className="text-[54px] font-medium poppins-font mb-20 mt-20 text-black text-center"
+        className="text-[36px] sm:text-[48px] md:text-[54px] font-medium poppins-font mb-10 sm:mb-16 md:mb-20 mt-10 sm:mt-16 md:mt-20 text-black text-center"
       >
         {steps[activeStep]}
       </Typography>
 
-      {/* Stepper */}
-      <div className="flex items-center relative w-full">
-        {steps.map((label, index) => (
-          <div
-            key={label}
-            className="flex-1 flex flex-row gap-4 items-center cursor-pointer"
-            onClick={() => handleStepClick(index)}
-          >
-            {/* Step Circle */}
+      {/* Horizontal Stepper */}
+      <div className="relative w-full">
+        <div className="flex items-center justify-between overflow-x-auto">
+          {steps.map((label, index) => (
             <div
-              className={`w-12 h-12 flex items-center justify-center rounded-full text-white text-base font-semibold ${
-                activeStep === index
-                  ? "bg-[#23262F]"
-                  : index < activeStep
-                  ? "bg-green-500"
-                  : "bg-gray-300"
-              }`}
+              key={label}
+              className="flex flex-col items-center cursor-pointer flex-1 min-w-[100px] px-2 sm:px-4"
+              onClick={() => handleStepClick(index)}
             >
-              {index < activeStep ? "✔" : index + 1}
+              {/* Step Circle */}
+              <div
+                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full text-white text-sm sm:text-base font-semibold ${
+                  activeStep === index
+                    ? "bg-[#23262F]"
+                    : index < activeStep
+                    ? "bg-green-500"
+                    : "bg-gray-300"
+                }`}
+              >
+                {index < activeStep ? "✔" : index + 1}
+              </div>
+
+              {/* Step Label */}
+              <p
+                className={`mt-2 text-xs sm:text-sm md:text-base text-center ${
+                  activeStep === index
+                    ? "text-black font-bold"
+                    : "text-gray-500"
+                }`}
+              >
+                {label}
+              </p>
             </div>
+          ))}
+        </div>
 
-            {/* Step Label */}
-            <p
-              className={`mt-2 text-sm md:text-base ${
-                activeStep === index
-                  ? "text-black font-bold"
-                  : "text-gray-500"
-              }`}
-            >
-              {label}
-            </p>
-          </div>
-        ))}
-
-        {/* Line under steps */}
-        <div
-          className="absolute bottom-0 left-0 w-full h-1 bg-gray-300 flex"
-          style={{ top: "4rem" }}
-        >
+        {/* Line below steps */}
+        <div className="mt-4 w-full h-1 bg-gray-300 flex">
           {steps.map((_, index) => (
             <div
               key={index}
@@ -101,7 +97,7 @@ const CartStepper = () => {
       </div>
 
       {/* Step Content */}
-      <Box className="mt-8 bg-white shadow-md rounded-lg p-6">
+      <Box className="mt-6 sm:mt-8 bg-white shadow-md rounded-lg p-4 sm:p-6">
         {renderStepContent()}
       </Box>
     </div>
