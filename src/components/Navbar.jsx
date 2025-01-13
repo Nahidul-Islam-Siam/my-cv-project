@@ -111,7 +111,7 @@ const Navbar = () => {
             )}
             <IconButton
               onClick={() => {
-                const isLoggedIn = false; // Replace with actual login check
+                const isLoggedIn = true; // Replace with actual login check
                 if (isLoggedIn) {
             navigate("/dashboard");
                 } else {
