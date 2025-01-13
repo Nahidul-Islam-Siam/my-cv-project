@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
-import {
-  MdDashboard,
-  MdInbox,
-  MdPeople,
-  MdShoppingCart,
-  MdLogin,
-  MdPersonAdd,
-} from "react-icons/md";
-import { BiTask } from "react-icons/bi";
+import avatar from '../assets/avatar.png'
+
+import { MdAccountCircle, MdLocationOn, MdShoppingCart, MdFavorite, MdExitToApp, MdPersonAddAlt } from "react-icons/md";
+
 
 // Sidebar Menu Item Component
 const MenuItem = ({ icon: Icon, label, badge, href = "#" }) => (
@@ -27,6 +22,7 @@ const MenuItem = ({ icon: Icon, label, badge, href = "#" }) => (
 );
 
 // Sidebar Component
+
 const Sidebar = ({ isOpen, closeSidebar }) => (
   <>
     {isOpen && (
@@ -43,18 +39,20 @@ const Sidebar = ({ isOpen, closeSidebar }) => (
       aria-label="Sidebar"
     >
       <div className="h-full px-3 py-4 overflow-y-auto">
-        <div className="relative inline-flex items-center justify-center w-52 h-52 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-          <span className="font-medium text-gray-600 dark:text-gray-300">JL</span>
+
+
+        <div className="relative text-center left-[30%] mt-4 flex flex-row items-center justify-center w-24 h-24 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+          <img src={avatar} className="w-24 h-full" alt="" />
+          <span className="font-medium text-gray-600 dark:text-gray-300"></span>
         </div>
-        <h1 className="mb-10"></h1>
+        <h1 className="mb-8 mt-5 inter-font text-xl font-semibold  text-center">Siam</h1>
         <ul className="space-y-2 font-medium">
-          <MenuItem icon={MdDashboard} label="Account" />
-          <MenuItem icon={BiTask} label="Address" badge="Pro" />
-          <MenuItem icon={MdInbox} label="Orders" badge="3" />
-          <MenuItem icon={MdPeople} label="Wishlist" />
-          {/* <MenuItem icon={MdShoppingCart} label="Products" /> */}
-          <MenuItem icon={MdLogin} label="Sign In" />
-          <MenuItem icon={MdPersonAdd} label="Sign Up" />
+          <MenuItem icon={MdAccountCircle} label="Account" />
+          <MenuItem icon={MdLocationOn} label="Address" badge="Pro" />
+          <MenuItem icon={MdShoppingCart} label="Orders" badge="3" />
+          <MenuItem icon={MdFavorite} label="Wishlist" />
+          <MenuItem icon={MdExitToApp} label="Sign In" />
+          <MenuItem icon={MdPersonAddAlt} label="Sign Up" />
         </ul>
       </div>
     </aside>
