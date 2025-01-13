@@ -102,20 +102,29 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Icons */}
-        <div className="flex items-center gap-4">
-          {!isMobile && (
-            <IconButton>
-              <FaSearch className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
+ 
+          <div className="flex items-center gap-4">
+            {!isMobile && (
+              <IconButton>
+                <FaSearch className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
+              </IconButton>
+            )}
+            <IconButton
+              onClick={() => {
+                const isLoggedIn = false; // Replace with actual login check
+                if (isLoggedIn) {
+            navigate("/dashboard");
+                } else {
+            navigate("/login");
+                }
+              }}
+            >
+              <FaUserCircle className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
             </IconButton>
-          )}
-          <IconButton component={Link} to="/login">
-            <FaUserCircle className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
-          </IconButton>
 
-          <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
+            <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
 
-          {/* Mobile Menu Button */}
+            {/* Mobile Menu Button */}
           {isMobile && (
             <IconButton onClick={toggleDrawer(true)}>
               <MdMenu className={location.pathname === "/" ? "text-black" : "text-gray-800"} />

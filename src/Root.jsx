@@ -11,6 +11,7 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import CartStepper from "./components/CartStepper";
 import OrderComplete from "./components/OrderComplete";
+import Dashboard from "./pages/AccountDashboard";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);
 
