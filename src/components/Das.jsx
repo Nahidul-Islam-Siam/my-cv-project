@@ -101,7 +101,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -131,7 +131,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+           Sam Fashion
           </Typography>
         </Toolbar>
       </AppBar>
@@ -143,8 +143,7 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+        <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={[
                   {
@@ -175,10 +174,10 @@ export default function MiniDrawer() {
                         },
                   ]}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <InboxIcon /> 
                 </ListItemIcon>
                 <ListItemText
-                  primary={text}
+                  primary='Home'
                   sx={[
                     open
                       ? {
@@ -191,12 +190,10 @@ export default function MiniDrawer() {
                 />
               </ListItemButton>
             </ListItem>
-          ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+        {/* <List>
+        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={[
                   {
@@ -243,8 +240,7 @@ export default function MiniDrawer() {
                 />
               </ListItemButton>
             </ListItem>
-          ))}
-        </List>
+        </List> */}
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
