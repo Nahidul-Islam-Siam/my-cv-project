@@ -48,11 +48,11 @@ const Sidebar = ({ isOpen, closeSidebar }) => (
         </div>
         <h1 className="mb-10"></h1>
         <ul className="space-y-2 font-medium">
-          <MenuItem icon={MdDashboard} label="Dashboard" />
-          <MenuItem icon={BiTask} label="Kanban" badge="Pro" />
-          <MenuItem icon={MdInbox} label="Inbox" badge="3" />
-          <MenuItem icon={MdPeople} label="Users" />
-          <MenuItem icon={MdShoppingCart} label="Products" />
+          <MenuItem icon={MdDashboard} label="Account" />
+          <MenuItem icon={BiTask} label="Address" badge="Pro" />
+          <MenuItem icon={MdInbox} label="Orders" badge="3" />
+          <MenuItem icon={MdPeople} label="Wishlist" />
+          {/* <MenuItem icon={MdShoppingCart} label="Products" /> */}
           <MenuItem icon={MdLogin} label="Sign In" />
           <MenuItem icon={MdPersonAdd} label="Sign Up" />
         </ul>
