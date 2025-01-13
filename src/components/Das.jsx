@@ -191,9 +191,8 @@ export default function MiniDrawer() {
               </ListItemButton>
             </ListItem>
         </List>
-        <Divider />
-        {/* <List>
-        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+        <List>
+        <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={[
                   {
@@ -224,10 +223,10 @@ export default function MiniDrawer() {
                         },
                   ]}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <InboxIcon /> 
                 </ListItemIcon>
                 <ListItemText
-                  primary={text}
+                  primary='Home'
                   sx={[
                     open
                       ? {
@@ -240,7 +239,58 @@ export default function MiniDrawer() {
                 />
               </ListItemButton>
             </ListItem>
-        </List> */}
+        </List>
+        <List>
+        <ListItem disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={[
+                  {
+                    minHeight: 48,
+                    px: 2.5,
+                  },
+                  open
+                    ? {
+                        justifyContent: 'initial',
+                      }
+                    : {
+                        justifyContent: 'center',
+                      },
+                ]}
+              >
+                <ListItemIcon
+                  sx={[
+                    {
+                      minWidth: 0,
+                      justifyContent: 'center',
+                    },
+                    open
+                      ? {
+                          mr: 3,
+                        }
+                      : {
+                          mr: 'auto',
+                        },
+                  ]}
+                >
+                  <InboxIcon /> 
+                </ListItemIcon>
+                <ListItemText
+                  primary='Home'
+                  sx={[
+                    open
+                      ? {
+                          opacity: 1,
+                        }
+                      : {
+                          opacity: 0,
+                        },
+                  ]}
+                />
+              </ListItemButton>
+            </ListItem>
+        </List>
+        <Divider />
+       
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
