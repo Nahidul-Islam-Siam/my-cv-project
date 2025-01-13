@@ -37,12 +37,15 @@ const Sidebar = ({ isOpen, closeSidebar }) => (
     )}
     <aside
       id="sidebar"
-      className={`fixed top-0 left-0 z-40 w-64 h-screen bg-gray-50 dark:bg-gray-800 transition-transform ${
+      className={`fixed top-0 left-0 z-40 w-64 h-screen bg-[#EBEEF1] dark:bg-gray-800 transition-transform ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } sm:translate-x-0`}
       aria-label="Sidebar"
     >
       <div className="h-full px-3 py-4 overflow-y-auto">
+        <div className="relative inline-flex items-center justify-center w-52 h-52 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+          <span className="font-medium text-gray-600 dark:text-gray-300">JL</span>
+        </div>
         <h1 className="mb-10"></h1>
         <ul className="space-y-2 font-medium">
           <MenuItem icon={MdDashboard} label="Dashboard" />
