@@ -1,10 +1,9 @@
-import { createBrowserRouter } from "react-router-dom"; // Ensure the correct package name
+import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
-
 import SignupPage from "./pages/SignUp";
 import LoginPage from "./pages/Login";
 import Cart from "./components/Cart";
@@ -12,6 +11,8 @@ import Checkout from "./components/Checkout";
 import CartStepper from "./components/CartStepper";
 import OrderComplete from "./components/OrderComplete";
 import Dashboard from "./pages/AccountDashboard";
+import AccountDashboard from "./pages/AccountDashboard";
+import MiniDrawer from "./components/Das";
 
 const router = createBrowserRouter([
   {
@@ -23,31 +24,31 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "shop", // Child route for Shop
+        path: "shop", // Shop route
         element: <Shop />,
       },
       {
-        path: "product", // Child route for Product
+        path: "product", // Product route
         element: <Product />,
       },
       {
-        path: "contact", // Child route for Contact Us
+        path: "contact", // Contact Us route
         element: <ContactUs />,
       },
       {
-        path: "cartpage", // Parent route for CartStepper
+        path: "cartpage", // CartStepper parent route
         element: <CartStepper />,
         children: [
           {
-            path: "cart", // Nested route for Cart
+            path: "cart", // Cart route
             element: <Cart />,
           },
           {
-            path: "checkout", // Nested route for Checkout
+            path: "checkout", // Checkout route
             element: <Checkout />,
           },
           {
-            path: "order-complete", // Nested route for Checkout
+            path: "order-complete", // Order Complete route
             element: <OrderComplete />,
           },
         ],
@@ -63,8 +64,15 @@ const router = createBrowserRouter([
     element: <SignupPage />,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "dashboard", // Dashboard route
+    // element: <Dashboard />,
+    element: <MiniDrawer/>,
+    children: [
+      {
+        path: "account", // Nested Account Dashboard route
+        element: <AccountDashboard />,
+      },
+    ],
   },
 ]);
 

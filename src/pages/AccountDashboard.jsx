@@ -1,14 +1,20 @@
 import { useState, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
-import avatar from '../assets/avatar.png'
-
-import { MdAccountCircle, MdLocationOn, MdShoppingCart, MdFavorite, MdExitToApp, MdPersonAddAlt } from "react-icons/md";
-
+import avatar from "../assets/avatar.png";
+import {
+  MdAccountCircle,
+  MdLocationOn,
+  MdShoppingCart,
+  MdFavorite,
+  MdExitToApp,
+  MdPersonAddAlt,
+} from "react-icons/md";
+import { Link } from "react-router-dom";
 
 // Sidebar Menu Item Component
-const MenuItem = ({ icon: Icon, label, badge, href = "#" }) => (
-  <a
-    href={href}
+const MenuItem = ({ icon: Icon, label, badge, link }) => (
+  <Link
+    to={link}
     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
   >
     <Icon className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
@@ -18,11 +24,10 @@ const MenuItem = ({ icon: Icon, label, badge, href = "#" }) => (
         {badge}
       </span>
     )}
-  </a>
+  </Link>
 );
 
 // Sidebar Component
-
 const Sidebar = ({ isOpen, closeSidebar }) => (
   <>
     {isOpen && (
@@ -39,20 +44,17 @@ const Sidebar = ({ isOpen, closeSidebar }) => (
       aria-label="Sidebar"
     >
       <div className="h-full px-3 py-4 overflow-y-auto">
-
-
-        <div className="relative text-center left-[30%] mt-4 flex flex-row items-center justify-center w-24 h-24 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-          <img src={avatar} className="w-24 h-full" alt="" />
-          <span className="font-medium text-gray-600 dark:text-gray-300"></span>
+        <div className="text-center flex items-center justify-center w-24 h-24 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 mx-auto mt-4">
+          <img src={avatar} className="w-full h-full" alt="User Avatar" />
         </div>
-        <h1 className="mb-8 mt-5 inter-font text-xl font-semibold  text-center">Siam</h1>
+        <h1 className="mb-8 mt-5 inter-font text-xl font-semibold text-center">Siam</h1>
         <ul className="space-y-2 font-medium">
-          <MenuItem icon={MdAccountCircle} label="Account" />
-          <MenuItem icon={MdLocationOn} label="Address" badge="Pro" />
-          <MenuItem icon={MdShoppingCart} label="Orders" badge="3" />
-          <MenuItem icon={MdFavorite} label="Wishlist" />
-          <MenuItem icon={MdExitToApp} label="Sign In" />
-          <MenuItem icon={MdPersonAddAlt} label="Sign Up" />
+          <MenuItem icon={MdAccountCircle} label="Account" link="/dashboard/account" />
+          <MenuItem icon={MdLocationOn} label="Address" badge="Pro" link="/address" />
+          <MenuItem icon={MdShoppingCart} label="Orders" badge="3" link="/orders" />
+          <MenuItem icon={MdFavorite} label="Wishlist" link="/wishlist" />
+          <MenuItem icon={MdExitToApp} label="Sign In" link="/signin" />
+          <MenuItem icon={MdPersonAddAlt} label="Sign Up" link="/signup" />
         </ul>
       </div>
     </aside>
@@ -63,7 +65,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => (
 const SidebarToggle = ({ toggleSidebar }) => (
   <button
     onClick={toggleSidebar}
-    className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+    className="fixed top-2 right-2 inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 z-50"
     aria-controls="sidebar"
     aria-expanded="false"
   >
@@ -76,7 +78,6 @@ const SidebarToggle = ({ toggleSidebar }) => (
 const AccountDashboard = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  // Close sidebar on Esc key press
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") setSidebarOpen(false);
@@ -91,8 +92,7 @@ const AccountDashboard = () => {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className="flex relative">
-        
+    <div className="flex relative min-h-screen">
       <SidebarToggle toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
     </div>
