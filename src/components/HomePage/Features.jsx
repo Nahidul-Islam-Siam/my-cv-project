@@ -1,4 +1,3 @@
-
 // Import your custom images (replace these paths with the actual image paths)
 import freeShippingImage from '../../assets/fast delivery.png'; 
 import moneyBackImage from '../../assets/money.png'; 
@@ -30,11 +29,11 @@ const Features = () => {
   ];
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-8 py-8">
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
       {features.map((feature, index) => (
         <div
           key={index}
-          className="bg-[#F3F5F7] p-6 rounded-lg shadow-md text-left w-full flex flex-col"
+          className="bg-[#F3F5F7] p-4 sm:p-6 lg:p-8 rounded-lg shadow-md text-left w-full flex flex-col"
         >
           <div className="w-12 h-12 mb-4">
             <img src={feature.image} alt={feature.title} className="object-contain w-full h-full" />

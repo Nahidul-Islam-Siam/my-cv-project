@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import '../../Style/LogoSlider.css'
 
-// Import your logo images
+
 import logo1 from "../../assets/logo 01.png";
 import logo2 from "../../assets/logo 02.png";
 import logo3 from "../../assets/logo 03.png";
@@ -16,19 +16,17 @@ import logo6 from "../../assets/logo 6.png";
 const LogoSlider = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Function to check screen size
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    setIsMobile(window.innerWidth <= 768);
   };
 
   useEffect(() => {
-    // Check initial screen size
+
     handleResize();
 
-    // Add event listener for resize
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -44,9 +42,9 @@ const LogoSlider = () => {
   ];
 
   if (!isMobile) {
-    // Static layout for desktop
+
     return (
-      <div className="flex justify-around items-center py-5">
+      <div className="flex justify-around items-center pt-5">
         {logos.map((logo, index) => (
           <img
             key={index}
@@ -59,13 +57,12 @@ const LogoSlider = () => {
     );
   }
 
-  // Slider layout for mobile
   return (
-    <div className="w-full overflow-hidden py-5">
+    <div className="w-full overflow-hidden">
       <Swiper
-        spaceBetween={20} // Adjust spacing between slides
-        slidesPerView={3} // Number of slides visible at a time
-        loop={true} // Enable infinite loop
+        spaceBetween={20}
+        slidesPerView={3} 
+        loop={true} 
         breakpoints={{
           320: {
             slidesPerView: 2,
