@@ -7,14 +7,17 @@ import Shop from "./pages/Shop";
 import ContactInfo from "./components/ContactInfo";
 import Cart from "./components/Cart";
 import Home from "./pages/Home";
-import Account from "./components/Account";
+import Account from "./components/admin/Account";
 
 // import Product from "./components/admin/Product";
 import Category from "./components/admin/Category";
 import Profile from "./components/admin/Profile";
-import Dashboard from "./components/Dashobard";
+// import Dashboard from "./components/Dashobard";
 import FrontLayout from "./layout/FrontLayout";
 import Product from "./pages/Product";
+import ContactUs from "./pages/ContactUs";
+import CartStepper from "./components/CartStepper";
+import MiniDrawer from "./components/admin/Das";
 // import Product from "./pages/Product";
 
 function App() {
@@ -28,8 +31,8 @@ function App() {
         <main className="flex-grow">
           <Routes>
             {/* Admin Dashboard Routes */}
-            <Route path="dashboard" element={<RootLayout />}>
-              <Route index element={<Dashboard />} />
+            <Route path="dashboard" element={<MiniDrawer />}>
+              <Route index path="account" element={<Account />} />
               {/* <Route path="product" element={<Product />} /> */}
               <Route path="category" element={<Category />} />
               <Route path="profile" element={<Profile />} />
@@ -40,8 +43,9 @@ function App() {
               <Route index element={<Home />} />
               {/* <Route path="account" element={<Account />} /> */}
               <Route path="shop" element={<Shop />} />
-              <Route path="contact" element={<Product />} />
-              <Route path="cartpage">
+              <Route path="/product" element={<Product />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="cartpage" element={<CartStepper />}>
                 <Route path="cart" element={<Cart />} />
                 <Route path="checkout" element={<Cart />} />
                 <Route path="order-complete" element={<Cart />} />

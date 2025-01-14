@@ -1,6 +1,6 @@
 
 import NewsletterSignup from '../components/NewsLetter';
-import ProductDetail from '../components/productPage';
+import ProductDetail from '../components/ProductPage/productPage';
 
 const Product = () => {
     return (

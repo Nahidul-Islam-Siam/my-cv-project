@@ -17,7 +17,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { useNavigate } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 
 const drawerWidth = 240;
 
@@ -178,7 +178,7 @@ export default function MiniDrawer() {
                   <InboxIcon /> 
                 </ListItemIcon>
                 <ListItemText
-                  primary='Home'
+                  primary='Account'
                   sx={[
                     open
                       ? {
@@ -293,6 +293,20 @@ export default function MiniDrawer() {
         <Divider />
        
       </Drawer>
+      <Box
+  component="main"
+  sx={{
+    flexGrow: 1,
+    p: 3,
+    bgcolor: 'background.default',
+    minHeight: '100vh',
+  }}
+>
+  <DrawerHeader />
+  <Outlet />
+  
+</Box>
+
   
     </Box>
   );
