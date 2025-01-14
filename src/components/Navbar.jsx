@@ -92,6 +92,15 @@ const Navbar = () => {
             </Typography>
             <Typography
               component={Link}
+              to="/blog"
+              className={`cursor-pointer no-underline ${
+                location.pathname === "/" ? "text-black" : "text-gray-800"
+              }`}
+            >
+              Blog
+            </Typography>
+            <Typography
+              component={Link}
               to="/contact"
               className={`cursor-pointer no-underline ${
                 location.pathname === "/" ? "text-black" : "text-gray-800"
@@ -99,32 +108,32 @@ const Navbar = () => {
             >
               Contact Us
             </Typography>
+
           </div>
         )}
 
- 
-          <div className="flex items-center gap-4">
-            {!isMobile && (
-              <IconButton>
-                <FaSearch className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
-              </IconButton>
-            )}
-            <IconButton
-              onClick={() => {
-                const isLoggedIn = true; // Replace with actual login check
-                if (isLoggedIn) {
-            navigate("/dashboard");
-                } else {
-            navigate("/login");
-                }
-              }}
-            >
-              <FaUserCircle className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
+        <div className="flex items-center gap-4">
+          {!isMobile && (
+            <IconButton>
+              <FaSearch className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
             </IconButton>
+          )}
+          <IconButton
+            onClick={() => {
+              const isLoggedIn = true; // Replace with actual login check
+              if (isLoggedIn) {
+                navigate("/dashboard");
+              } else {
+                navigate("/login");
+              }
+            }}
+          >
+            <FaUserCircle className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
+          </IconButton>
 
-            <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
+          <CartSidebar open={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
 
-            {/* Mobile Menu Button */}
+          {/* Mobile Menu Button */}
           {isMobile && (
             <IconButton onClick={toggleDrawer(true)}>
               <MdMenu className={location.pathname === "/" ? "text-black" : "text-gray-800"} />
@@ -142,9 +151,11 @@ const Navbar = () => {
               variant="outlined"
               placeholder="Search..."
               fullWidth
-              InputProps={{
-                style: {
-                  fontSize: "14px",
+              slotProps={{
+                input: {
+                  style: {
+                    fontSize: "14px",
+                  },
                 },
               }}
             />
@@ -163,6 +174,9 @@ const Navbar = () => {
             </ListItem>
             <ListItem button onClick={() => handleLinkClick("/contact")}>
               <ListItemText primary="Contact Us" className="text-black" />
+            </ListItem>
+            <ListItem button onClick={() => handleLinkClick("/blog")}>
+              <ListItemText primary="Blog" className="text-black" />
             </ListItem>
           </List>
 

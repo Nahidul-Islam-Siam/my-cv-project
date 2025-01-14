@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import Footer from "./components/Footer";
+
 
 import Shop from "./pages/Shop";
 
@@ -14,7 +14,7 @@ import Account from "./components/admin/Account";
 import FrontLayout from "./layout/FrontLayout";
 import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
-
+import Blog from "./pages/Blog";
 
 import CartStepper from "./components/cartPage/CartStepper";
 
@@ -45,6 +45,7 @@ function App() {
               <Route path="shop" element={<Shop />} />
               <Route path="/product" element={<Product />} />
               <Route path="/contact" element={<ContactUs />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="cartpage" element={<CartStepper />}>
                 <Route path="cart" element={<Cart />} />
                 <Route path="checkout" element={<Cart />} />
