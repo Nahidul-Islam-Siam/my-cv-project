@@ -9,10 +9,13 @@ import Cart from "./components/Cart";
 import Home from "./pages/Home";
 import Account from "./components/Account";
 
-import Product from "./components/admin/Product";
+// import Product from "./components/admin/Product";
 import Category from "./components/admin/Category";
 import Profile from "./components/admin/Profile";
 import Dashboard from "./components/Dashobard";
+import FrontLayout from "./layout/FrontLayout";
+import Product from "./pages/Product";
+// import Product from "./pages/Product";
 
 function App() {
   return (
@@ -27,17 +30,17 @@ function App() {
             {/* Admin Dashboard Routes */}
             <Route path="dashboard" element={<RootLayout />}>
               <Route index element={<Dashboard />} />
-              <Route path="product" element={<Product />} />
+              {/* <Route path="product" element={<Product />} /> */}
               <Route path="category" element={<Category />} />
               <Route path="profile" element={<Profile />} />
             </Route>
 
             {/* Frontend Routes */}
-            <Route path="/" element={< FrontRootLayout/>}>
-              <Route path="shop" element={<Home />} />
+            <Route path="/" element={< FrontLayout/>}>
+              <Route index element={<Home />} />
               {/* <Route path="account" element={<Account />} /> */}
               <Route path="shop" element={<Shop />} />
-              <Route path="contact" element={<ContactInfo />} />
+              <Route path="contact" element={<Product />} />
               <Route path="cartpage">
                 <Route path="cart" element={<Cart />} />
                 <Route path="checkout" element={<Cart />} />
