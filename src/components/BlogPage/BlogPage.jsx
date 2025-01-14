@@ -1,28 +1,61 @@
 import { useState } from 'react';
 
-// Blog Posts Data
+import blog1 from '../../assets/img container (1).png'
+import blog2 from '../../assets/img container (2).png'
+import blog3 from '../../assets/img container (3).png'
+import blog4 from '../../assets/img container (4).png'
 const blogPosts = [
   {
     title: '7 ways to decor your home like a professional',
-    image: 'https://i.ibb.co/6P9399X/image-1.jpg',
+    image: blog1,
     date: 'October 16, 2022',
     category: 'decor',
   },
   {
     title: 'Inside a beautiful kitchen organization',
-    image: 'https://i.ibb.co/y887p76/image-2.jpg',
+    image: blog2 ,
     date: 'October 16, 2022',
     category: 'organization',
   },
   {
     title: 'Decor your bedroom for your children',
-    image: 'https://i.ibb.co/w026Q58/image-3.jpg',
+    image: blog3 ,
     date: 'October 16, 2022',
     category: 'decor',
   },
   {
     title: 'Modern texas home is beautiful and completely kid-friendly',
-    image: 'https://i.ibb.co/v451T1L/image-4.jpg',
+    image: blog4 ,
+    date: 'October 16, 2022',
+    category: 'kid-friendly',
+  },
+  {
+    title: 'Modern texas home is beautiful and completely kid-friendly',
+    image: blog4 ,
+    date: 'October 16, 2022',
+    category: 'kid-friendly',
+  },
+  {
+    title: 'Modern texas home is beautiful and completely kid-friendly',
+    image: blog4 ,
+    date: 'October 16, 2022',
+    category: 'kid-friendly',
+  },
+  {
+    title: 'Modern texas home is beautiful and completely kid-friendly',
+    image: blog4 ,
+    date: 'October 16, 2022',
+    category: 'kid-friendly',
+  },
+  {
+    title: 'Modern texas home is beautiful and completely kid-friendly',
+    image: blog4 ,
+    date: 'October 16, 2022',
+    category: 'kid-friendly',
+  },
+  {
+    title: 'Modern texas home is beautiful and completely kid-friendly',
+    image: blog4 ,
     date: 'October 16, 2022',
     category: 'kid-friendly',
   },
