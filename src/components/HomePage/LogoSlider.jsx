@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import '../../Style/LogoSlider.css'
 
 // Import your logo images
 import logo1 from "../../assets/logo 01.png";
