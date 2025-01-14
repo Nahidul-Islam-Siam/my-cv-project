@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
-import ProductCard from './ProductCard';
+import ProductCard from '../commoon/ProductCard';
 
 const products = [
   {

@@ -1,28 +1,29 @@
+import NewsletterSignup from '../components/commoon/NewsLetter';
+import ProductGrid from '../components/ProductPage/ProductGrid';
 
-
-import NewsletterSignup from '../components/NewsLetter';
-import ProductGrid from '../components/ProductGrid';
-import ShopBanner from '../components/ShopBanner';
+import ShopBG from '../assets/ShopBanner.png';
+import Banner from '../components/commoon/Banner/Banner';
 
 const Shop = () => {
-   
-  return (
- <div>
-     <div className='mx-[50px]'>
-<ShopBanner/>
-<ProductGrid/>
-  </div>
+  const breadcrumbs = [
+    { label: 'Home', url: '/' },
+    { label: 'Shop' },
+  ];
 
-  <NewsletterSignup/>
- 
-  {/* <div className="container mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {products.map((product, index) => (
-            <ProductCard key={index} product={product} />
-          ))}
-        </div>
-      </div> */}
- </div>
+  return (
+    <div>
+      <div className="mx-[50px]">
+        <Banner
+          backgroundImage={ShopBG}
+          title="Shop Page"
+          subtitle="Let’s design the place you always imagined."
+          breadcrumbs={breadcrumbs}
+        />
+        <ProductGrid />
+      </div>
+
+      <NewsletterSignup />
+    </div>
   );
 };
 

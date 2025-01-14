@@ -1,5 +1,5 @@
 
-import NewsletterSignup from '../components/NewsLetter';
+import NewsletterSignup from '../components/commoon/NewsLetter';
 import ProductDetail from '../components/ProductPage/productPage';
 
 const Product = () => {

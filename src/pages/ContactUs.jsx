@@ -1,8 +1,8 @@
 
-import AboutUs from "../components/AboutUs";
-import ContactInfo from "../components/ContactInfo";
-import ContactUsForm from "../components/ContactUsForm";
-import Features from "../components/Features";
+import AboutUs from "../components/ContactPage/AboutUs";
+import ContactInfo from "../components/ContactPage/ContactInfo";
+import ContactUsForm from "../components/ContactPage/ContactUsForm";
+import Features from "../components/HomePage/Features";
 import AboutUsSection from "../components/screen/AboutText";
 
 

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
-import Cart from "./Cart";
+
 import Checkout from "./Checkout";
 import OrderComplete from "./OrderComplete";
+import Cart from "./Cart";
 
 const CartStepper = () => {
   const steps = ["Shopping cart", "Checkout details", "Order complete"];

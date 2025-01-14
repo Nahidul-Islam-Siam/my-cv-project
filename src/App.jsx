@@ -1,24 +1,25 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
+
 import Footer from "./components/Footer";
-import RootLayout from "./layout/RootLayout";
+
 import Shop from "./pages/Shop";
-import ContactInfo from "./components/ContactInfo";
-import Cart from "./components/Cart";
+
+import Cart from "./components/cartPage/Cart";
 import Home from "./pages/Home";
 import Account from "./components/admin/Account";
 
-// import Product from "./components/admin/Product";
+
 import Category from "./components/admin/Category";
 import Profile from "./components/admin/Profile";
-// import Dashboard from "./components/Dashobard";
+
 import FrontLayout from "./layout/FrontLayout";
 import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
-import CartStepper from "./components/CartStepper";
+
 import MiniDrawer from "./components/admin/Das";
-// import Product from "./pages/Product";
+import CartStepper from "./components/cartPage/CartStepper";
+
 
 function App() {
   return (
