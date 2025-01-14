@@ -82,7 +82,30 @@ const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => {
                 </div>
             </div>
 
-            <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
+               {/* Thumbnail Slider */}
+               <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
+                <Swiper
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    onSwiper={(swiper) => swiper.update()}
+                    freeMode={true}
+                >
+                    {images.map((image, index) => (
+                        <SwiperSlide key={index}>
+                            <img
+                                src={image}
+                                alt={`Thumbnail ${index + 1}`}
+                                className={`w-20 h-20 object-cover cursor-pointer shadow-md ${
+                                    activeThumbnail === index ? 'border-2 border-black' : 'border-2 border-transparent'
+                                }`}
+                                onClick={() => onThumbnailClick(index)}
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+
+            {/* <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
                 <div className="flex gap-4">
                     {images.map((image, index) => (
                         <img
@@ -96,7 +119,7 @@ const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => {
                         />
                     ))}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
@@ -186,12 +209,6 @@ const QuantitySelector = ({ quantity, onIncrement, onDecrement, maxQuantity = 10
   );
 };
 
-QuantitySelector.propTypes = {
-  quantity: PropTypes.number.isRequired,
-  onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired,
-  maxQuantity: PropTypes.number,
-};
 
 
 
@@ -235,7 +252,7 @@ const reviewsData = [
     },
   ];
   
-  // Reusable component for displaying star ratings
+
 
 
 
@@ -254,9 +271,7 @@ const reviewsData = [
  
   };
   
-  RatingStars.propTypes = {
-    rating: PropTypes.number.isRequired,
-  };
+
 
   
   
@@ -340,11 +355,11 @@ const ProductDetail = () => {
       <div className="font-[sans-serif] p-4 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <ImageSlider
+            {/* <ImageSlider
               images={images}
               activeThumbnail={activeThumbnail}
               onThumbnailClick={handleThumbnailClick}
-            />
+            /> */}
             <div className="w-full">
               <ProductDetails
                 title="Tray Table"
@@ -421,3 +436,12 @@ ProductDetails.propTypes = {
     activeThumbnail: PropTypes.number.isRequired,
     onThumbnailClick: PropTypes.func.isRequired,
   };  
+  QuantitySelector.propTypes = {
+    quantity: PropTypes.number.isRequired,
+    onIncrement: PropTypes.func.isRequired,
+    onDecrement: PropTypes.func.isRequired,
+    maxQuantity: PropTypes.number,
+  };
+  RatingStars.propTypes = {
+    rating: PropTypes.number.isRequired,
+  };
