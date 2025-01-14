@@ -5,12 +5,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // Import your logo images
-import logo1 from "../assets/logo 01.png";
-import logo2 from "../assets/logo 02.png";
-import logo3 from "../assets/logo 03.png";
-import logo4 from "../assets/logo 04.png";
-import logo5 from "../assets/logo 05.png";
-import logo6 from "../assets/logo 6.png";
+import logo1 from "../../assets/logo 01.png";
+import logo2 from "../../assets/logo 02.png";
+import logo3 from "../../assets/logo 03.png";
+import logo4 from "../../assets/logo 04.png";
+import logo5 from "../../assets/logo 05.png";
+import logo6 from "../../assets/logo 6.png";
 
 const LogoSlider = () => {
   const [isMobile, setIsMobile] = useState(false);

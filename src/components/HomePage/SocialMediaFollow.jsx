@@ -1,9 +1,9 @@
-import React from 'react';
+
 import { FaInstagram } from 'react-icons/fa'; // Import Instagram icon
-import image1 from '../assets/insta1.png'; // Path to your Instagram images
-import image2 from '../assets/insta2.png';
-import image3 from '../assets/insta3.png';
-import image4 from '../assets/insta4.png';
+import image1 from '../../assets/insta1.png'; // Import image1
+import image2 from '../../assets/insta2.png';
+import image3 from '../../assets/insta3.png';
+import image4 from '../../assets/insta4.png';
 
 const SocialMediaFollow = () => {
   const instagramImages = [image1, image2, image3, image4];

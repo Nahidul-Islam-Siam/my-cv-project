@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductCard from "../commoon/ProductCard";
-import filter from "../assets/FilterIcon.png";
+import filter from '../../assets/FilterIcon.png'
 
 const ProductGrid = () => {
   const products = [

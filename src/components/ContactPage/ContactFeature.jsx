@@ -1,7 +1,7 @@
-import freeShippingImage from '../assets/fast delivery.png'; 
-import moneyBackImage from '../assets/money.png'; 
-import securePaymentsImage from '../assets/lock 01.png'; 
-import supportImage from '../assets/call.png';
+import freeShippingImage from '../../assets/fast delivery.png'; 
+import moneyBackImage from '../../assets/money.png'; 
+import securePaymentsImage from '../../assets/lock 01.png'; 
+import supportImage from '../../assets/call.png';
 
 const FeatureContact = () => {
   const features = [

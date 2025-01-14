@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import s1 from '../assets/short1.png'
+import s1 from '../../assets/short1.png'
 
 const CartItem = ({ item, onQuantityChange, onRemove }) => (
   <div className="flex items-center py-4 border-b border-gray-200">

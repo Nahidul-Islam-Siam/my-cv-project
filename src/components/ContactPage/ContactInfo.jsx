@@ -1,7 +1,7 @@
 
-import addressIcon from '../assets/store 01.png'// Replace with your actual image path
-import phoneIcon from '../assets/call.png'
-import emailIcon from '../assets/Messeage.png'; // Replace with your actual image path
+import addressIcon from '../../assets/store 01.png'// Replace with your actual image path
+import phoneIcon from '../../assets/call.png'
+import emailIcon from '../../assets/Messeage.png'; // Replace with your actual image path
 
 const contactData = [
   {

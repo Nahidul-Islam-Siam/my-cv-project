@@ -1,4 +1,4 @@
-import AboutImage from "../assets/AboutImage.png"
+import AboutImage from "../../assets/AboutImage.png"
 const AboutUs = () => {
   return (
     <section className="bg-gray-100">

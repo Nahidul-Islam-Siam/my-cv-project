@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import chair1 from '../assets/short1.png'
-import short1 from '../assets/short1.png';
+// import chair1 from '../../assets/short1.png'
+import short1 from '../../assets/short1.png';
 const ContactInformation = ({ formData, handleInputChange, errors }) => (
     <div className="bg-white rounded-lg shadow p-6 mb-8">
       <h2 className="text-lg font-medium mb-4">Contact Information</h2>

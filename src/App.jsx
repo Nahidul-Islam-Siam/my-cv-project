@@ -7,17 +7,17 @@ import Shop from "./pages/Shop";
 
 import Cart from "./components/cartPage/Cart";
 import Home from "./pages/Home";
-import Account from "./components/admin/Account";
+// import Account from "./components/admin/Account";
 
 
-import Category from "./components/admin/Category";
-import Profile from "./components/admin/Profile";
+// import Category from "./components/admin/Category";
+// import Profile from "./components/admin/Profile";
 
 import FrontLayout from "./layout/FrontLayout";
 import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
 
-import MiniDrawer from "./components/admin/Das";
+// import MiniDrawer from "./components/admin/Das";
 import CartStepper from "./components/cartPage/CartStepper";
 
 
@@ -31,13 +31,15 @@ function App() {
         {/* Main Content */}
         <main className="flex-grow">
           <Routes>
-            {/* Admin Dashboard Routes */}
-            <Route path="dashboard" element={<MiniDrawer />}>
+
+            {/* admin dashboard */}
+         
+            {/* <Route path="dashboard" element={<MiniDrawer />}>
               <Route index path="account" element={<Account />} />
-              {/* <Route path="product" element={<Product />} /> */}
+         
               <Route path="category" element={<Category />} />
               <Route path="profile" element={<Profile />} />
-            </Route>
+            </Route> */}
 
             {/* Frontend Routes */}
             <Route path="/" element={< FrontLayout/>}>

@@ -1,4 +1,4 @@
-import short1 from '../assets/short1.png';
+import short1 from '../../assets/short1.png';
 const OrderCompletePage = () => {
     const products = [
       { imgSrc: short1, alt: 'Black Table', quantity: 2 },

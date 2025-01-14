@@ -1,9 +1,9 @@
 
 // Import your custom images (replace these paths with the actual image paths)
-import freeShippingImage from '../assets/fast delivery.png'; 
-import moneyBackImage from '../assets/money.png'; 
-import securePaymentsImage from '../assets/lock 01.png'; 
-import supportImage from '../assets/call.png';
+import freeShippingImage from '../../assets/fast delivery.png'; 
+import moneyBackImage from '../../assets/money.png'; 
+import securePaymentsImage from '../../assets/lock 01.png'; 
+import supportImage from '../../assets/call.png';
 
 const Features = () => {
   const features = [

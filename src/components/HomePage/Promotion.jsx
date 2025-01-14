@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import headphonesImage from '../assets/banner-2.png';
+import { useState, useEffect } from 'react';
+import headphonesImage from '../../assets/banner-2.png';
 
 const Promotion = () => {
   const calculateTimeLeft = () => {
