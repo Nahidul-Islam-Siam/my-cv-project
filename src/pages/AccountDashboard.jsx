@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { FiMenu } from "react-icons/fi";
 import avatar from "../assets/avatar.png";
 import {
@@ -26,7 +27,18 @@ const MenuItem = ({ icon: Icon, label, badge, link }) => (
     )}
   </Link>
 );
+MenuItem.propTypes = {
+  icon: PropTypes.elementType.isRequired,
+  label: PropTypes.string.isRequired,
+  badge: PropTypes.string,
+  link: PropTypes.string.isRequired,
+};
 
+MenuItem.defaultProps = {
+  badge: null,
+};
+
+// Sidebar Component
 // Sidebar Component
 const Sidebar = ({ isOpen, closeSidebar }) => (
   <>
@@ -49,7 +61,8 @@ const Sidebar = ({ isOpen, closeSidebar }) => (
         </div>
         <h1 className="mb-8 mt-5 inter-font text-xl font-semibold text-center">Siam</h1>
         <ul className="space-y-2 font-medium">
-          <MenuItem icon={MdAccountCircle} label="Account" link="/dashboard/account" />
+
+
           <MenuItem icon={MdLocationOn} label="Address" badge="Pro" link="/address" />
           <MenuItem icon={MdShoppingCart} label="Orders" badge="3" link="/orders" />
           <MenuItem icon={MdFavorite} label="Wishlist" link="/wishlist" />
@@ -57,11 +70,12 @@ const Sidebar = ({ isOpen, closeSidebar }) => (
           <MenuItem icon={MdPersonAddAlt} label="Sign Up" link="/signup" />
         </ul>
       </div>
-    </aside>
+
+
   </>
 );
 
-// Sidebar Toggle Button Component
+
 const SidebarToggle = ({ toggleSidebar }) => (
   <button
     onClick={toggleSidebar}
@@ -100,3 +114,13 @@ const AccountDashboard = () => {
 };
 
 export default AccountDashboard;
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  closeSidebar: PropTypes.func.isRequired,
+};
+
+
+SidebarToggle.propTypes = {
+  toggleSidebar: PropTypes.func.isRequired,
+};

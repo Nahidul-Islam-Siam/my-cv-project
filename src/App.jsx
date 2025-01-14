@@ -7,17 +7,15 @@ import Shop from "./pages/Shop";
 
 import Cart from "./components/cartPage/Cart";
 import Home from "./pages/Home";
-// import Account from "./components/admin/Account";
 
-
-// import Category from "./components/admin/Category";
-// import Profile from "./components/admin/Profile";
+import  MiniDrawer from "./components/admin/Das";
+import Account from "./components/admin/Account";
 
 import FrontLayout from "./layout/FrontLayout";
 import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
 
-// import MiniDrawer from "./components/admin/Das";
+
 import CartStepper from "./components/cartPage/CartStepper";
 
 
@@ -34,12 +32,11 @@ function App() {
 
             {/* admin dashboard */}
          
-            {/* <Route path="dashboard" element={<MiniDrawer />}>
+            <Route path="dashboard" element={<MiniDrawer />}>
               <Route index path="account" element={<Account />} />
-         
-              <Route path="category" element={<Category />} />
-              <Route path="profile" element={<Profile />} />
-            </Route> */}
+      
+           
+            </Route>
 
             {/* Frontend Routes */}
             <Route path="/" element={< FrontLayout/>}>
@@ -58,7 +55,7 @@ function App() {
         </main>
 
         {/* Footer */}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </BrowserRouter>
   );
