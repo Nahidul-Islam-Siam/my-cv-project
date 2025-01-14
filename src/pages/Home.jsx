@@ -4,10 +4,11 @@ import Hero from "../components/HomePage/Hero";
 import LogoSlider from "../components/HomePage/LogoSlider";
 import ProductSlider from "../components/HomePage/NewArrival";
 import NewsletterSignup from "../components/commoon/NewsLetter";
-import ProductCategories from "../components/ProductPage/ProductsCategories";
+
 
 import Promotion from "../components/HomePage/Promotion";
 import SocialMediaFollow from "../components/HomePage/SocialMediaFollow";
+import ProductCategories from "../components/HomePage/ProductsCategories";
 
 const Home = () => {
   return (

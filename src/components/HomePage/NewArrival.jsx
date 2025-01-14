@@ -5,6 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import ProductCard from '../commoon/ProductCard';
+import Heading from '../commoon/Heading';
+import '../../Style/NewArrival.css'
 
 const products = [
   {
@@ -59,13 +61,8 @@ const products = [
 
 const ProductSlider = () => {
   return (
-    <div className="product-slider mt-10">
-  <div className="flex items-center justify-between pb-10">
-    <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-none">
-      New Arrivals
-    </h2>
-    <div className="custom-pagination flex items-center" />
-  </div>
+    <div className=" product-slider mt-10">
+  <Heading title="New Arrivals" />
 
   <Swiper
     modules={[Navigation, Pagination]}

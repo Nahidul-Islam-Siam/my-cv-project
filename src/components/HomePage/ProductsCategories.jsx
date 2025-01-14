@@ -1,4 +1,5 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
+import Heading from "../commoon/Heading";
 
 const ProductCategories = () => {
   const categories = [
@@ -9,12 +10,7 @@ const ProductCategories = () => {
 
   return (
     <div className="py-16">
-         <div className="flex items-center justify-between pb-10">
-    <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-none">
-      Shop Collections
-    </h2>
-    <div className="custom-pagination flex items-center" />
-  </div>
+          <Heading title="Shop Collection" />
       <div className="container mx-auto">
         <div className="flex flex-wrap md:flex-nowrap gap-7">
           {/* First collection */}

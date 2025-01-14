@@ -12,11 +12,11 @@ const Shop = () => {
 
   return (
     <div>
-      <div className="mx-[50px]">
+      <div className="lg:mx-[50px]">
         <Banner
           backgroundImage={ShopBG}
           title="Shop Page"
-          subtitle="Let’s design the place you always imagined."
+          subtitle="Let's design the place you always imagined."
           breadcrumbs={breadcrumbs}
         />
         <ProductGrid />

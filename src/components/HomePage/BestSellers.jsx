@@ -2,6 +2,7 @@
 import { CiHeart } from "react-icons/ci";
 import { AiFillStar } from "react-icons/ai";
 import PropTypes from 'prop-types';
+import Heading from "../commoon/Heading";
 
 const ProductCard = ({ product }) => {
   return (
@@ -103,12 +104,7 @@ const products = [
 const ProductList = () => {
   return (
     <div className="py-16 ">
-   <div className="flex items-center justify-between pb-10">
-    <h2 className="text-4xl sm:text-5xl font-medium whitespace-nowrap leading-none">
-      Best Sellers
-    </h2>
-    <div className="custom-pagination flex items-center" />
-  </div>
+  <Heading title="Best Sellers" />
       <div className="container mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {products.map((product, index) => (
