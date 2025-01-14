@@ -13,6 +13,7 @@ import OrderComplete from "./components/OrderComplete";
 // import Dashboard from "./pages/AccountDashboard";
 import AccountDashboard from "./pages/AccountDashboard";
 import MiniDrawer from "./components/Das";
+import Account from "./components/Account";
 
 const router = createBrowserRouter([
   {
@@ -68,9 +69,9 @@ const router = createBrowserRouter([
     // element: <Dashboard />,
     element: <MiniDrawer/>,
     children: [
-      {
+   {
         path: "account", // Nested Account Dashboard route
-        element: <AccountDashboard />,
+        element: <Account />,
       },
     ],
   },
