@@ -6,14 +6,17 @@ import MiniDrawer from "./Das";
 const Account = () => {
     return (
       
-        <Box sx={{ display: 'flex' }}>
-            <MiniDrawer/>
+//         <Box sx={{ display: 'flex' }}>
+//             <MiniDrawer/>
 
-<Box component='main' sx={{ flexGrow: 1, p: 3 }}>
-    <h1>Account</h1>
+// <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
+//     <h1>Account</h1>
 
-</Box>
-        </Box>
+// </Box>
+//         </Box>
+<>
+ami account
+</>
     );
 };
 
