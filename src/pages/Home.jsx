@@ -17,7 +17,7 @@ const Home = () => {
       <Hero />
 
       {/* Main content within a constrained container */}
-      <div className="flex flex-col gap-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col  max-w-7xl mx-auto px-4 sm:px-6 ">
         <LogoSlider />
         <ProductSlider />
         <ProductCategories />

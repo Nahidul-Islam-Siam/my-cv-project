@@ -44,13 +44,13 @@ const LogoSlider = () => {
   if (!isMobile) {
 
     return (
-      <div className="flex justify-around items-center pt-5">
+      <div className="flex justify-around items-center ">
         {logos.map((logo, index) => (
           <img
             key={index}
             src={logo.src}
             alt={logo.alt}
-            className="max-w-[150px] h-auto"
+            className="max-w-[150px] h-auto py-5"
           />
         ))}
       </div>

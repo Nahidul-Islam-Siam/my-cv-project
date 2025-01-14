@@ -2,7 +2,7 @@
 /* Add your CSS styles */
 .logo-slider-container {
     width: 100%; /* Or a specific width */
-    padding: 20px; /* Add some padding */
+    padding: 20px; 
   }
   
   .logo-slide {
@@ -21,7 +21,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      padding: 20px;
+      /* padding: 20px; */
   }
   .desktop-logo{
       max-width: 150px;
@@ -33,7 +33,7 @@
     width: 100%; /* Ensures it takes up the full width */
     overflow: hidden; /* Prevents content from overflowing */
     position: relative; /* Ensures child elements are positioned correctly */
-   padding-top: 20px;
+   padding-top: 50px;
     box-sizing: border-box; /* Ensures padding does not affect width */
   }
   
