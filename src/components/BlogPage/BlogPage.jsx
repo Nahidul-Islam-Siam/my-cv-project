@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import blog1 from '../../assets/img container (1).png'
-import blog2 from '../../assets/img container (2).png'
-import blog3 from '../../assets/img container (3).png'
-import blog4 from '../../assets/img container (4).png'
+import blog1 from '../../assets/img container (1).png';
+import blog2 from '../../assets/img container (2).png';
+import blog3 from '../../assets/img container (3).png';
+import blog4 from '../../assets/img container (4).png';
+
 const blogPosts = [
   {
     title: '7 ways to decor your home like a professional',
@@ -13,49 +15,19 @@ const blogPosts = [
   },
   {
     title: 'Inside a beautiful kitchen organization',
-    image: blog2 ,
+    image: blog2,
     date: 'October 16, 2022',
     category: 'organization',
   },
   {
     title: 'Decor your bedroom for your children',
-    image: blog3 ,
+    image: blog3,
     date: 'October 16, 2022',
     category: 'decor',
   },
   {
     title: 'Modern texas home is beautiful and completely kid-friendly',
-    image: blog4 ,
-    date: 'October 16, 2022',
-    category: 'kid-friendly',
-  },
-  {
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    image: blog4 ,
-    date: 'October 16, 2022',
-    category: 'kid-friendly',
-  },
-  {
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    image: blog4 ,
-    date: 'October 16, 2022',
-    category: 'kid-friendly',
-  },
-  {
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    image: blog4 ,
-    date: 'October 16, 2022',
-    category: 'kid-friendly',
-  },
-  {
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    image: blog4 ,
-    date: 'October 16, 2022',
-    category: 'kid-friendly',
-  },
-  {
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    image: blog4 ,
+    image: blog4,
     date: 'October 16, 2022',
     category: 'kid-friendly',
   },
@@ -65,7 +37,8 @@ const blogPosts = [
 // BlogCard Component
 const BlogCard = ({ post }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+   <a href='/blogs'>
+     <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <img
         src={post.image}
         alt={post.title}
@@ -76,7 +49,16 @@ const BlogCard = ({ post }) => {
         <p className="text-gray-600 text-sm mt-2">{post.date}</p>
       </div>
     </div>
+   </a>
   );
+};
+
+BlogCard.propTypes = {
+  post: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 // FilterDropdown Component
@@ -100,6 +82,12 @@ const FilterDropdown = ({ categories, filter, setFilter }) => {
   );
 };
 
+FilterDropdown.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
+};
+
 // Main App Component
 const BlogPage = () => {
   const [filter, setFilter] = useState('all');
@@ -119,7 +107,7 @@ const BlogPage = () => {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {filteredPosts.map((post, index) => (
-          <BlogCard key={index} post={post} />
+          <BlogCard key={index} post={post}  />
         ))}
       </div>
     </div>
