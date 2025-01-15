@@ -4,9 +4,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
-import ProductCard from '../commoon/ProductCard';
+
 import Heading from '../commoon/Heading';
 import '../../Style/NewArrival.css'
+import ProductCard from '../commoon/ProductCard';
 
 const products = [
   {
@@ -61,14 +62,14 @@ const products = [
 
 const ProductSlider = () => {
   return (
-    <div className=" product-slider mt-10">
+    <div className=" py-12 container mx-auto">
   <Heading title="New Arrivals" />
 
   <Swiper
     modules={[Navigation, Pagination]}
-    spaceBetween={16} // Reduced for a tighter layout
-    slidesPerView={4.5} // Show 4 full cards and part of the 5th
-    pagination={{ clickable: true, el: '.custom-pagination' }} // Link custom pagination
+    spaceBetween={16} 
+    slidesPerView={4.5}
+    pagination={{ clickable: true, el: '.custom-pagination' }} 
     breakpoints={{
       320: {
         slidesPerView: 1.2,

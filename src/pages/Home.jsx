@@ -2,13 +2,14 @@ import ProductList from "../components/HomePage/BestSellers";
 import Features from "../components/HomePage/Features";
 import Hero from "../components/HomePage/Hero";
 import LogoSlider from "../components/HomePage/LogoSlider";
-import ProductSlider from "../components/HomePage/NewArrival";
+// import ProductSlider from "../components/HomePage/NewArrival";
 import NewsletterSignup from "../components/commoon/NewsLetter";
 
 
 import Promotion from "../components/HomePage/Promotion";
 import SocialMediaFollow from "../components/HomePage/SocialMediaFollow";
 import ProductCategories from "../components/HomePage/ProductsCategories";
+import PSlider from "../components/HomePage/SlideCard";
 
 const Home = () => {
   return (
@@ -19,7 +20,8 @@ const Home = () => {
       {/* Main content within a constrained container */}
       <div className="flex flex-col  max-w-7xl mx-auto px-4 sm:px-6 ">
         <LogoSlider />
-        <ProductSlider />
+        {/* <ProductSlider /> */}
+        <PSlider/>
         <ProductCategories />
         <ProductList />
         <Promotion />

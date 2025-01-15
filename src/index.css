@@ -43,3 +43,38 @@ body {
     --radius: 0.5rem;
   }
 }
+
+
+/* Logo slider container */
+.logo-slider-container {
+  width: 100%; /* Takes full width of the parent */
+  padding-top: 50px;
+  overflow: hidden; /* Hides overflow content */
+  box-sizing: border-box; /* Includes padding in width */
+}
+
+/* Individual slide styling */
+.logo-slide {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+}
+
+.logo-image {
+  height: 50px !important; /* Forces height */
+  object-fit: contain; /* Keeps aspect ratio */
+}
+
+/* Desktop-specific logo adjustments */
+.desktop-logo {
+  max-width: 150px; /* Sets maximum width */
+  height: auto; /* Keeps aspect ratio */
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+  .logo-image {
+    max-width: 80px; /* Reduces logo size */
+    height: auto; /* Keeps aspect ratio */
+  }
+}

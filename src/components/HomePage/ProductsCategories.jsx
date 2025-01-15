@@ -22,7 +22,7 @@ const ProductCategories = () => {
                 className="object-cover w-full h-full"
               />
               <div className="p-6 absolute bottom-2">
-                <h3 className="text-[34px] text-[#121212] font-medium mb-2 capitalize poppins-font">
+                <h3 className=" text-[34px] text-[#121212] font-medium mb-2 capitalize poppins-font">
                   {categories[0].title}
                 </h3>
                 <p className="text-[#121212] inter-font font-medium text-base  underline gap-1 flex align-middle items-center">

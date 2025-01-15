@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className="overflow-hidden w-full max-w-[280px] h-[350px] group flex flex-col">
+    <div className=" w-full max-w-[280px] h-[350px] group flex flex-col">
       {/* Image Section */}
       <div className="relative h-[70%]">
         <img
@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
           className="w-full h-full object-cover"
         />
         {product.isNew && (
-          <span className="absolute top-3 left-3 inter-font text-[#121212] text-sm font-bold px-2 py-1 rounded bg-yellow-300">
+          <span className="absolute  top-3 left-3 inter-font text-[#121212] text-sm font-bold px-2 py-1 rounded bg-yellow-300">
             NEW
           </span>
         )}
@@ -37,10 +37,10 @@ const ProductCard = ({ product }) => {
             <FaStar key={idx} size={12} className="text-[#141718]" />
           ))}
         </div>
-        <h3 className="text-[#141718] inter-font font-semibold text-sm line-clamp-2 mb-2">
+        <h3 className="text-[#141718] inter-font text-left font-semibold text-sm line-clamp-2 mb-2">
           {product.name || "Unnamed Product"}
         </h3>
-        <p className="text-[#121212] inter-font text-sm">
+        <p className="text-[#121212] text-left inter-font text-sm">
           ${product.price || "N/A"}
         </p>
       </div>
