@@ -109,6 +109,8 @@ const StylishTravelBags = () => {
   );
 };
 
+import PropTypes from 'prop-types';
+
 const ArticleSection = ({ title, content }) => (
   <div className="mt-4">
     <h2 className="text-3xl text-gray-800 font-medium mb-4">{title}</h2>
@@ -201,4 +203,24 @@ const Sidebar = () => (
   </div>
 );
 
+
 export default StylishTravelBags;
+
+
+ArticleList.propTypes = {
+  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+ArticleSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
+
+
+
+
