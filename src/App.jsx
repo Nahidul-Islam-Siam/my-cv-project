@@ -17,6 +17,7 @@ import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
 
 import CartStepper from "./components/cartPage/CartStepper";
+import StylishTravelBags from "./components/BlogPage/Blogs";
 
 
 
@@ -47,6 +48,7 @@ function App() {
               <Route path="/product" element={<Product/>} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blogs" element={<StylishTravelBags />} />
               <Route path="cartpage" element={<CartStepper />}>
                 <Route path="cart" element={<Cart />} />
                 <Route path="checkout" element={<Cart />} />
