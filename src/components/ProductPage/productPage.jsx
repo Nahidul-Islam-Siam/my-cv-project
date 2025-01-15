@@ -1,128 +1,73 @@
-import { useEffect, useRef, useState } from "react";
-import { FaChevronLeft, FaChevronRight, FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
+import { useEffect,  useState } from "react";
+import {
+  //  FaChevronLeft, FaChevronRight,
+   FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
 
 import PropTypes from 'prop-types';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
 
-const ImageSlider = ({ images, activeThumbnail, onThumbnailClick }) => {
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-    const swiperRef = useRef(null);
-    const [currentSlide, setCurrentSlide] = useState(activeThumbnail);
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 
-    const goNext = () => {
-        if (swiperRef.current?.swiper) swiperRef.current.swiper.slideNext();
-    };
+import '../../Style/ImageSlider.css';
 
-    const goPrev = () => {
-        if (swiperRef.current?.swiper) swiperRef.current.swiper.slidePrev();
-    };
+// Import required modules
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
-    const handleSlideChange = (swiper) => {
-        setCurrentSlide(swiper.activeIndex);
-    };
+const ImageSlider = ({images}) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === "ArrowLeft") goPrev();
-            if (event.key === "ArrowRight") goNext();
-        };
-        document.addEventListener("keydown", handleKeyDown);
-        return () => document.removeEventListener("keydown", handleKeyDown);
-    }, []);
 
-    return (
-        <div className="flex flex-col gap-4">
-            <div className="bg-white shadow p-2 relative">
-                <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">NEW</span>
-                <div className="relative">
-                    <button
-                        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
-                        onClick={goPrev}
-                    >
-                        <FaChevronLeft />
-                    </button>
-                    <Swiper
-                        spaceBetween={10}
-                        slidesPerView={1}
-                        onSlideChange={handleSlideChange}
-                        className="w-full"
-                        initialSlide={activeThumbnail}
-                        onSwiper={(swiper) => (swiperRef.current = swiper)}
-                    >
-                        {images.map((image, index) => (
-                            <SwiperSlide key={index}>
-                                <img
-                                    src={image}
-                                    alt={`Product ${index + 1}`}
-                                    className="w-full object-contain"
-                                    style={{ aspectRatio: "1/1" }}
-                                />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                    <button
-                        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
-                        onClick={goNext}
-                    >
-                        <FaChevronRight />
-                    </button>
-                </div>
-                <div className="mt-2 flex justify-center">
-                    {images.map((_, index) => (
-                        <div
-                            key={index}
-                            className={`w-3 h-3 mx-1 rounded-full ${
-                                currentSlide === index ? "bg-black" : "bg-gray-300"
-                            }`}
-                        ></div>
-                    ))}
-                </div>
-            </div>
+  return (
+    <div>
+      {/* Main Slider */}
+      <Swiper
+        style={{
+          '--swiper-navigation-color': '#fff',
+          '--swiper-pagination-color': '#fff',
+        }}
+        spaceBetween={10}
+        navigation={true}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper2"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img src={image} alt={`Slide ${index + 1}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-               {/* Thumbnail Slider */}
-               <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
-                <Swiper
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    onSwiper={(swiper) => swiper.update()}
-                    freeMode={true}
-                >
-                    {images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <img
-                                src={image}
-                                alt={`Thumbnail ${index + 1}`}
-                                className={`w-20 h-20 object-cover cursor-pointer shadow-md ${
-                                    activeThumbnail === index ? 'border-2 border-black' : 'border-2 border-transparent'
-                                }`}
-                                onClick={() => onThumbnailClick(index)}
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-
-            {/* <div className="bg-white p-2 w-full overflow-x-auto whitespace-nowrap">
-                <div className="flex gap-4">
-                    {images.map((image, index) => (
-                        <img
-                            key={index}
-                            src={image}
-                            alt={`Product thumbnail ${index + 1}`}
-                            className={`w-20 h-20 object-cover cursor-pointer shadow-md ${
-                                activeThumbnail === index ? "border-2 border-black" : "border-2 border-transparent"
-                            }`}
-                            onClick={() => onThumbnailClick(index)}
-                        />
-                    ))}
-                </div>
-            </div> */}
-        </div>
-    );
+      {/* Thumbnail Slider */}
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode={true}
+        loop={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img src={image} alt={`Thumbnail ${index + 1}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
 };
+
 
 
 
@@ -355,11 +300,11 @@ const ProductDetail = () => {
       <div className="font-[sans-serif] p-4 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* <ImageSlider
+            <ImageSlider
               images={images}
               activeThumbnail={activeThumbnail}
               onThumbnailClick={handleThumbnailClick}
-            /> */}
+            />
             <div className="w-full">
               <ProductDetails
                 title="Tray Table"

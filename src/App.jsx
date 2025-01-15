@@ -17,13 +17,13 @@ import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
 
 import CartStepper from "./components/cartPage/CartStepper";
-import ImageSlider from "./components/ProductPage/ImageSlider";
+
 
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="w-full flex flex-col min-h-screen">
+      <div className="w-full flex flex-col min-h-screen bg-lightBackground dark:bg-darkBackground">
         {/* Navbar */}
         {/* <Navbar /> */}
 
@@ -44,7 +44,7 @@ function App() {
               <Route index element={<Home />} />
               {/* <Route path="account" element={<Account />} /> */}
               <Route path="shop" element={<Shop />} />
-              <Route path="/product" element={<ImageSlider/>} />
+              <Route path="/product" element={<Product/>} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="cartpage" element={<CartStepper />}>
@@ -56,29 +56,11 @@ function App() {
           </Routes>
         </main>
 
-        {/* Footer */}
-        {/* <Footer /> */}
+      
       </div>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-// function App() {
-//   return (
-//     <div className="w-full flex flex-col min-h-screen">
-//       {/* Navbar */}
-//       <Navbar />
-
-//       {/* Main content area */}
-//       <main className="flex-grow">
-//         <Outlet />
-//       </main>
-
-//       {/* Footer */}
-//       <Footer />
-//     </div>
-//   );
-// }
 
