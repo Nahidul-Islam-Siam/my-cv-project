@@ -1,9 +1,9 @@
+/* 
 
-/* navigation for New Arrival */
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: black !important;
   }
-  /* Position custom pagination at the top */
+ 
   
   .custom-pagination {
     display: flex ;
@@ -24,33 +24,33 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   .custom-pagination .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background-color: lightgray; /* Default bullet color */
-    opacity: 1; /* Ensure bullets are visible */
-    border-radius: 50%; /* Make them circles */
-    margin: 0 4px; /* Adjust spacing between bullets */
-    transition: all 0.3s ease; /* Add transition for smooth effect */
+    background-color: lightgray; 
+    opacity: 1; 
+    border-radius: 50%;
+    margin: 0 4px;
+    transition: all 0.3s ease; 
   }
   
   .custom-pagination .swiper-pagination-bullet-active {
-    background-color: black; /* Active bullet fill color */
+    background-color: black; 
     width: 8px;
     height: 8px;
-    position: relative; /* Needed for absolute positioning of the border */
+    position: relative;
   }
   
   .custom-pagination .swiper-pagination-bullet-active::before {
     content: "";
     position: absolute;
-    top: -50%; /* Adjust as needed for border thickness */
-    left: -50%; /* Adjust as needed for border thickness */
-    width: 16px; /* Adjust based on bullet and border thickness */
-    height: 16px; /* Adjust based on bullet and border thickness */
-    border: 1px solid gray; /* Border color and thickness */
+    top: -50%; 
+    left: -50%; 
+    width: 16px; 
+    height: 16px; 
+    border: 1px solid gray;
     border-radius: 50%;
-    box-sizing: border-box; /* Include border in element's total width and height */
-    z-index: -1; /* Place the border behind the active bullet */
+    box-sizing: border-box; 
+    z-index: -1; 
   }
   
   .custom-pagination .swiper-pagination-bullet:hover {
     background-color: #ccc;
-  }  
+  }   */

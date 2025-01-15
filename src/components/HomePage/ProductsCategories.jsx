@@ -10,7 +10,7 @@ const ProductCategories = () => {
 
   return (
     <div className="py-16">
-          <Heading title="New Arrivals" />
+          <Heading title="Shop Collection" />
       <div className="container mx-auto">
         <div className="flex flex-wrap md:flex-nowrap gap-7">
           {/* First collection */}
