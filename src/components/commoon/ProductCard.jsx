@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Content Section */}
-      <div className="p-4 h-[30%] flex flex-col justify-between">
+      <div className="p-4 h-auto flex flex-col justify-between">
         <div className="flex text-[#141718] mb-2">
           {[...Array(5)].map((_, idx) => (
             <FaStar key={idx} size={12} className="text-[#141718]" />
