@@ -66,13 +66,9 @@ const SlideCard = () => {
         modules={[Navigation, Pagination]}
         spaceBetween={16}
         slidesPerView={4.5}
-        pagination={{
-          el: ".swiper-pagination",
-          type: "bullets",
-          clickable: true,
-          bulletClass: "bg-amber-400", //tailwind styles don't work here?
-          bulletActiveClass: "bg-green-400",
-        }}
+     
+     
+     
       
         breakpoints={{
           320: { slidesPerView: 1.2, spaceBetween: 5 },
@@ -82,7 +78,7 @@ const SlideCard = () => {
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-           <div style={{ width: '100%', height: '300px' }}> {/* Adjust height */}
+           <div style={{ width: '100%',height:'auto'  }}> {/* Adjust height */}
   <ProductCard product={product} />
 </div>
 
