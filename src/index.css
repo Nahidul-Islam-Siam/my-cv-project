@@ -80,6 +80,24 @@ body {
 
 
 
+.custom-pagination {
+  position: absolute !important;
+  top: 20px; /* Adjust to the desired position */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  background-color: #007bff;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #ff5733;
+}
+
+
 
 @layer base {
   :root {

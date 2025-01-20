@@ -60,13 +60,17 @@ const ProductList = () => {
     <div className="py-16 ">
   <Heading title="Best Sellers" />
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2  sm:grid-cols-2 md:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <ProductCard key={index} product={product} />
           ))}
         </div>
       </div>
     </div>
+
+
+
+
   );
 };
 

@@ -1,8 +1,8 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+// import "swiper/css/navigation";
+import "swiper/css/pagination";
 import ProductCard from '../commoon/ProductCard';
 import Heading from '../commoon/Heading';
 
@@ -61,11 +61,19 @@ const SlideCard = () => {
   return (
     <div className="py-12">
       <Heading title="New Arrivals" />
-      <Swiper
+      <div className="relative"></div>
+      <Swiper className="my-swiper"
         modules={[Navigation, Pagination]}
         spaceBetween={16}
         slidesPerView={4.5}
-        pagination={{ clickable: true }}
+        pagination={{
+          el: ".swiper-pagination",
+          type: "bullets",
+          clickable: true,
+          bulletClass: "bg-amber-400", //tailwind styles don't work here?
+          bulletActiveClass: "bg-green-400",
+        }}
+      
         breakpoints={{
           320: { slidesPerView: 1.2, spaceBetween: 5 },
           640: { slidesPerView: 2.5, spaceBetween: 6 },
@@ -74,11 +82,15 @@ const SlideCard = () => {
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-            <ProductCard product={product} />
+           <div style={{ width: '100%', height: '300px' }}> {/* Adjust height */}
+  <ProductCard product={product} />
+</div>
+
           </SwiperSlide>
         ))}
       </Swiper>
-
+      
+          
     </div>
   );
 };
