@@ -9,7 +9,9 @@ import NewsletterSignup from "../components/commoon/NewsLetter";
 import Promotion from "../components/HomePage/Promotion";
 import SocialMediaFollow from "../components/HomePage/SocialMediaFollow";
 import ProductCategories from "../components/HomePage/ProductsCategories";
-import PSlider from "../components/HomePage/SlideCard";
+import SlideCard from "../components/HomePage/SlideCard";
+// import PSlider from "../components/HomePage/SlideCard";
+// import ProductSlider from "../components/HomePage/NewArrival";
 
 const Home = () => {
   return (
@@ -21,7 +23,10 @@ const Home = () => {
       <div className="flex flex-col  max-w-7xl mx-auto px-4 sm:px-6 ">
         <LogoSlider />
         {/* <ProductSlider /> */}
-        <PSlider/>
+        {/* <NewArr */}
+        {/* <PSlider/>
+         */}
+         <SlideCard/>
         <ProductCategories />
         <ProductList />
         <Promotion />

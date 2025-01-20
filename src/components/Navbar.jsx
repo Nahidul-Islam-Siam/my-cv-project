@@ -57,7 +57,7 @@ const Navbar = () => {
           to="/"
           className={`text-lg font-bold ${location.pathname === "/" ? "text-black" : "text-gray-800"} no-underline`}
         >
-          3legant.
+          SAM FASHION
         </Typography>
 
         {/* Desktop Navigation */}

@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -21,35 +22,40 @@ const LogoSlider = () => {
   ];
 
   return (
-    <div className="logo-slider-container">
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
-        loop={true}
-        breakpoints={{
-          320: {
-            slidesPerView: 2,
-          },
-          480: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 6,
-          },
-        }}
-      >
-        {logos.map((logo, index) => (
-          <SwiperSlide key={index}>
-            <div className="logo-slide">
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="desktop-logo logo-image"
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="swiper-wrapper py-5 lg:py-10" style={{ width: '100%' }}>
+  <Swiper
+  modules={[Navigation]}
+  spaceBetween={20} // Adjust space to suit the new dimensions
+  slidesPerView={6}
+loop={true}
+  pagination={{ clickable: true }}
+  breakpoints={{
+    320: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    640: {
+      slidesPerView: 4,
+      spaceBetween: 15,
+    },
+    1024: {
+      slidesPerView: 6,
+      spaceBetween: 20,
+    },
+  }}
+  className="logo-slider-container"
+>
+  {logos.map((logo, index) => (
+    <SwiperSlide key={index}>
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        className="logo-slider"
+      />
+    </SwiperSlide>
+  ))}
+</Swiper>
+
     </div>
   );
 };
