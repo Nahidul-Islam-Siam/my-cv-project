@@ -18,14 +18,6 @@ const ProductGrid = () => {
     { label: "$200 - $299.99", min: 200, max: 299.99 },
   ];
 
-  // useEffect(() => {
-   
-  //   fetch('/Products.json')
-  //     .then((response) => response.json())
-  //     .then((data) => setProducts(data))
-  //     .catch((error) => console.error("Error fetching products:", error));
-  // }, []);
-
   const categories = [...new Set(products.flatMap((product) => product.categories))];
 
   const handlePriceChange = (range) => {
