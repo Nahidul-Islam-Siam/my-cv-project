@@ -4,7 +4,7 @@ const useBestSellers = () => {
   const [bestSellers, setBestSellers] = useState([]);
   const [error, setError] = useState(null);
 
-  const fetchNewArrivals = async () => {
+  const fetchBestSellers = async () => {
     try {
       const response = await fetch('/Products.json'); // Adjust URL if necessary
       if (!response.ok) {
@@ -21,7 +21,7 @@ const useBestSellers = () => {
   };
 
   useEffect(() => {
-    fetchNewArrivals();
+    fetchBestSellers();
   }, []);
 
   return { bestSellers, error };

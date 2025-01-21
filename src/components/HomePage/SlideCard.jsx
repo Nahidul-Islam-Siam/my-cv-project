@@ -4,13 +4,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ProductCard from "../commoon/ProductCard";
 import Heading from "../commoon/Heading";
-// import { useEffect, useState } from "react";
-// import useProducts from "../Hooks/AllProdutcs";
+
 import useNewArrivals from "../Hooks/NewArrivals";
 
 const SlideCard = () => {
  
-  const {newArrivals} = useNewArrivals(); // Use the custom hook
+  const {newArrivals} = useNewArrivals();
 
 
   return (
