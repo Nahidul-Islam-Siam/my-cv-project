@@ -11,7 +11,7 @@
     "images": ["/sony-wh-1000xm5-1.png", "/sony-wh-1000xm5-2.png", "/sony-wh-1000xm5-3.png"]
   },
   {
-    "image": "/beats-studio-pro.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Beats Studio Pro Headphones",
     "price": "349.99",
     "currency": "USD",
@@ -33,7 +33,7 @@
     "images": ["/sony-wh-ch720n-1.png", "/sony-wh-ch720n-2.png"]
   },
   {
-    "image": "/skullcandy-rail.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Skullcandy- Rail True Wireless Earbuds",
     "price": "79.99",
     "currency": "USD",
@@ -44,7 +44,7 @@
     "images": ["/skullcandy-rail-1.png", "/skullcandy-rail-2.png", "/skullcandy-rail-3.png"]
   },
   {
-    "image": "/jbl-reflect-flow-pro.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports",
     "price": "179.95",
     "currency": "USD",
@@ -55,7 +55,7 @@
     "images": ["/jbl-reflect-flow-pro-1.png", "/jbl-reflect-flow-pro-2.png"]
   },
   {
-    "image": "/bose-quietcomfort.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Bose QuietComfort Headphones",
     "price": "349.00",
     "currency": "USD",
@@ -66,7 +66,7 @@
     "images": ["/bose-quietcomfort-1.png", "/bose-quietcomfort-2.png"]
   },
   {
-    "image": "/akg-y600nc.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "AKG Y600NC Wireless Headphones",
     "price": "349.99",
     "currency": "USD",
@@ -77,7 +77,7 @@
     "images": ["/akg-y600nc-1.png", "/akg-y600nc-2.png"]
   },
   {
-    "image": "/sennheiser-momentum-3.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Sennheiser Momentum 3 Wireless Headphones",
     "price": "399.99",
     "currency": "USD",
@@ -88,7 +88,7 @@
     "images": ["/sennheiser-momentum-3-1.png", "/sennheiser-momentum-3-2.png"]
   },
   {
-    "image": "/sony-xb900n.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Sony XB900N Extra Bass Wireless Headphones",
     "price": "199.99",
     "currency": "USD",
@@ -99,7 +99,7 @@
     "images": ["/sony-xb900n-1.png", "/sony-xb900n-2.png"]
   },
   {
-    "image": "/marshall-major-iv.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Marshall Major IV Bluetooth Headphones",
     "price": "169.99",
     "currency": "USD",
@@ -110,7 +110,7 @@
     "images": ["/marshall-major-iv-1.png", "/marshall-major-iv-2.png"]
   },
   {
-    "image": "/anker-soundcore-life-q30.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Anker Soundcore Life Q30 Wireless Headphones",
     "price": "79.99",
     "currency": "USD",
@@ -121,7 +121,7 @@
     "images": ["/anker-soundcore-life-q30-1.png", "/anker-soundcore-life-q30-2.png"]
   },
   {
-    "image": "/plantronics-backbeat-fit.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Plantronics BackBeat Fit 6100",
     "price": "129.99",
     "currency": "USD",
@@ -132,7 +132,7 @@
     "images": ["/plantronics-backbeat-fit-1.png", "/plantronics-backbeat-fit-2.png"]
   },
   {
-    "image": "/jabra-elite-85t.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Jabra Elite 85t True Wireless Earbuds",
     "price": "229.99",
     "currency": "USD",
@@ -143,7 +143,7 @@
     "images": ["/jabra-elite-85t-1.png", "/jabra-elite-85t-2.png"]
   },
   {
-    "image": "/beyerdynamic-dt-770-pro.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Beyerdynamic DT 770 Pro Studio Headphones",
     "price": "149.00",
     "currency": "USD",
@@ -154,7 +154,7 @@
     "images": ["/beyerdynamic-dt-770-pro-1.png", "/beyerdynamic-dt-770-pro-2.png"]
   },
   {
-    "image": "/audio-technica-ath-m50xbt.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Audio-Technica ATH-M50xBT Wireless Headphones",
     "price": "199.00",
     "currency": "USD",
@@ -165,7 +165,7 @@
     "images": ["/audio-technica-ath-m50xbt-1.png", "/audio-technica-ath-m50xbt-2.png"]
   },
   {
-    "image": "/samsung-galaxy-buds2-pro.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Samsung Galaxy Buds2 Pro",
     "price": "229.99",
     "currency": "USD",
@@ -176,7 +176,18 @@
     "images": ["/samsung-galaxy-buds2-pro-1.png", "/samsung-galaxy-buds2-pro-2.png"]
   },
   {
-    "image": "/razer-barracuda-x.png",
+    "image": "/sony-wh-ch720n.png",
+    "name": "Samsung Galaxy Buds2 Pro",
+    "price": "229.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All", "Best Sellers"],
+    "description": "Next-gen wireless earbuds with immersive audio and a comfortable fit.",
+    "colors": ["Graphite", "White", "Bora Purple"],
+    "images": ["/samsung-galaxy-buds2-pro-1.png", "/samsung-galaxy-buds2-pro-2.png"]
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
     "name": "Razer Barracuda X Wireless Gaming Headset",
     "price": "99.99",
     "currency": "USD",
@@ -187,7 +198,7 @@
     "images": ["/razer-barracuda-x-1.png", "/razer-barracuda-x-2.png"]
   },
   {
-    "image": "/shure-aonic-50.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Shure AONIC 50 Wireless Noise Canceling Headphones",
     "price": "299.00",
     "currency": "USD",
@@ -198,7 +209,7 @@
     "images": ["/shure-aonic-50-1.png", "/shure-aonic-50-2.png"]
   },
   {
-    "image": "/logitech-g-pro-x.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Logitech G Pro X Wireless Gaming Headset",
     "price": "199.99",
     "currency": "USD",
@@ -209,7 +220,7 @@
     "images": ["/logitech-g-pro-x-1.png", "/logitech-g-pro-x-2.png"]
   },
   {
-    "image": "/edifier-w820nb.png",
+    "image": "/sony-wh-ch720n.png",
     "name": "Edifier W820NB Hybrid ANC Wireless Headphones",
     "price": "79.99",
     "currency": "USD",
