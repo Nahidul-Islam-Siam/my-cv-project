@@ -6,16 +6,20 @@
     "currency": "USD",
     "isNew": true,
     "categories": ["All", "New Arrivals", "Best Sellers"],
-    "description": "Premium wireless headphones with excellent noise cancellation and high-quality sound."
+    "description": "Premium wireless headphones with excellent noise cancellation and high-quality sound.",
+    "colors": ["Black", "Silver", "Blue"],
+    "images": ["/sony-wh-1000xm5-1.png", "/sony-wh-1000xm5-2.png", "/sony-wh-1000xm5-3.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/beats-studio-pro.png",
     "name": "Beats Studio Pro Headphones",
     "price": "349.99",
     "currency": "USD",
     "isNew": false,
     "categories": ["All", "Best Sellers"],
-    "description": "High-performance over-ear headphones designed for both comfort and sound quality."
+    "description": "High-performance over-ear headphones designed for both comfort and sound quality.",
+    "colors": ["Black", "Red", "White"],
+    "images": ["/beats-studio-pro-1.png", "/beats-studio-pro-2.png", "/beats-studio-pro-3.png"]
   },
   {
     "image": "/sony-wh-ch720n.png",
@@ -24,150 +28,195 @@
     "currency": "USD",
     "isNew": false,
     "categories": ["All"],
-    "description": "Affordable noise-canceling headphones with clear sound and long battery life."
+    "description": "Affordable noise-canceling headphones with clear sound and long battery life.",
+    "colors": ["Black", "White"],
+    "images": ["/sony-wh-ch720n-1.png", "/sony-wh-ch720n-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/skullcandy-rail.png",
     "name": "Skullcandy- Rail True Wireless Earbuds",
     "price": "79.99",
     "currency": "USD",
     "isNew": true,
     "categories": ["All", "New Arrivals"],
-    "description": "True wireless earbuds offering rich sound and a secure fit, ideal for active lifestyles."
+    "description": "True wireless earbuds offering rich sound and a secure fit, ideal for active lifestyles.",
+    "colors": ["Black", "Blue", "Green"],
+    "images": ["/skullcandy-rail-1.png", "/skullcandy-rail-2.png", "/skullcandy-rail-3.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Beats Studio Pro Headphones",
-    "price": "249.99",
-    "currency": "USD",
-    "isNew": false,
-    "categories": ["All", "Best Sellers"],
-    "description": "Comfortable, high-quality over-ear headphones with signature Beats sound."
-  },
-  {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/jbl-reflect-flow-pro.png",
     "name": "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports",
     "price": "179.95",
     "currency": "USD",
     "isNew": false,
     "categories": ["All"],
-    "description": "Wireless sports earbuds with an ergonomic design and IP68 waterproof rating."
+    "description": "Wireless sports earbuds with an ergonomic design and IP68 waterproof rating.",
+    "colors": ["Black", "Blue", "Pink"],
+    "images": ["/jbl-reflect-flow-pro-1.png", "/jbl-reflect-flow-pro-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/bose-quietcomfort.png",
     "name": "Bose QuietComfort Headphones",
     "price": "349.00",
     "currency": "USD",
     "isNew": true,
     "categories": ["All", "New Arrivals", "Best Sellers"],
-    "description": "Industry-leading noise-canceling headphones for an immersive listening experience."
+    "description": "Industry-leading noise-canceling headphones for an immersive listening experience.",
+    "colors": ["White", "Black"],
+    "images": ["/bose-quietcomfort-1.png", "/bose-quietcomfort-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/akg-y600nc.png",
     "name": "AKG Y600NC Wireless Headphones",
     "price": "349.99",
     "currency": "USD",
     "isNew": false,
     "categories": ["All"],
-    "description": "High-quality wireless headphones offering active noise cancellation and premium sound."
+    "description": "High-quality wireless headphones offering active noise cancellation and premium sound.",
+    "colors": ["Silver", "Gold"],
+    "images": ["/akg-y600nc-1.png", "/akg-y600nc-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/sennheiser-momentum-3.png",
     "name": "Sennheiser Momentum 3 Wireless Headphones",
     "price": "399.99",
     "currency": "USD",
     "isNew": true,
     "categories": ["All", "New Arrivals"],
-    "description": "Premium wireless headphones with excellent audio and noise cancellation."
+    "description": "Premium wireless headphones with excellent audio and noise cancellation.",
+    "colors": ["Black", "Brown"],
+    "images": ["/sennheiser-momentum-3-1.png", "/sennheiser-momentum-3-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/sony-xb900n.png",
     "name": "Sony XB900N Extra Bass Wireless Headphones",
     "price": "199.99",
     "currency": "USD",
     "isNew": false,
     "categories": ["All", "Best Sellers"],
-    "description": "Extra bass wireless headphones with noise canceling, perfect for music lovers."
+    "description": "Extra bass wireless headphones with noise canceling, perfect for music lovers.",
+    "colors": ["Black", "Blue"],
+    "images": ["/sony-xb900n-1.png", "/sony-xb900n-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
+    "image": "/marshall-major-iv.png",
     "name": "Marshall Major IV Bluetooth Headphones",
     "price": "169.99",
     "currency": "USD",
     "isNew": false,
     "categories": ["All"],
-    "description": "Durable and stylish headphones with high-quality sound and up to 80 hours of playtime."
+    "description": "Durable and stylish headphones with high-quality sound and up to 80 hours of battery life.",
+    "colors": ["Black", "Brown"],
+    "images": ["/marshall-major-iv-1.png", "/marshall-major-iv-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Bose Noise Cancelling Headphones 700",
-    "price": "379.99",
+    "image": "/anker-soundcore-life-q30.png",
+    "name": "Anker Soundcore Life Q30 Wireless Headphones",
+    "price": "79.99",
     "currency": "USD",
     "isNew": true,
-    "categories": ["All", "New Arrivals", "Best Sellers"],
-    "description": "Wireless noise-canceling headphones with 11 levels of noise control for clear sound."
+    "categories": ["All", "New Arrivals"],
+    "description": "Affordable wireless headphones with hybrid noise cancellation and 40-hour battery life.",
+    "colors": ["Black", "Blue", "Pink"],
+    "images": ["/anker-soundcore-life-q30-1.png", "/anker-soundcore-life-q30-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
-    "name": "JBL Tune 500BT Wireless On-Ear Headphones",
-    "price": "59.99",
-    "currency": "USD",
-    "isNew": false,
-    "categories": ["All"],
-    "description": "Affordable wireless on-ear headphones with deep bass and long-lasting comfort."
-  },
-  {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Plantronics BackBeat Go 810 Wireless Headphones",
+    "image": "/plantronics-backbeat-fit.png",
+    "name": "Plantronics BackBeat Fit 6100",
     "price": "129.99",
     "currency": "USD",
     "isNew": false,
     "categories": ["All"],
-    "description": "Wireless headphones with noise canceling and up to 22 hours of battery life."
+    "description": "Sweatproof wireless headphones designed for workouts with a stable fit.",
+    "colors": ["Black", "Camo", "Gray"],
+    "images": ["/plantronics-backbeat-fit-1.png", "/plantronics-backbeat-fit-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Jabra Elite 85h Wireless Headphones",
-    "price": "299.99",
-    "currency": "USD",
-    "isNew": true,
-    "categories": ["All", "New Arrivals"],
-    "description": "Premium wireless headphones with SmartSound and noise canceling features."
-  },
-  {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Beats Flex Wireless Earphones",
-    "price": "49.99",
-    "currency": "USD",
-    "isNew": true,
-    "categories": ["All", "New Arrivals"],
-    "description": "Affordable wireless earphones with great sound and long-lasting comfort."
-  },
-  {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Bang & Olufsen Beoplay H9i Wireless Headphones",
-    "price": "499.99",
-    "currency": "USD",
-    "isNew": false,
-    "categories": ["All"],
-    "description": "Luxury wireless headphones with noise canceling and superior sound quality."
-  },
-  {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Focal Listen Wireless Headphones",
+    "image": "/jabra-elite-85t.png",
+    "name": "Jabra Elite 85t True Wireless Earbuds",
     "price": "229.99",
     "currency": "USD",
     "isNew": false,
-    "categories": ["All"],
-    "description": "Wireless headphones designed for audiophiles, offering exceptional sound clarity."
+    "categories": ["All", "Best Sellers"],
+    "description": "Compact earbuds with advanced noise cancellation and customizable sound.",
+    "colors": ["Black", "Beige", "Gray"],
+    "images": ["/jabra-elite-85t-1.png", "/jabra-elite-85t-2.png"]
   },
   {
-    "image": "/sony-wh-ch720n.png",
-    "name": "Bowers & Wilkins PX7 Wireless Headphones",
-    "price": "399.99",
+    "image": "/beyerdynamic-dt-770-pro.png",
+    "name": "Beyerdynamic DT 770 Pro Studio Headphones",
+    "price": "149.00",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Professional studio headphones with exceptional sound quality and comfort.",
+    "colors": ["Black"],
+    "images": ["/beyerdynamic-dt-770-pro-1.png", "/beyerdynamic-dt-770-pro-2.png"]
+  },
+  {
+    "image": "/audio-technica-ath-m50xbt.png",
+    "name": "Audio-Technica ATH-M50xBT Wireless Headphones",
+    "price": "199.00",
     "currency": "USD",
     "isNew": true,
     "categories": ["All", "New Arrivals"],
-    "description": "Wireless headphones with adaptive noise canceling and exceptional audio quality."
+    "description": "Legendary studio sound with the convenience of wireless technology.",
+    "colors": ["Black", "White"],
+    "images": ["/audio-technica-ath-m50xbt-1.png", "/audio-technica-ath-m50xbt-2.png"]
+  },
+  {
+    "image": "/samsung-galaxy-buds2-pro.png",
+    "name": "Samsung Galaxy Buds2 Pro",
+    "price": "229.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All", "Best Sellers"],
+    "description": "Next-gen wireless earbuds with immersive audio and a comfortable fit.",
+    "colors": ["Graphite", "White", "Bora Purple"],
+    "images": ["/samsung-galaxy-buds2-pro-1.png", "/samsung-galaxy-buds2-pro-2.png"]
+  },
+  {
+    "image": "/razer-barracuda-x.png",
+    "name": "Razer Barracuda X Wireless Gaming Headset",
+    "price": "99.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals"],
+    "description": "Lightweight wireless gaming headset with a detachable mic and immersive sound.",
+    "colors": ["Black", "Quartz Pink"],
+    "images": ["/razer-barracuda-x-1.png", "/razer-barracuda-x-2.png"]
+  },
+  {
+    "image": "/shure-aonic-50.png",
+    "name": "Shure AONIC 50 Wireless Noise Canceling Headphones",
+    "price": "299.00",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Studio-quality headphones with premium noise canceling and comfort.",
+    "colors": ["Brown", "Black"],
+    "images": ["/shure-aonic-50-1.png", "/shure-aonic-50-2.png"]
+  },
+  {
+    "image": "/logitech-g-pro-x.png",
+    "name": "Logitech G Pro X Wireless Gaming Headset",
+    "price": "199.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "Best Sellers"],
+    "description": "Wireless gaming headset with Blue VO!CE mic technology for professional-quality audio.",
+    "colors": ["Black"],
+    "images": ["/logitech-g-pro-x-1.png", "/logitech-g-pro-x-2.png"]
+  },
+  {
+    "image": "/edifier-w820nb.png",
+    "name": "Edifier W820NB Hybrid ANC Wireless Headphones",
+    "price": "79.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Stylish headphones with hybrid ANC, 49 hours of playtime, and high-quality sound.",
+    "colors": ["Black", "White", "Blue"],
+    "images": ["/edifier-w820nb-1.png", "/edifier-w820nb-2.png"]
   }
 ]
