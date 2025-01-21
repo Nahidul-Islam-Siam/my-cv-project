@@ -1,34 +1,32 @@
-import { useState } from "react";
+import { useState} from "react";
 import ProductCard from "../commoon/ProductCard";
-import filter from '../../assets/FilterIcon.png'
+import filter from '../../assets/FilterIcon.png';
+import useProducts from "../Hooks/AllProdutcs";
 
 const ProductGrid = () => {
-  const products = [
-    { id: 1, image: "/sony-wh-ch720n.png", name: "Sony-WH-1000XM5 Wireless Noise Canceling Headphones", price: 299.9, isNew: true, category: "Living Room" },
-    { id: 2, image: "/sony-wh-ch720n.png", name: "Beats Studio Pro Headphones", price: 349.99, isNew: false, category: "Bedroom" },
-    { id: 3, image: "/sony-wh-ch720n.png", name: "Sony-WH-CH720N Wireless Noise Canceling Headphones", price: 149.99, isNew: false, category: "Kitchen" },
-    { id: 4, image: "/sony-wh-ch720n.png", name: "Skullcandy- Rail True Wireless Earbuds", price: 79.99, isNew: true, category: "Bathroom" },
-    { id: 5, image: "/sony-wh-ch720n.png", name: "Beats Studio Pro Headphones", price: 249.99, isNew: false, category: "Outdoor" },
-    { id: 6, image: "/sony-wh-ch720n.png", name: "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports", price: 179.95, isNew: false, category: "Kitchen" },
-    { id: 7, image: "/sony-wh-ch720n.png", name: "Bose QuietComfort Headphones", price: 349.0, isNew: true, category: "Living Room" },
-    { id: 8, image: "/sony-wh-ch720n.png", name: "AKG Y600NC Wireless Headphones", price: 349.99, isNew: false, category: "Outdoor" },
-    { id: 9, image: "/sony-wh-ch720n.png", name: "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports", price: 179.95, isNew: false, category: "Kitchen" },
-    { id: 10, image: "/sony-wh-ch720n.png", name: "Bose QuietComfort Headphones", price: 349.0, isNew: true, category: "Living Room" },
-    { id: 11, image: "/sony-wh-ch720n.png", name: "AKG Y600NC Wireless Headphones", price: 349.99, isNew: false, category: "Outdoor" },
-  ];
-
+  // const [products, setProducts] = useState([]); // Store products fetched from JSON
+  const {products} = useProducts();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
   const [sortOption, setSortOption] = useState("default");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false); // For mobile dropdown toggle
   const [visibleCount, setVisibleCount] = useState(4);
 
-  const categories = [...new Set(products.map((product) => product.category))];
   const priceRanges = [
     { label: "$0 - $99.99", min: 0, max: 99.99 },
     { label: "$100 - $199.99", min: 100, max: 199.99 },
     { label: "$200 - $299.99", min: 200, max: 299.99 },
   ];
+
+  // useEffect(() => {
+   
+  //   fetch('/Products.json')
+  //     .then((response) => response.json())
+  //     .then((data) => setProducts(data))
+  //     .catch((error) => console.error("Error fetching products:", error));
+  // }, []);
+
+  const categories = [...new Set(products.flatMap((product) => product.categories))];
 
   const handlePriceChange = (range) => {
     setSelectedPriceRanges((prevSelectedRanges) =>
@@ -44,7 +42,7 @@ const ProductGrid = () => {
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
-      !selectedCategory || product.category === selectedCategory;
+      !selectedCategory || product.categories.includes(selectedCategory);
     const matchesPrice =
       selectedPriceRanges.length === 0 ||
       selectedPriceRanges.some(
@@ -95,7 +93,7 @@ const ProductGrid = () => {
         </button>
         {isMobileFilterOpen && (
           <div className="bg-gray-100 p-4 rounded-md mt-2">
-            {/* Filter UI (same as Sidebar) */}
+            {/* Filter UI */}
             <div className="mb-6">
               <h5 className="text-base font-semibold mb-2">Categories</h5>
               <ul className="space-y-2">
@@ -151,9 +149,8 @@ const ProductGrid = () => {
 
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row gap-6">
-        {/* Sidebar (Only visible on Desktop) */}
+        {/* Sidebar (Desktop Only) */}
         <aside className="hidden lg:block lg:w-1/4 bg-gray-100 p-4 rounded-md">
-          {/* Same Filter UI as Mobile Dropdown */}
           <h4 className="text-xl font-semibold mb-6 flex items-center">
             <img alt="filter icon" className="w-4 h-4 mr-2" src={filter} />
             Filter
@@ -212,7 +209,7 @@ const ProductGrid = () => {
         {/* Products Grid */}
         <section className="flex-1 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {sortedProducts.slice(0, visibleCount).map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.name} product={product} />
           ))}
           {sortedProducts.length === 0 && <div>No products found.</div>}
         </section>
