@@ -110,8 +110,8 @@ const SmartFooter = () => {
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <FooterLink href="#" darkMode={darkMode}>Home</FooterLink>
-              <FooterLink href="#" darkMode={darkMode}>Services</FooterLink>
-              <FooterLink href="#" darkMode={darkMode}>Products</FooterLink>
+              <FooterLink href="#" darkMode={darkMode}>Shop</FooterLink>
+              <FooterLink href="#" darkMode={darkMode}>Blogs</FooterLink>
               <FooterLink href="#" darkMode={darkMode}>Contact</FooterLink>
             </Box>
           </Grid>
