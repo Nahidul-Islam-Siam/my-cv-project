@@ -1,51 +1,173 @@
 [
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "Sony-WH-1000XM5 Wireless Noise Canceling Headphones",
-      "price": "299.90",
-      "isNew": true
-    },
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "Beats Studio Pro Headphones",
-      "price": "349.99",
-      "isNew": false
-    },
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "Sony-WH-CH720N Wireless Noise Canceling Headphones",
-      "price": "149.99",
-      "isNew": false
-    },
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "Skullcandy- Rail True Wireless Earbuds",
-      "price": "79.99",
-      "isNew": true
-    },
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "Beats Studio Pro Headphones",
-      "price": "249.99",
-      "isNew": false
-    },
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports",
-      "price": "179.95",
-      "isNew": false
-    },
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "Bose QuietComfort Headphones",
-      "price": "349.00",
-      "isNew": true
-    },
-    {
-      "image": "/sony-wh-ch720n.png",
-      "name": "AKG Y600NC Wireless Headphones",
-      "price": "349.99",
-      "isNew": false
-    }
-  ]
-  
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Sony-WH-1000XM5 Wireless Noise Canceling Headphones",
+    "price": "299.90",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals", "Best Sellers"],
+    "description": "Premium wireless headphones with excellent noise cancellation and high-quality sound."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Beats Studio Pro Headphones",
+    "price": "349.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All", "Best Sellers"],
+    "description": "High-performance over-ear headphones designed for both comfort and sound quality."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Sony-WH-CH720N Wireless Noise Canceling Headphones",
+    "price": "149.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Affordable noise-canceling headphones with clear sound and long battery life."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Skullcandy- Rail True Wireless Earbuds",
+    "price": "79.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals"],
+    "description": "True wireless earbuds offering rich sound and a secure fit, ideal for active lifestyles."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Beats Studio Pro Headphones",
+    "price": "249.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All", "Best Sellers"],
+    "description": "Comfortable, high-quality over-ear headphones with signature Beats sound."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports",
+    "price": "179.95",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Wireless sports earbuds with an ergonomic design and IP68 waterproof rating."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Bose QuietComfort Headphones",
+    "price": "349.00",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals", "Best Sellers"],
+    "description": "Industry-leading noise-canceling headphones for an immersive listening experience."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "AKG Y600NC Wireless Headphones",
+    "price": "349.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "High-quality wireless headphones offering active noise cancellation and premium sound."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Sennheiser Momentum 3 Wireless Headphones",
+    "price": "399.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals"],
+    "description": "Premium wireless headphones with excellent audio and noise cancellation."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Sony XB900N Extra Bass Wireless Headphones",
+    "price": "199.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All", "Best Sellers"],
+    "description": "Extra bass wireless headphones with noise canceling, perfect for music lovers."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Marshall Major IV Bluetooth Headphones",
+    "price": "169.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Durable and stylish headphones with high-quality sound and up to 80 hours of playtime."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Bose Noise Cancelling Headphones 700",
+    "price": "379.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals", "Best Sellers"],
+    "description": "Wireless noise-canceling headphones with 11 levels of noise control for clear sound."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "JBL Tune 500BT Wireless On-Ear Headphones",
+    "price": "59.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Affordable wireless on-ear headphones with deep bass and long-lasting comfort."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Plantronics BackBeat Go 810 Wireless Headphones",
+    "price": "129.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Wireless headphones with noise canceling and up to 22 hours of battery life."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Jabra Elite 85h Wireless Headphones",
+    "price": "299.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals"],
+    "description": "Premium wireless headphones with SmartSound and noise canceling features."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Beats Flex Wireless Earphones",
+    "price": "49.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals"],
+    "description": "Affordable wireless earphones with great sound and long-lasting comfort."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Bang & Olufsen Beoplay H9i Wireless Headphones",
+    "price": "499.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Luxury wireless headphones with noise canceling and superior sound quality."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Focal Listen Wireless Headphones",
+    "price": "229.99",
+    "currency": "USD",
+    "isNew": false,
+    "categories": ["All"],
+    "description": "Wireless headphones designed for audiophiles, offering exceptional sound clarity."
+  },
+  {
+    "image": "/sony-wh-ch720n.png",
+    "name": "Bowers & Wilkins PX7 Wireless Headphones",
+    "price": "399.99",
+    "currency": "USD",
+    "isNew": true,
+    "categories": ["All", "New Arrivals"],
+    "description": "Wireless headphones with adaptive noise canceling and exceptional audio quality."
+  }
+]

@@ -4,26 +4,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ProductCard from "../commoon/ProductCard";
 import Heading from "../commoon/Heading";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+// import useProducts from "../Hooks/AllProdutcs";
+import useNewArrivals from "../Hooks/NewArrivals";
 
 const SlideCard = () => {
-  const [products, setProducts] = useState([]);
+ 
+  const {newArrivals} = useNewArrivals(); // Use the custom hook
 
-  // Fetch product data
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('/Products.json'); // Correct URL for the public folder
-      const data = await response.json();
-      setProducts(data); // Update state with fetched data
-      console.log(data); // Log fetched data to verify
-    } catch (error) {
-      console.error("Failed to fetch products:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
 
   return (
     <div className="py-12">
@@ -40,7 +28,7 @@ const SlideCard = () => {
           1024: { slidesPerView: 4.5, spaceBetween: 16 },
         }}
       >
-        {products.map((product, index) => (
+        {newArrivals.map((product, index) => (
           <SwiperSlide key={index}>
             <div
               className="max-w-[280px] h-[350px]"
