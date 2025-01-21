@@ -18,34 +18,27 @@ import Blog from "./pages/Blog";
 
 import CartStepper from "./components/cartPage/CartStepper";
 import StylishTravelBags from "./components/BlogPage/Blogs";
+import ChatWidget from "./components/ChatAppllication/ChatWidget";
 
 
 
 function App() {
   return (
-    <BrowserRouter>
+<BrowserRouter>
       <div className="w-full flex flex-col min-h-screen bg-lightBackground dark:bg-darkBackground">
-        {/* Navbar */}
-        {/* <Navbar /> */}
-
         {/* Main Content */}
         <main className="flex-grow">
           <Routes>
-
-            {/* admin dashboard */}
-         
+            {/* Admin Dashboard */}
             <Route path="dashboard" element={<MiniDrawer />}>
               <Route index path="account" element={<Account />} />
-      
-           
             </Route>
 
             {/* Frontend Routes */}
-            <Route path="/" element={< FrontLayout/>}>
+            <Route path="/" element={<FrontLayout />}>
               <Route index element={<Home />} />
-              {/* <Route path="account" element={<Account />} /> */}
               <Route path="shop" element={<Shop />} />
-              <Route path="/product" element={<Product/>} />
+              <Route path="/product" element={<Product />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blogs" element={<StylishTravelBags />} />
@@ -58,7 +51,8 @@ function App() {
           </Routes>
         </main>
 
-      
+        {/* Add Chat Widget */}
+        <ChatWidget/>
       </div>
     </BrowserRouter>
   );

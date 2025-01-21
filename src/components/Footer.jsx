@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Box, Container, Grid, Typography, IconButton, Switch, Link, Tooltip, useTheme } from "@mui/material";
 import { styled } from "@mui/system";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -109,10 +109,10 @@ const SmartFooter = () => {
               Quick Links
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              <FooterLink href="#" darkMode={darkMode}>Home</FooterLink>
-              <FooterLink href="#" darkMode={darkMode}>Shop</FooterLink>
-              <FooterLink href="#" darkMode={darkMode}>Blogs</FooterLink>
-              <FooterLink href="#" darkMode={darkMode}>Contact</FooterLink>
+              <FooterLink href="/" darkMode={darkMode}>Home</FooterLink>
+              <FooterLink href="/shop" darkMode={darkMode}>Shop</FooterLink>
+              <FooterLink href="/blog" darkMode={darkMode}>Blogs</FooterLink>
+              <FooterLink href="/contact" darkMode={darkMode}>Contact</FooterLink>
             </Box>
           </Grid>
 
@@ -140,22 +140,43 @@ const SmartFooter = () => {
             </Typography>
             <Box>
               <Tooltip title="Facebook" arrow>
-                <SocialButton aria-label="facebook" darkMode={darkMode}>
+                <SocialButton  aria-label="facebook"
+                  darkMode={darkMode}
+                  component="a"
+                  href="https://www.facebook.com/nahidulislam.siam.39"
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <FaFacebook />
                 </SocialButton>
               </Tooltip>
               <Tooltip title="Twitter" arrow>
-                <SocialButton aria-label="twitter" darkMode={darkMode}>
-                  <FaTwitter />
+                <SocialButton  
+                aria-label="linkedine"
+                  darkMode={darkMode}
+                  component="a"
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <FaLinkedin />
                 </SocialButton>
               </Tooltip>
               <Tooltip title="Instagram" arrow>
-                <SocialButton aria-label="instagram" darkMode={darkMode}>
+                <SocialButton aria-label="instagram"  
+                  darkMode={darkMode}
+                  component="a"
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <FaInstagram />
                 </SocialButton>
               </Tooltip>
               <Tooltip title="LinkedIn" arrow>
-                <SocialButton aria-label="linkedin" darkMode={darkMode}>
+                <SocialButton aria-label="linkedin"  
+                  darkMode={darkMode}
+                  component="a"
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <FaLinkedin />
                 </SocialButton>
               </Tooltip>
