@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 
+import axios from "axios";
+
 const useBestSellers = () => {
   const [bestSellers, setBestSellers] = useState([]);
   const [error, setError] = useState(null);
 
   const fetchBestSellers = async () => {
     try {
-      const response = await fetch('/Products.json'); // Adjust URL if necessary
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
+      const response = await axios.get('/Products.json'); // Adjust the URL if necessary
+      const data = response.data; // Accessing response data directly
       const bestSellersProducts = data.filter((product) =>
         product.categories.includes("Best Sellers")
       );

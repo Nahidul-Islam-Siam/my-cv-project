@@ -7,15 +7,18 @@ import Heading from "../commoon/Heading";
 
 import useNewArrivals from "../Hooks/NewArrivals";
 
+
 const SlideCard = () => {
  
   const {newArrivals} = useNewArrivals();
+ 
 
-console.log(newArrivals)
+
   return (
     <div className="py-12">
       <Heading title="New Arrivals" />
-      <div className="relative"></div>
+  
+      <div className="relative"></div> 
       <Swiper
         className="my-swiper"
         modules={[Navigation, Pagination]}

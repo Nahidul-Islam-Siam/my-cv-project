@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 const useNewArrivals = () => {
@@ -6,10 +7,9 @@ const useNewArrivals = () => {
 
   const fetchNewArrivals = async () => {
     try {
-      const response = await fetch('/Products.json'); // Adjust URL if necessary
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+    
+      const response = await axios.get('/Products.json'); // Adjust the URL if necessary
+      setNewArrivals(response.data); // Response data is accessed directly
       const data = await response.json();
       const newArrivalProducts = data.filter((product) =>
         product.categories.includes("New Arrivals")
