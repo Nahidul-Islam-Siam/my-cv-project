@@ -21,6 +21,8 @@ import '../../Style/ImageSlider.css';
 
 // Import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import axios from "axios";
+import { useParams } from "react-router";
 
 const ImageSlider = ({images}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -256,17 +258,19 @@ const reviewsData = [
 
 
 
-const ProductDetail = () => {
+  const ProductDetail = () => {
+    const { id } = useParams(); // Get the id from the route parameters
+    const [product, setProduct] = useState(null); // Initializing state for product
+    const [loading, setLoading] = useState(true);
     const [activeThumbnail, setActiveThumbnail] = useState(0);
     const [quantity, setQuantity] = useState(1);
     const [timer, setTimer] = useState({ days: 2, hours: 12, minutes: 45, seconds: 5 });
     const [selectedColor, setSelectedColor] = useState("Black");
     const [isWishlist, setIsWishlist] = useState(false); // Wishlist state
     const [cartMessage, setCartMessage] = useState(""); // Feedback for cart addition
-  
-    const images = ["/p4.png", "/p3.png", "/p3.png"];
-    const colors = ["Black", "White"];
-  
+
+
+    
     useEffect(() => {
       const countdown = setInterval(() => {
         setTimer((prevTimer) => {
@@ -282,6 +286,42 @@ const ProductDetail = () => {
       return () => clearInterval(countdown);
     }, []);
   
+    useEffect(() => {
+      const fetchProduct = async () => {
+        try {
+          // Fetch all products from the JSON file
+          const response = await axios.get('/Products.json');
+          
+          // Find the product with the matching id
+          const foundProduct = response.data.find((item) => item.id === parseInt(id));
+          if (foundProduct) {
+            setProduct(foundProduct); // Set the product in the state
+          } else {
+            console.error('Product not found!');
+          }
+        } catch (error) {
+          console.error('Error fetching product details:', error);
+        } finally {
+          setLoading(false); // Set loading to false after the fetch completes
+        }
+      };
+      
+      fetchProduct();
+    }, [id]); // Dependency array makes this effect run when 'id' changes
+  
+    // Display loading message while the product is being fetched
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+  
+    // Display message if no product is found
+    if (!product) {
+      return <div>Product not found!</div>;
+    }
+  
+   
+  
+    // Handlers
     const handleThumbnailClick = (index) => setActiveThumbnail(index);
     const incrementQuantity = () => setQuantity(quantity + 1);
     const decrementQuantity = () => quantity > 1 && setQuantity(quantity - 1);
@@ -296,28 +336,28 @@ const ProductDetail = () => {
       setTimeout(() => setCartMessage(""), 2000); // Clear message after 2 seconds
     };
   
+    // Display the product details once loaded
     return (
       <div className="font-[sans-serif] p-4 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <ImageSlider
-              images={images}
+              images={product.images || ["/p4.png", "/p3.png", "/p3.png"]} // Default to fallback images
               activeThumbnail={activeThumbnail}
               onThumbnailClick={handleThumbnailClick}
             />
             <div className="w-full">
               <ProductDetails
-                title="Tray Table"
-                description="Buy one or buy a few and make every space where you sit more convenient. Light and easy to move around with removable tray top, handy for serving snacks."
-                originalPrice={400}
-                discountedPrice={199}
+                title={product.name || "Product Title"}
+                description={product.description || "Product Description"}
+                originalPrice={parseFloat(product.price) || 0}
+                discountedPrice={parseFloat(product.price - product.discount) || 0}
                 timer={timer}
-                measurements="17 1/2x20 5/8 "
-                colors={colors}
+                measurements={product.measurements || "N/A"}
+                colors={product.colors || ["Black", "White"]}
                 selectedColor={selectedColor}
                 onColorSelect={handleColorSelect}
               />
-  
               <div className="space-y-4 mt-6">
                 <div className="mt-6 flex flex-row gap-4">
                   <QuantitySelector
@@ -348,16 +388,12 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-
-
-        <CommentSection/>
+        <CommentSection />
       </div>
     );
   };
   
-
-
-export default ProductDetail;
+  export default ProductDetail;
 
 ProductDetails.propTypes = {
     title: PropTypes.string.isRequired,

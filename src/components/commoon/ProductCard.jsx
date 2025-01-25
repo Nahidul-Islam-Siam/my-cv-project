@@ -1,6 +1,8 @@
 import { CiHeart } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import PropTypes from 'prop-types';
+import { Link } from "react-router";
+// import Product from "../../pages/Product";
 
 const ProductCard = ({ product }) => {
   if (!product) {
@@ -8,7 +10,12 @@ const ProductCard = ({ product }) => {
     return null; // Do not render the component if the product is invalid
   }
 
+
+  const addToCart = () => {
+    console.log('Added to cart', product)
+  }
   return (
+ <Link to={`/product/${product.id}`}>
     <div className=" w-full max-w-[280px] h-[350px] group flex flex-col">
       {/* Image Section */}
       <div className="relative h-[70%]">
@@ -25,7 +32,7 @@ const ProductCard = ({ product }) => {
         <span className="absolute top-3 right-3 inter-font bg-white text-[#121212] text-sm font-bold px-2 py-1 rounded-full">
           <CiHeart size={20} />
         </span>
-        <button className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 w-11/12 bg-[#141718] hover:bg-blue-700 text-white font-medium inter-font text-sm py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:bottom-2 transition-all duration-300 ease-in-out focus:outline-none focus:shadow-outline">
+        <button onClick={()=>addToCart(product) } className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 w-11/12 bg-[#141718] hover:bg-blue-700 text-white font-medium inter-font text-sm py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:bottom-2 transition-all duration-300 ease-in-out focus:outline-none focus:shadow-outline">
           Add to Cart
         </button>
       </div>
@@ -44,7 +51,7 @@ const ProductCard = ({ product }) => {
           ${product.price || "N/A"}
         </p>
       </div>
-    </div>
+    </div></Link>
   );
 };
 ProductCard.propTypes = {

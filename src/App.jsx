@@ -19,6 +19,8 @@ import Blog from "./pages/Blog";
 import CartStepper from "./components/cartPage/CartStepper";
 import StylishTravelBags from "./components/BlogPage/Blogs";
 import ChatWidget from "./components/ChatAppllication/ChatWidget";
+import ProductDetails from "./components/ProductPage/ProductDetails";
+import ProductDetail from "./components/ProductPage/productPage";
 
 
 
@@ -39,6 +41,8 @@ function App() {
               <Route index element={<Home />} />
               <Route path="shop" element={<Shop />} />
               <Route path="/product" element={<Product />} />
+              <Route path="/product/:id"
+               element={<ProductDetail />}  />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blogs" element={<StylishTravelBags />} />
