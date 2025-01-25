@@ -11,7 +11,7 @@ const SlideCard = () => {
  
   const {newArrivals} = useNewArrivals();
 
-
+console.log(newArrivals)
   return (
     <div className="py-12">
       <Heading title="New Arrivals" />
