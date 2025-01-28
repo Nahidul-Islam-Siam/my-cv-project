@@ -1,5 +1,4 @@
-// CartSidebar.js
-import * as React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -14,9 +13,8 @@ import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import CardMedia from '@mui/material/CardMedia';
-import p1 from '../assets/short1.png'
-import p2 from '../assets/short2.png'
-
+import CartContext from './Hooks/AddToCart';
+import useProducts from './Hooks/AllProdutcs';
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
@@ -26,28 +24,36 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
 }));
 
 export default function CartSidebar() {
-  const [open, setOpen] = React.useState(false);
-  const [cartItems, setCartItems] = React.useState([
-    { name: 'Tray Table (Black)', price: 19.19, quantity: 2, image: p1 },
-    { name: 'Tray Table (Red)', price: 19.19, quantity: 2, image: p2 },
-    { name: 'Table Lamp (Gold)', price: 39.00, quantity: 2, image: p1 },
-  ]);
+  const [open, setOpen] = useState(false);
+  const { cart, dispatch } = useContext(CartContext);  
+  const { products, error } = useProducts();  // Fetch products using custom hook
+
+  const getProductPrice = (id) => {
+    const product = products.find((product) => product.id === id);
+    return product ? product.price : 0;
+  };
 
   const calculateSubtotal = () => {
-    return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    return cart.reduce((sum, item) => {
+      const price = getProductPrice(item.id);
+      return sum + price * item.quantity;
+    }, 0);
   };
 
   const calculateTotal = () => {
-    return calculateSubtotal() * 2.34; // Placeholder for total calculation
+    return calculateSubtotal() * 1; // Placeholder for total calculation
   };
 
   const toggleDrawer = (open) => () => {
     setOpen(open);
   };
 
-  const removeItem = (index) => {
-    setCartItems(prevItems => prevItems.filter((_, i) => i !== index));
+  const removeItem = (id) => {
+    dispatch({ type: 'REMOVE_FROM_CART', payload: { id } });  // Dispatch action to remove item
   };
+
+  // Filter products based on cart IDs
+  const cartProducts = products.filter(product => cart.some(item => item.id === product.id));
 
   return (
     <div>
@@ -62,25 +68,27 @@ export default function CartSidebar() {
           </IconButton>
         </Box>
 
+        {error && <Typography color="error">Error: {error.message}</Typography>}
+        
         <List>
-          {cartItems.map((item, index) => (
-            <React.Fragment key={index}>
+          {cartProducts.map((item, index) => (
+            <React.Fragment key={item.id}>
               <ListItem disableGutters>
                 <Grid container alignItems="center" spacing={2}>
                   <Grid item xs={3}>
                     <CardMedia component="img" image={item.image} alt={item.name} sx={{ width: 50, height: 50 }} />
                   </Grid>
                   <Grid item xs={7}>
-                    <ListItemText primary={item.name} secondary={`$${item.price} x ${item.quantity}`} />
+                    <ListItemText primary={item.name} secondary={`$${getProductPrice(item.id)} x ${cart.find(cartItem => cartItem.id === item.id).quantity}`} />
                   </Grid>
                   <Grid item xs={2} sx={{ textAlign: "right" }}>
-                    <IconButton size="small" aria-label="remove item" onClick={() => removeItem(index)}>
+                    <IconButton size="small" aria-label="remove item" onClick={() => removeItem(item.id)}>
                       <CloseIcon fontSize="small" />
                     </IconButton>
                   </Grid>
                 </Grid>
               </ListItem>
-              {index < cartItems.length - 1 && <Divider />}
+              {index < cartProducts.length - 1 && <Divider />}
             </React.Fragment>
           ))}
         </List>

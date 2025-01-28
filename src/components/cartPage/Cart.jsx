@@ -1,91 +1,85 @@
-import { useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import s1 from '../../assets/short1.png'
+import useProduct from '../Hooks/AllProdutcs';
+import CartContext from '../Hooks/AddToCart';
 
-const CartItem = ({ item, onQuantityChange, onRemove }) => (
-  <div className="flex items-center py-4 border-b border-gray-200">
-    <div className="w-24 h-24 bg-gray-100 rounded mr-4 shadow-sm overflow-hidden">
-      <img
-        src={item.image}
-        alt={item.name}
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <div className="flex-grow">
-      <h3 className="font-semibold text-gray-800">{item.name}</h3>
-      <p className="text-sm text-gray-500">Color: {item.color}</p>
-      <div className="flex items-center mt-2">
-        <button
-          onClick={() => onQuantityChange(item.id, Math.max(1, item.quantity - 1))}
-          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
-        >
-          -
-        </button>
-        <span className="mx-3">{item.quantity}</span>
-        <button
-          onClick={() => onQuantityChange(item.id, item.quantity + 1)}
-          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
-        >
-          +
-        </button>
-        <span
-          className="ml-4 text-red-500 cursor-pointer hover:underline"
-          onClick={() => onRemove(item.id)}
-        >
-          Remove
-        </span>
+const CartItem = ({ item, onQuantityChange, onRemove }) => {
+  const discountedPrice = (item.price * (1 - item.discount / 100)).toFixed(2);
+
+  return (
+    <div className="flex items-center py-4 border-b border-gray-200">
+      <div className="w-24 h-24 bg-gray-100 rounded mr-4 shadow-sm overflow-hidden">
+        <img
+          src={item.image}
+          alt={item.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="flex-grow">
+        <h3 className="font-semibold text-gray-800">
+          {item.name}
+          {item.isNew && <span className="ml-2 text-sm text-green-500">New</span>}
+        </h3>
+        <p className="text-sm text-gray-500">Color: {item.color}</p>
+        <p className="text-sm text-yellow-500">Rating: {item.rating}★</p>
+        <div className="flex items-center mt-2">
+          <button
+            onClick={() => onQuantityChange(item.id, Math.max(1, item.quantity - 1))}
+            className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
+          >
+            -
+          </button>
+          <span className="mx-3">{item.quantity}</span>
+          <button
+            onClick={() => onQuantityChange(item.id, item.quantity + 1)}
+            className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
+          >
+            +
+          </button>
+          <span
+            className="ml-4 text-red-500 cursor-pointer hover:underline"
+            onClick={() => onRemove(item.id)}
+          >
+            Remove
+          </span>
+        </div>
+      </div>
+      <div className="text-right font-medium text-gray-800">
+        <p className="line-through text-sm text-gray-500">${item.price}</p>
+        <p>${discountedPrice}</p>
       </div>
     </div>
-    <div className="text-right font-medium text-gray-800">${item.price * item.quantity}</div>
-  </div>
-);
+  );
+};
 
 const Cart = () => {
-  const initialCartItems = [
-    {
-      id: 1,
-      name: 'Tray Table',
-      color: 'Black',
-      price: 19,
-      quantity: 2,
-      image: s1,
-    },
-    {
-      id: 2,
-      name: 'Tray Table',
-      color: 'Red',
-      price: 19,
-      quantity: 2,
-      image: s1
-    },
-    {
-      id: 3,
-      name: 'Table Lamp',
-      color: 'Gold',
-      price: 39,
-      quantity: 1,
-      image: s1
-    },
-  ];
+  const { cart, dispatch } = useContext(CartContext);
+  const { products, error } = useProduct();
 
-  const [cartItems, setCartItems] = useState(initialCartItems);
   const [shipping, setShipping] = useState('free');
   const [couponCode, setCouponCode] = useState('');
   const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+  }, [cart]);
 
   const handleQuantityChange = (id, newQuantity) => {
-    setCartItems(cartItems.map((item) => (item.id === id ? { ...item, quantity: newQuantity } : item)));
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity: newQuantity } });
   };
 
   const handleRemoveItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+    dispatch({ type: 'REMOVE_FROM_CART', payload: { id } });
   };
 
-  const calculateSubtotal = () => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const getProductPrice = (id) => {
+    const product = products.find((product) => product.id === id);
+    if (!product) return 0;
+    return (product.price * (1 - product.discount / 100)).toFixed(2);
+  };
+
+  const calculateSubtotal = () =>
+    cart.reduce((sum, item) => sum + getProductPrice(item.id) * item.quantity, 0);
 
   const calculateShipping = () => {
     switch (shipping) {
@@ -101,7 +95,7 @@ const Cart = () => {
   const calculateTotal = () => calculateSubtotal() + calculateShipping() - discount;
 
   const handleApplyCoupon = () => {
-    if (couponCode === 'DISCOUNT10') {
+    if (couponCode === 'Siam123') {
       setDiscount(10);
       alert('Coupon applied! $10 off.');
     } else {
@@ -110,24 +104,30 @@ const Cart = () => {
   };
 
   const handleProceedToCheckout = () => {
-    if (cartItems.length === 0) {
+    if (cart.length === 0) {
       alert('Your cart is empty!');
       return;
     }
     // Navigate to checkout page
   };
 
+  const cartProducts = products.filter(product => cart.some(item => item.id === product.id));
+
   return (
     <div className="container mx-auto p-8">
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <p className="text-center text-gray-500">Your cart is empty!</p>
       ) : (
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-2/3">
-            {cartItems.map((item) => (
+            {cartProducts.map((item) => (
               <CartItem
                 key={item.id}
-                item={item}
+                item={{
+                  ...item,
+                  discount: item.discount || 0,
+                  rating: item.rating || 0,
+                }}
                 onQuantityChange={handleQuantityChange}
                 onRemove={handleRemoveItem}
               />
@@ -188,7 +188,7 @@ const Cart = () => {
             <div className="border-t border-gray-300 pt-4">
               <div className="flex justify-between mb-2">
                 <span>Subtotal</span>
-                <span>${calculateSubtotal()}</span>
+                <span>${calculateSubtotal().toFixed(2)}</span>
               </div>
               <div className="flex justify-between mb-2">
                 <span>Discount</span>
@@ -196,11 +196,11 @@ const Cart = () => {
               </div>
               <div className="flex justify-between mb-2">
                 <span>Shipping</span>
-                <span>${calculateShipping()}</span>
+                <span>${calculateShipping().toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Total</span>
-                <span className="font-medium text-xl">${calculateTotal()}</span>
+                <span className="font-medium text-xl">${calculateTotal().toFixed(2)}</span>
               </div>
               <button
                 onClick={handleProceedToCheckout}
@@ -226,6 +226,9 @@ CartItem.propTypes = {
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
+    isNew: PropTypes.bool,
+    rating: PropTypes.number,
+    discount: PropTypes.number,
   }).isRequired,
   onQuantityChange: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
