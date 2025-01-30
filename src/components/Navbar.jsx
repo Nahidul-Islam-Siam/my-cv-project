@@ -87,7 +87,7 @@ const Navbar = () => {
             >
               Shop
             </Typography>
-            <Typography
+            {/* <Typography
               component={Link}
               to="/product"
               className={`cursor-pointer no-underline ${
@@ -95,7 +95,7 @@ const Navbar = () => {
               }`}
             >
               Product
-            </Typography>
+            </Typography> */}
             <Typography
               component={Link}
               to="/blog"
@@ -186,9 +186,9 @@ const Navbar = () => {
             <ListItem button onClick={() => handleLinkClick("/shop")}>
               <ListItemText primary="Shop" className="text-black" />
             </ListItem>
-            <ListItem button onClick={() => handleLinkClick("/product")}>
+            {/* <ListItem button onClick={() => handleLinkClick("/product")}>
               <ListItemText primary="Product" className="text-black" />
-            </ListItem>
+            </ListItem> */}
             <ListItem button onClick={() => handleLinkClick("/contact")}>
               <ListItemText primary="Contact Us" className="text-black" />
             </ListItem>
