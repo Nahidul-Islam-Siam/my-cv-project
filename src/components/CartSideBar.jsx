@@ -72,6 +72,12 @@ export default function CartSidebar() {
         
         <List>
           {cartProducts.map((item, index) => (
+
+// {item.length === 0 && (
+//   <Box sx={{ textAlign: 'center', mt: 2 }}>
+//     <Typography variant="subtitle1">No items in the cart</Typography>
+//   </Box>
+// )}
             <React.Fragment key={item.id}>
               <ListItem disableGutters>
                 <Grid container alignItems="center" spacing={2}>
