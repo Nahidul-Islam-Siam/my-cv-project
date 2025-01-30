@@ -1,6 +1,6 @@
-# E-commerce Website Project
+# Sam Fashion - E-commerce Website Project
 
-This repository contains the code for a modern and responsive e-commerce website. Built with a focus on user experience and performance, this project leverages cutting-edge technologies to deliver a seamless shopping experience.
+This repository contains the code for **Sam Fashion**, a modern and responsive e-commerce website. Built with a focus on user experience and performance, this project leverages cutting-edge technologies to deliver a seamless shopping experience.
 
 ---
 
@@ -22,10 +22,10 @@ This repository contains the code for a modern and responsive e-commerce website
 ### 📌 Data Fetching
 - **Axios** – Handles HTTP requests for fetching data from the backend API.
 
-### 📌 Backend (If applicable)
-- **Express.js & Node.js** – Backend API implementation.
-- **Socket.io** – Real-time communication features (e.g., chat, notifications).
 
+
+### 📌 Database (If applicable)
+- *(Specify your database here, e.g., MongoDB, PostgreSQL, MySQL).*
 
 ### 📌 Additional Libraries
 - **Swiper** – Interactive image carousels and sliders.
@@ -78,14 +78,13 @@ This repository contains the code for a modern and responsive e-commerce website
 
 ## 🌍 Live Demo
 
-Check out the live demo of the project: [EL Fashion](https://el-fashion.vercel.app/)
+Check out the live demo of **Sam Fashion**: [Sam Fashion](https://el-fashion.vercel.app/)
 
 ---
 
 ## 📸 Screenshot
 
-![Project Screenshot](/public/screencapture-el-fashion-vercel-app-2025-01-30-13_43_24.png)  
+![Sam Fashion Screenshot](/public/screencapture-el-fashion-vercel-app-2025-01-30-13_43_24.png)  
 
 
-🚀
 
