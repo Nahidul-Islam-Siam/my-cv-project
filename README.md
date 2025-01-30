@@ -26,8 +26,7 @@ This repository contains the code for a modern and responsive e-commerce website
 - **Express.js & Node.js** – Backend API implementation.
 - **Socket.io** – Real-time communication features (e.g., chat, notifications).
 
-### 📌 Database (If applicable)
-- *(Specify your database here, e.g., MongoDB, PostgreSQL, MySQL).*
+
 
 ### 📌 Additional Libraries
 - **Swiper** – Interactive image carousels and sliders.
