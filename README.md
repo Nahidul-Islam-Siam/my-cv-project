@@ -26,7 +26,8 @@ This repository contains the code for a modern and responsive e-commerce website
 - **Express.js & Node.js** – Backend API implementation.
 - **Socket.io** – Real-time communication features (e.g., chat, notifications).
 
-
+### 📌 Database (If applicable)
+- *(Specify your database here, e.g., MongoDB, PostgreSQL, MySQL).*
 
 ### 📌 Additional Libraries
 - **Swiper** – Interactive image carousels and sliders.
@@ -85,8 +86,8 @@ Check out the live demo of the project: [EL Fashion](https://el-fashion.vercel.a
 
 ## 📸 Screenshot
 
-![Project Screenshot](../FrontEnd/public/screencapture-el-fashion-vercel-app-2025-01-30-13_43_24.png)  
+![Project Screenshot](/public/screencapture-el-fashion-vercel-app-2025-01-30-13_43_24.png)  
 
 
-
+🚀
 
