@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const ContactUs = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -9,7 +11,14 @@ const ContactUs = () => {
         {/* Contact Form Section */}
         <div className="flex items-center justify-start w-full">
           <div className="w-full">
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <motion.form
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="space-y-4"
+              onSubmit={handleSubmit}
+            >
               <div>
                 <label className="block uppercase text-xs font-bold text-[#6C7275]" htmlFor="name">
                   Your Name
@@ -52,7 +61,7 @@ const ContactUs = () => {
               >
                 Send Message
               </button>
-            </form>
+            </motion.form>
           </div>
         </div>
   

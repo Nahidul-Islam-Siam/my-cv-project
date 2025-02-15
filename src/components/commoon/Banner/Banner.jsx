@@ -1,6 +1,5 @@
-
-
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 
 const Banner = ({ backgroundImage, title, subtitle, breadcrumbs }) => {
   return (
@@ -15,7 +14,12 @@ const Banner = ({ backgroundImage, title, subtitle, breadcrumbs }) => {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 container mx-auto px-4 py-24 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 container mx-auto px-4 py-24 text-center"
+      >
         {/* Breadcrumbs */}
         <div className="mb-3 gap-2 text-[#605F5F] inter-font text-sm font-medium">
           {breadcrumbs.map((crumb, index) => (
@@ -39,7 +43,7 @@ const Banner = ({ backgroundImage, title, subtitle, breadcrumbs }) => {
 
         {/* Subtitle */}
         <p className="text-xl text-[#121212] inter-font">{subtitle}</p>
-      </div>
+      </motion.div>
     </div>
   );
 };

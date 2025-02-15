@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
 import CartContext from "../Hooks/AddToCart";
+import { motion } from 'framer-motion';
 
 
 const ProductCard = ({ product }) => {
@@ -28,7 +29,14 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/Product/${product.id}`}>
-      <div className="w-full max-w-[280px] h-[350px] group flex flex-col">
+      <motion.div 
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="w-full max-w-[280px] h-[350px] group flex flex-col"
+      >
         {/* Image Section */}
         <div className="relative h-[70%]">
           <img
@@ -66,7 +74,7 @@ const ProductCard = ({ product }) => {
             ${product.price || "N/A"}
           </p>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 };

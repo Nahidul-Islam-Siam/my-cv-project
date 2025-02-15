@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import { FaEnvelope } from 'react-icons/fa'; // Import email icon
 import newsletterBg from '../../assets/NewsLetter.png'
+import { motion } from 'framer-motion';
 
 const NewsletterSignup = () => {
   const [email, setEmail] = useState('');
@@ -20,7 +21,13 @@ const NewsletterSignup = () => {
       <div className="absolute inset-0  opacity-40 rounded-lg"></div>
 
       {/* Content centered vertically and horizontally */}
-      <div className="relative z-10 flex flex-col justify-center items-center text-center text-white h-full">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 flex flex-col justify-center items-center"
+      >
         <h2 className="text-3xl md:text-[40px] font-medium poppins-font text-[#121212] mb-4">
           Join Our Newsletter
         </h2>
@@ -55,7 +62,7 @@ const NewsletterSignup = () => {
             Signup
           </button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };

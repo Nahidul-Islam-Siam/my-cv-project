@@ -3,6 +3,22 @@ import freeShippingImage from '../../assets/fast delivery.png';
 import moneyBackImage from '../../assets/money.png'; 
 import securePaymentsImage from '../../assets/lock 01.png'; 
 import supportImage from '../../assets/call.png';
+import { motion } from 'framer-motion';
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
 
 const Features = () => {
   const features = [
@@ -29,10 +45,16 @@ const Features = () => {
   ];
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+    <motion.div 
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+    >
       {features.map((feature, index) => (
-        <div
+        <motion.div
           key={index}
+          variants={item}
           className="bg-[#F3F5F7] p-4 sm:p-6 lg:p-8 rounded-lg shadow-md text-left w-full flex flex-col"
         >
           <div className="w-12 h-12 mb-4">
@@ -40,9 +62,9 @@ const Features = () => {
           </div>
           <h3 className="text-lg font-semibold mb-2 text-[#121212]">{feature.title}</h3>
           <p className="text-gray-500 text-sm">{feature.description}</p>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

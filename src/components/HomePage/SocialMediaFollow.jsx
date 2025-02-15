@@ -1,9 +1,24 @@
-
 import { FaInstagram } from 'react-icons/fa'; // Import Instagram icon
 import image1 from '../../assets/insta1.png'; // Import image1
 import image2 from '../../assets/insta2.png';
 import image3 from '../../assets/insta3.png';
 import image4 from '../../assets/insta4.png';
+import { motion } from 'framer-motion';
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1 }
+};
 
 const SocialMediaFollow = () => {
   const instagramImages = [image1, image2, image3, image4];
@@ -25,10 +40,17 @@ const SocialMediaFollow = () => {
           @3legant_official
         </a>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+      >
         {instagramImages.map((image, index) => (
-          <div
+          <motion.div
             key={index}
+            variants={item}
             className="relative overflow-hidden rounded-lg group"
           >
             <img
@@ -39,9 +61,9 @@ const SocialMediaFollow = () => {
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-300 ease-in-out flex items-center justify-center">
               <FaInstagram className="text-white text-4xl" />
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
