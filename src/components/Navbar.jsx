@@ -18,7 +18,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import CartSidebar from "./CartSideBar";
 import CartContext from "./Hooks/AddToCart";
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false); // Mobile drawer state
@@ -49,11 +48,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.div
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div>
       <AppBar
         position="static"
         className="shadow-none px-6"
@@ -166,69 +161,60 @@ const Navbar = () => {
         </Toolbar>
 
         {/* Mobile Drawer */}
-        <AnimatePresence>
-          {drawerOpen && (
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-                <div className="w-64 p-4 flex flex-col h-full">
-                  {/* Search Bar */}
-                  <div className="mb-4">
-                    <TextField
-                      variant="outlined"
-                      placeholder="Search..."
-                      fullWidth
-                      slotProps={{
-                        input: {
-                          style: {
-                            fontSize: "14px",
-                          },
-                        },
-                      }}
-                    />
-                  </div>
+        {drawerOpen && (
+          <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+            <div className="w-64 p-4 flex flex-col h-full">
+              {/* Search Bar */}
+              <div className="mb-4">
+                <TextField
+                  variant="outlined"
+                  placeholder="Search..."
+                  fullWidth
+                  slotProps={{
+                    input: {
+                      style: {
+                        fontSize: "14px",
+                      },
+                    },
+                  }}
+                />
+              </div>
 
-                  {/* Navigation Links */}
-                  <List>
-                    <ListItem button onClick={() => handleLinkClick("/")}>
-                      <ListItemText primary="Home" className="text-black" />
-                    </ListItem>
-                    <ListItem button onClick={() => handleLinkClick("/shop")}>
-                      <ListItemText primary="Shop" className="text-black" />
-                    </ListItem>
-                    {/* <ListItem button onClick={() => handleLinkClick("/product")}>
-                      <ListItemText primary="Product" className="text-black" />
-                    </ListItem> */}
-                    <ListItem button onClick={() => handleLinkClick("/contact")}>
-                      <ListItemText primary="Contact Us" className="text-black" />
-                    </ListItem>
-                    <ListItem button onClick={() => handleLinkClick("/blog")}>
-                      <ListItemText primary="Blog" className="text-black" />
-                    </ListItem>
-                  </List>
+              {/* Navigation Links */}
+              <List>
+                <ListItem button onClick={() => handleLinkClick("/")}>
+                  <ListItemText primary="Home" className="text-black" />
+                </ListItem>
+                <ListItem button onClick={() => handleLinkClick("/shop")}>
+                  <ListItemText primary="Shop" className="text-black" />
+                </ListItem>
+                {/* <ListItem button onClick={() => handleLinkClick("/product")}>
+                  <ListItemText primary="Product" className="text-black" />
+                </ListItem> */}
+                <ListItem button onClick={() => handleLinkClick("/contact")}>
+                  <ListItemText primary="Contact Us" className="text-black" />
+                </ListItem>
+                <ListItem button onClick={() => handleLinkClick("/blog")}>
+                  <ListItemText primary="Blog" className="text-black" />
+                </ListItem>
+              </List>
 
-                  {/* Spacer */}
-                  <div className="flex-grow"></div>
+              {/* Spacer */}
+              <div className="flex-grow"></div>
 
-                  {/* Login Button */}
-                  <Button
-                    variant="contained"
-                    onClick={() => handleLinkClick("/login")}
-                    className="w-full bg-blue-500 text-white py-2"
-                  >
-                    Login
-                  </Button>
-                </div>
-              </Drawer>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {/* Login Button */}
+              <Button
+                variant="contained"
+                onClick={() => handleLinkClick("/login")}
+                className="w-full bg-blue-500 text-white py-2"
+              >
+                Login
+              </Button>
+            </div>
+          </Drawer>
+        )}
       </AppBar>
-    </motion.div>
+    </div>
   );
 };
 
